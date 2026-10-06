@@ -1,0 +1,933 @@
+{
+  "clean": {
+    "status": "ok",
+    "data": {
+      "suspicion_score": 0.16600844264030457,
+      "tamper_probability": null,
+      "score_calibrated": false,
+      "detectors": [
+        {
+          "name": "metadata",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "EXIF software/timestamp rules",
+          "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+          "regions": [],
+          "metrics": {
+            "exif_present": false,
+            "editing_software_tag": false,
+            "reversed_timestamps": false,
+            "format": "JPEG"
+          }
+        },
+        {
+          "name": "double_jpeg",
+          "status": "ok",
+          "score": 0.04652362732696075,
+          "method": "DCT histogram spectral concentration proxy",
+          "explanation": "Periodic DCT histograms can indicate quantization history; single compression, graphics and resizing also cause peaks. This heuristic does not establish double compression.",
+          "regions": [],
+          "metrics": {
+            "blocks": 576,
+            "spectral_concentration": 0.05163090683174019
+          }
+        },
+        {
+          "name": "ela",
+          "status": "ok",
+          "score": 0.16600844264030457,
+          "method": "JPEG recompression at fixed quality",
+          "explanation": "Strong recompression residuals localize inconsistent edges/color; normal text and high-detail photos can also respond.",
+          "regions": [],
+          "metrics": {
+            "quality": 90,
+            "mean_absolute_error": 1.4940683841705322
+          }
+        },
+        {
+          "name": "noise_splicing",
+          "status": "ok",
+          "score": 0.14693595468997955,
+          "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+          "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+          "regions": [],
+          "metrics": {
+            "flat_pixel_fraction": 0.2233615517616272,
+            "supported_fraction": 0.3301323784722222
+          }
+        },
+        {
+          "name": "photo_replacement",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Portrait/ring residual comparison",
+          "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+          "regions": [],
+          "metrics": {
+            "photo_noise": 8.387870788574219,
+            "ring_noise": 6.562953948974609,
+            "photo_recompression_error": 1.2651630159762886,
+            "ring_recompression_error": 1.065
+          }
+        },
+        {
+          "name": "copy_move",
+          "status": "ok",
+          "score": 0.0,
+          "method": "ORB self-matches with displacement consensus",
+          "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+          "regions": [],
+          "metrics": {
+            "consensus_pairs": 0
+          }
+        },
+        {
+          "name": "font_inconsistency",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Same-row component-height outliers",
+          "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+          "regions": [],
+          "metrics": {
+            "outlier_components": 0
+          }
+        },
+        {
+          "name": "stamp_yolo",
+          "status": "unavailable",
+          "score": null,
+          "method": "One-class YOLOv8 ONNX adapter",
+          "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+          "regions": [],
+          "metrics": {}
+        },
+        {
+          "name": "stamp_template",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "Edge template matching against a fictional DEMO stamp",
+          "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+          "regions": [
+            [
+              0.18229166666666666,
+              0.671875,
+              0.21354166666666666,
+              0.21354166666666666
+            ],
+            [
+              0.6875,
+              0.4166666666666667,
+              0.22395833333333334,
+              0.15625
+            ]
+          ],
+          "metrics": {
+            "candidate_count": 2,
+            "best_demo_template_similarity": 0.21727582812309265,
+            "verified_issuer_templates": false
+          }
+        },
+        {
+          "name": "cnn",
+          "status": "ok",
+          "score": 0.5650284290313721,
+          "method": "Tiny U-Net / procedural synthetic training",
+          "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+          "regions": [
+            [
+              0.6979166666666666,
+              0.1875,
+              0.21354166666666666,
+              0.08854166666666667
+            ],
+            [
+              0.71875,
+              0.53125,
+              0.15625,
+              0.06770833333333333
+            ]
+          ],
+          "metrics": {
+            "predicted_fraction": 0.018744574652777776,
+            "synthetic_flag": false,
+            "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+            "calibrated": false,
+            "training_domain": "procedural-synthetic-v1"
+          }
+        }
+      ],
+      "width": 192,
+      "height": 192,
+      "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+      "heatmap_source": "maximum of available localized classical signals",
+      "limitations": [
+        "Scores are uncalibrated review indices, not fraud probabilities.",
+        "Text, portraits, compression and printing cause false positives.",
+        "Missing detectors remain unavailable; no authenticity verdict.",
+        "CNN is procedural-synthetic only; separate from baseline.",
+        "Photo region is caller-supplied; issuer stamp templates absent."
+      ]
+    },
+    "findings": [
+      {
+        "code": "TAMPER_CNN",
+        "severity": "medium",
+        "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+        "field": null,
+        "region": [
+          0.6979166666666666,
+          0.1875,
+          0.21354166666666666,
+          0.08854166666666667
+        ]
+      }
+    ],
+    "duration_ms": 5306.45
+  },
+  "text_replacement": {
+    "status": "ok",
+    "data": {
+      "suspicion_score": 0.1679743081331253,
+      "tamper_probability": null,
+      "score_calibrated": false,
+      "detectors": [
+        {
+          "name": "metadata",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "EXIF software/timestamp rules",
+          "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+          "regions": [],
+          "metrics": {
+            "exif_present": false,
+            "editing_software_tag": false,
+            "reversed_timestamps": false,
+            "format": "JPEG"
+          }
+        },
+        {
+          "name": "double_jpeg",
+          "status": "ok",
+          "score": 0.07784738949747422,
+          "method": "DCT histogram spectral concentration proxy",
+          "explanation": "Periodic DCT histograms can indicate quantization history; single compression, graphics and resizing also cause peaks. This heuristic does not establish double compression.",
+          "regions": [],
+          "metrics": {
+            "blocks": 576,
+            "spectral_concentration": 0.059461847374368555
+          }
+        },
+        {
+          "name": "ela",
+          "status": "ok",
+          "score": 0.1679743081331253,
+          "method": "JPEG recompression at fixed quality",
+          "explanation": "Strong recompression residuals localize inconsistent edges/color; normal text and high-detail photos can also respond.",
+          "regions": [],
+          "metrics": {
+            "quality": 90,
+            "mean_absolute_error": 1.530155897140503
+          }
+        },
+        {
+          "name": "noise_splicing",
+          "status": "ok",
+          "score": 0.13397693634033203,
+          "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+          "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+          "regions": [],
+          "metrics": {
+            "flat_pixel_fraction": 0.2218695729970932,
+            "supported_fraction": 0.3199869791666667
+          }
+        },
+        {
+          "name": "photo_replacement",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Portrait/ring residual comparison",
+          "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+          "regions": [],
+          "metrics": {
+            "photo_noise": 8.581509590148926,
+            "ring_noise": 6.786986351013184,
+            "photo_recompression_error": 1.2524398178269356,
+            "ring_recompression_error": 1.0933333333333333
+          }
+        },
+        {
+          "name": "copy_move",
+          "status": "ok",
+          "score": 0.0,
+          "method": "ORB self-matches with displacement consensus",
+          "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+          "regions": [],
+          "metrics": {
+            "consensus_pairs": 0
+          }
+        },
+        {
+          "name": "font_inconsistency",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Same-row component-height outliers",
+          "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+          "regions": [],
+          "metrics": {
+            "outlier_components": 0
+          }
+        },
+        {
+          "name": "stamp_yolo",
+          "status": "unavailable",
+          "score": null,
+          "method": "One-class YOLOv8 ONNX adapter",
+          "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+          "regions": [],
+          "metrics": {}
+        },
+        {
+          "name": "stamp_template",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "Edge template matching against a fictional DEMO stamp",
+          "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+          "regions": [
+            [
+              0.18229166666666666,
+              0.671875,
+              0.21354166666666666,
+              0.21354166666666666
+            ],
+            [
+              0.6875,
+              0.453125,
+              0.22395833333333334,
+              0.11979166666666667
+            ]
+          ],
+          "metrics": {
+            "candidate_count": 2,
+            "best_demo_template_similarity": 0.21418386697769165,
+            "verified_issuer_templates": false
+          }
+        },
+        {
+          "name": "cnn",
+          "status": "ok",
+          "score": 0.5763447880744934,
+          "method": "Tiny U-Net / procedural synthetic training",
+          "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+          "regions": [
+            [
+              0.036458333333333336,
+              0.4010416666666667,
+              0.4010416666666667,
+              0.08854166666666667
+            ],
+            [
+              0.6979166666666666,
+              0.1875,
+              0.21354166666666666,
+              0.08854166666666667
+            ],
+            [
+              0.7239583333333334,
+              0.53125,
+              0.15104166666666666,
+              0.06770833333333333
+            ]
+          ],
+          "metrics": {
+            "predicted_fraction": 0.0458984375,
+            "synthetic_flag": true,
+            "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+            "calibrated": false,
+            "training_domain": "procedural-synthetic-v1"
+          }
+        }
+      ],
+      "width": 192,
+      "height": 192,
+      "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+      "heatmap_source": "maximum of available localized classical signals",
+      "limitations": [
+        "Scores are uncalibrated review indices, not fraud probabilities.",
+        "Text, portraits, compression and printing cause false positives.",
+        "Missing detectors remain unavailable; no authenticity verdict.",
+        "CNN is procedural-synthetic only; separate from baseline.",
+        "Photo region is caller-supplied; issuer stamp templates absent."
+      ]
+    },
+    "findings": [
+      {
+        "code": "TAMPER_CNN",
+        "severity": "medium",
+        "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+        "field": null,
+        "region": [
+          0.036458333333333336,
+          0.4010416666666667,
+          0.4010416666666667,
+          0.08854166666666667
+        ]
+      }
+    ],
+    "duration_ms": 99.56
+  },
+  "copy_move": {
+    "status": "ok",
+    "data": {
+      "suspicion_score": 0.17661236226558685,
+      "tamper_probability": null,
+      "score_calibrated": false,
+      "detectors": [
+        {
+          "name": "metadata",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "EXIF software/timestamp rules",
+          "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+          "regions": [],
+          "metrics": {
+            "exif_present": false,
+            "editing_software_tag": false,
+            "reversed_timestamps": false,
+            "format": "JPEG"
+          }
+        },
+        {
+          "name": "double_jpeg",
+          "status": "ok",
+          "score": 0.049852923120869,
+          "method": "DCT histogram spectral concentration proxy",
+          "explanation": "Periodic DCT histograms can indicate quantization history; single compression, graphics and resizing also cause peaks. This heuristic does not establish double compression.",
+          "regions": [],
+          "metrics": {
+            "blocks": 576,
+            "spectral_concentration": 0.05246323078021725
+          }
+        },
+        {
+          "name": "ela",
+          "status": "ok",
+          "score": 0.17661236226558685,
+          "method": "JPEG recompression at fixed quality",
+          "explanation": "Strong recompression residuals localize inconsistent edges/color; normal text and high-detail photos can also respond.",
+          "regions": [],
+          "metrics": {
+            "quality": 90,
+            "mean_absolute_error": 1.6163828372955322
+          }
+        },
+        {
+          "name": "noise_splicing",
+          "status": "ok",
+          "score": 0.14448724687099457,
+          "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+          "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+          "regions": [],
+          "metrics": {
+            "flat_pixel_fraction": 0.2085774689912796,
+            "supported_fraction": 0.3029513888888889
+          }
+        },
+        {
+          "name": "photo_replacement",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Portrait/ring residual comparison",
+          "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+          "regions": [],
+          "metrics": {
+            "photo_noise": 8.387870788574219,
+            "ring_noise": 6.562953948974609,
+            "photo_recompression_error": 1.2652353068748645,
+            "ring_recompression_error": 1.069375
+          }
+        },
+        {
+          "name": "copy_move",
+          "status": "ok",
+          "score": 0.0,
+          "method": "ORB self-matches with displacement consensus",
+          "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+          "regions": [],
+          "metrics": {
+            "consensus_pairs": 0
+          }
+        },
+        {
+          "name": "font_inconsistency",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Same-row component-height outliers",
+          "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+          "regions": [],
+          "metrics": {
+            "outlier_components": 0
+          }
+        },
+        {
+          "name": "stamp_yolo",
+          "status": "unavailable",
+          "score": null,
+          "method": "One-class YOLOv8 ONNX adapter",
+          "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+          "regions": [],
+          "metrics": {}
+        },
+        {
+          "name": "stamp_template",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "Edge template matching against a fictional DEMO stamp",
+          "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+          "regions": [
+            [
+              0.18229166666666666,
+              0.671875,
+              0.4375,
+              0.21354166666666666
+            ],
+            [
+              0.6875,
+              0.4166666666666667,
+              0.22395833333333334,
+              0.15625
+            ]
+          ],
+          "metrics": {
+            "candidate_count": 2,
+            "best_demo_template_similarity": 0.0006726370775140822,
+            "verified_issuer_templates": false
+          }
+        },
+        {
+          "name": "cnn",
+          "status": "ok",
+          "score": 0.569433331489563,
+          "method": "Tiny U-Net / procedural synthetic training",
+          "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+          "regions": [
+            [
+              0.6979166666666666,
+              0.1875,
+              0.21354166666666666,
+              0.08854166666666667
+            ],
+            [
+              0.71875,
+              0.53125,
+              0.15625,
+              0.06770833333333333
+            ],
+            [
+              0.4791666666666667,
+              0.7708333333333334,
+              0.07291666666666667,
+              0.052083333333333336
+            ]
+          ],
+          "metrics": {
+            "predicted_fraction": 0.021538628472222224,
+            "synthetic_flag": true,
+            "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+            "calibrated": false,
+            "training_domain": "procedural-synthetic-v1"
+          }
+        }
+      ],
+      "width": 192,
+      "height": 192,
+      "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+      "heatmap_source": "maximum of available localized classical signals",
+      "limitations": [
+        "Scores are uncalibrated review indices, not fraud probabilities.",
+        "Text, portraits, compression and printing cause false positives.",
+        "Missing detectors remain unavailable; no authenticity verdict.",
+        "CNN is procedural-synthetic only; separate from baseline.",
+        "Photo region is caller-supplied; issuer stamp templates absent."
+      ]
+    },
+    "findings": [
+      {
+        "code": "TAMPER_CNN",
+        "severity": "medium",
+        "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+        "field": null,
+        "region": [
+          0.6979166666666666,
+          0.1875,
+          0.21354166666666666,
+          0.08854166666666667
+        ]
+      }
+    ],
+    "duration_ms": 99.15
+  },
+  "photo_replacement": {
+    "status": "ok",
+    "data": {
+      "suspicion_score": 0.16600844264030457,
+      "tamper_probability": null,
+      "score_calibrated": false,
+      "detectors": [
+        {
+          "name": "metadata",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "EXIF software/timestamp rules",
+          "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+          "regions": [],
+          "metrics": {
+            "exif_present": false,
+            "editing_software_tag": false,
+            "reversed_timestamps": false,
+            "format": "JPEG"
+          }
+        },
+        {
+          "name": "double_jpeg",
+          "status": "ok",
+          "score": 0.07207434875280516,
+          "method": "DCT histogram spectral concentration proxy",
+          "explanation": "Periodic DCT histograms can indicate quantization history; single compression, graphics and resizing also cause peaks. This heuristic does not establish double compression.",
+          "regions": [],
+          "metrics": {
+            "blocks": 576,
+            "spectral_concentration": 0.05801858718820129
+          }
+        },
+        {
+          "name": "ela",
+          "status": "ok",
+          "score": 0.16600844264030457,
+          "method": "JPEG recompression at fixed quality",
+          "explanation": "Strong recompression residuals localize inconsistent edges/color; normal text and high-detail photos can also respond.",
+          "regions": [],
+          "metrics": {
+            "quality": 90,
+            "mean_absolute_error": 1.4196414947509766
+          }
+        },
+        {
+          "name": "noise_splicing",
+          "status": "ok",
+          "score": 0.09184570610523224,
+          "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+          "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+          "regions": [],
+          "metrics": {
+            "flat_pixel_fraction": 0.2061089426279068,
+            "supported_fraction": 0.295654296875
+          }
+        },
+        {
+          "name": "photo_replacement",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Portrait/ring residual comparison",
+          "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+          "regions": [],
+          "metrics": {
+            "photo_noise": 3.2955033779144287,
+            "ring_noise": 6.335000991821289,
+            "photo_recompression_error": 0.7375840381695945,
+            "ring_recompression_error": 0.9655208333333333
+          }
+        },
+        {
+          "name": "copy_move",
+          "status": "ok",
+          "score": 0.0,
+          "method": "ORB self-matches with displacement consensus",
+          "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+          "regions": [],
+          "metrics": {
+            "consensus_pairs": 0
+          }
+        },
+        {
+          "name": "font_inconsistency",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Same-row component-height outliers",
+          "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+          "regions": [],
+          "metrics": {
+            "outlier_components": 0
+          }
+        },
+        {
+          "name": "stamp_yolo",
+          "status": "unavailable",
+          "score": null,
+          "method": "One-class YOLOv8 ONNX adapter",
+          "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+          "regions": [],
+          "metrics": {}
+        },
+        {
+          "name": "stamp_template",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "Edge template matching against a fictional DEMO stamp",
+          "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+          "regions": [
+            [
+              0.18229166666666666,
+              0.671875,
+              0.21354166666666666,
+              0.21354166666666666
+            ]
+          ],
+          "metrics": {
+            "candidate_count": 1,
+            "best_demo_template_similarity": 0.21727582812309265,
+            "verified_issuer_templates": false
+          }
+        },
+        {
+          "name": "cnn",
+          "status": "ok",
+          "score": 0.5762758255004883,
+          "method": "Tiny U-Net / procedural synthetic training",
+          "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+          "regions": [
+            [
+              0.6979166666666666,
+              0.17708333333333334,
+              0.22395833333333334,
+              0.3802083333333333
+            ]
+          ],
+          "metrics": {
+            "predicted_fraction": 0.0780978732638889,
+            "synthetic_flag": true,
+            "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+            "calibrated": false,
+            "training_domain": "procedural-synthetic-v1"
+          }
+        }
+      ],
+      "width": 192,
+      "height": 192,
+      "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+      "heatmap_source": "maximum of available localized classical signals",
+      "limitations": [
+        "Scores are uncalibrated review indices, not fraud probabilities.",
+        "Text, portraits, compression and printing cause false positives.",
+        "Missing detectors remain unavailable; no authenticity verdict.",
+        "CNN is procedural-synthetic only; separate from baseline.",
+        "Photo region is caller-supplied; issuer stamp templates absent."
+      ]
+    },
+    "findings": [
+      {
+        "code": "TAMPER_CNN",
+        "severity": "medium",
+        "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+        "field": null,
+        "region": [
+          0.6979166666666666,
+          0.17708333333333334,
+          0.22395833333333334,
+          0.3802083333333333
+        ]
+      }
+    ],
+    "duration_ms": 94.32
+  },
+  "stamp_edit": {
+    "status": "ok",
+    "data": {
+      "suspicion_score": 0.16652937233448029,
+      "tamper_probability": null,
+      "score_calibrated": false,
+      "detectors": [
+        {
+          "name": "metadata",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "EXIF software/timestamp rules",
+          "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+          "regions": [],
+          "metrics": {
+            "exif_present": false,
+            "editing_software_tag": false,
+            "reversed_timestamps": false,
+            "format": "JPEG"
+          }
+        },
+        {
+          "name": "double_jpeg",
+          "status": "ok",
+          "score": 0.040629851032660536,
+          "method": "DCT histogram spectral concentration proxy",
+          "explanation": "Periodic DCT histograms can indicate quantization history; single compression, graphics and resizing also cause peaks. This heuristic does not establish double compression.",
+          "regions": [],
+          "metrics": {
+            "blocks": 576,
+            "spectral_concentration": 0.050157462758165135
+          }
+        },
+        {
+          "name": "ela",
+          "status": "ok",
+          "score": 0.14998240768909454,
+          "method": "JPEG recompression at fixed quality",
+          "explanation": "Strong recompression residuals localize inconsistent edges/color; normal text and high-detail photos can also respond.",
+          "regions": [],
+          "metrics": {
+            "quality": 90,
+            "mean_absolute_error": 1.470097303390503
+          }
+        },
+        {
+          "name": "noise_splicing",
+          "status": "ok",
+          "score": 0.16652937233448029,
+          "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+          "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+          "regions": [],
+          "metrics": {
+            "flat_pixel_fraction": 0.2242024689912796,
+            "supported_fraction": 0.3282606336805556
+          }
+        },
+        {
+          "name": "photo_replacement",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Portrait/ring residual comparison",
+          "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+          "regions": [],
+          "metrics": {
+            "photo_noise": 8.387870788574219,
+            "ring_noise": 6.562953948974609,
+            "photo_recompression_error": 1.2651630159762886,
+            "ring_recompression_error": 1.065
+          }
+        },
+        {
+          "name": "copy_move",
+          "status": "ok",
+          "score": 0.0,
+          "method": "ORB self-matches with displacement consensus",
+          "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+          "regions": [],
+          "metrics": {
+            "consensus_pairs": 0
+          }
+        },
+        {
+          "name": "font_inconsistency",
+          "status": "ok",
+          "score": 0.0,
+          "method": "Same-row component-height outliers",
+          "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+          "regions": [],
+          "metrics": {
+            "outlier_components": 0
+          }
+        },
+        {
+          "name": "stamp_yolo",
+          "status": "unavailable",
+          "score": null,
+          "method": "One-class YOLOv8 ONNX adapter",
+          "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+          "regions": [],
+          "metrics": {}
+        },
+        {
+          "name": "stamp_template",
+          "status": "insufficient_evidence",
+          "score": null,
+          "method": "Edge template matching against a fictional DEMO stamp",
+          "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+          "regions": [
+            [
+              0.1875,
+              0.671875,
+              0.203125,
+              0.21354166666666666
+            ],
+            [
+              0.6875,
+              0.4166666666666667,
+              0.22395833333333334,
+              0.15625
+            ]
+          ],
+          "metrics": {
+            "candidate_count": 2,
+            "best_demo_template_similarity": 0.03204352408647537,
+            "verified_issuer_templates": false
+          }
+        },
+        {
+          "name": "cnn",
+          "status": "ok",
+          "score": 0.5763387084007263,
+          "method": "Tiny U-Net / procedural synthetic training",
+          "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+          "regions": [
+            [
+              0.1875,
+              0.6770833333333334,
+              0.22395833333333334,
+              0.203125
+            ],
+            [
+              0.6979166666666666,
+              0.1875,
+              0.21354166666666666,
+              0.08854166666666667
+            ],
+            [
+              0.71875,
+              0.53125,
+              0.15625,
+              0.06770833333333333
+            ]
+          ],
+          "metrics": {
+            "predicted_fraction": 0.05311414930555555,
+            "synthetic_flag": true,
+            "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+            "calibrated": false,
+            "training_domain": "procedural-synthetic-v1"
+          }
+        }
+      ],
+      "width": 192,
+      "height": 192,
+      "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+      "heatmap_source": "maximum of available localized classical signals",
+      "limitations": [
+        "Scores are uncalibrated review indices, not fraud probabilities.",
+        "Text, portraits, compression and printing cause false positives.",
+        "Missing detectors remain unavailable; no authenticity verdict.",
+        "CNN is procedural-synthetic only; separate from baseline.",
+        "Photo region is caller-supplied; issuer stamp templates absent."
+      ]
+    },
+    "findings": [
+      {
+        "code": "TAMPER_CNN",
+        "severity": "medium",
+        "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+        "field": null,
+        "region": [
+          0.1875,
+          0.6770833333333334,
+          0.22395833333333334,
+          0.203125
+        ]
+      }
+    ],
+    "duration_ms": 105.61
+  }
+}

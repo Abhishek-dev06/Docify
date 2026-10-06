@@ -1,0 +1,4 @@
+# Development heuristics, not probabilities or operating thresholds.
+max_dimension: 960
+ela_quality: 90
+max_forensics_pixels: 4000000

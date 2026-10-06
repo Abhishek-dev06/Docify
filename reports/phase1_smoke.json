@@ -1,0 +1,204 @@
+{
+  "scope": "Synthetic development fixtures; not real-world accuracy.",
+  "reference_date": "2026-10-03",
+  "sample_count": 8,
+  "mean_latency_ms": 5594.99,
+  "median_latency_ms": 6782.73,
+  "scenarios": [
+    {
+      "scenario": "blacklisted",
+      "status": "ok",
+      "duration_ms": 2730.54,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "mismatch_count": 0,
+      "findings": [
+        "MOCK_BLACKLIST_HIT",
+        "PREVIOUSLY_SEEN"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "blurred",
+      "status": "needs_rescan",
+      "duration_ms": 198.32,
+      "mrz_format": null,
+      "mrz_checks": {},
+      "mismatch_count": null,
+      "findings": [],
+      "viz_field_matches": {
+        "name": false,
+        "number": false,
+        "nationality": false,
+        "dob": false,
+        "expiry": false,
+        "gender": false
+      }
+    },
+    {
+      "scenario": "checksum_failed",
+      "status": "ok",
+      "duration_ms": 2389.19,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": false
+      },
+      "mismatch_count": 0,
+      "findings": [
+        "MRZ_CHECK_FAILED"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "dob_altered",
+      "status": "ok",
+      "duration_ms": 8707.23,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "mismatch_count": 1,
+      "findings": [
+        "FIELD_MISMATCH"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "expired",
+      "status": "ok",
+      "duration_ms": 8152.23,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "mismatch_count": 0,
+      "findings": [
+        "DOCUMENT_EXPIRED"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "genuine",
+      "status": "ok",
+      "duration_ms": 5973.49,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "mismatch_count": 0,
+      "findings": [],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "perspective",
+      "status": "ok",
+      "duration_ms": 7591.97,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": false,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": false
+      },
+      "mismatch_count": 1,
+      "findings": [
+        "MRZ_CHECK_FAILED",
+        "MRZ_CHECK_FAILED",
+        "MRZ_OCR_CORRECTED",
+        "FIELD_MISMATCH",
+        "COUNTRY_NUMBER_FORMAT"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    },
+    {
+      "scenario": "previously_seen",
+      "status": "ok",
+      "duration_ms": 9016.94,
+      "mrz_format": "TD3",
+      "mrz_checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "mismatch_count": 0,
+      "findings": [
+        "PREVIOUSLY_SEEN"
+      ],
+      "viz_field_matches": {
+        "name": true,
+        "number": true,
+        "nationality": true,
+        "dob": true,
+        "expiry": true,
+        "gender": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,2812 @@
+{
+  "provenance": {
+    "timestamp_utc": "2026-10-03T18:19:15.005492+00:00",
+    "protocol": {
+      "version": "phase6-frozen-v1",
+      "scope": "Synthetic development evaluation, no real-world or biometric accuracy claim",
+      "reference_date": "2026-10-03",
+      "opencv_threads": 2,
+      "tesseract_thread_limit": 2,
+      "ocr": {
+        "original_cases": 8,
+        "new_identities": 6,
+        "conditions": [
+          "genuine",
+          "dob_altered",
+          "jpeg_q70"
+        ]
+      },
+      "tamper": {
+        "fresh_seed_start": 1000,
+        "fresh_source_groups": 20,
+        "pixel_threshold": 0.5,
+        "image_fraction_threshold": 0.02,
+        "baseline_image_index_threshold": 0.55
+      },
+      "face": {
+        "identities": [
+          "synthetic_a",
+          "synthetic_b"
+        ],
+        "rotations": [
+          -4,
+          -2,
+          0,
+          3
+        ],
+        "brightness": [
+          [
+            0.9,
+            8
+          ],
+          [
+            1.05,
+            -4
+          ]
+        ],
+        "threshold_source": "config/face_thresholds.yaml; already tuned on these two identities"
+      },
+      "system": {
+        "scenarios": [
+          "genuine",
+          "photo_replaced",
+          "dob_altered"
+        ],
+        "warm_repeats_per_scenario": 2,
+        "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed",
+        "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"
+      }
+    },
+    "protocol_sha256": "49245c11ded523636f5afdc20e5b88e8c1c647ab16fe09c5898e60e86c046687",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.6",
+    "cpu": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+    "logical_cpus": 4,
+    "opencv_threads": 2,
+    "omp_thread_limit": "2",
+    "packages": {
+      "numpy": "2.4.6",
+      "opencv-python-headless": "4.14.0.94",
+      "torch": "2.14.1+cpu",
+      "Pillow": "12.3.0"
+    },
+    "config_sha256": {
+      "face_thresholds.yaml": "2d667cad4c56fa3fbb827f66cb0eac10f65cff607b88a564dea1b591a479e96e",
+      "quality_thresholds.yaml": "9cefae9f978114f0273b434cb3f8e7f19da5595c6ef0e3d5e63b58f898684df4",
+      "risk_weights.yaml": "d2546bff55474b9e2b29719d551653f46ec87c319b3a92ddfd9466517ee9620a",
+      "tamper_thresholds.yaml": "d4e2117683abfb4da1c58b195bfc99bd46b2a5dbb0b3b784fb3bfd4ee77d9c47",
+      "validation_rules.yaml": "884955f4729cda9270cddc283582298c852b3c7a534e74c10862a52c54314f99"
+    },
+    "checkpoint": {
+      "architecture": "tiny-unet-v1",
+      "input_size": 192,
+      "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+      "training_domain": "procedural-synthetic-v1",
+      "calibrated": false,
+      "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5"
+    },
+    "face_models": {
+      "yunet": {
+        "filename": "face_detection_yunet_2023mar.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+        "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+        "size": 232589,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_detection_yunet/LICENSE",
+        "source": "OpenCV Zoo / YuNet 2023mar"
+      },
+      "sface": {
+        "filename": "face_recognition_sface_2021dec.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx",
+        "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "size": 38696353,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_recognition_sface/LICENSE",
+        "source": "OpenCV Zoo / SFace 2021dec"
+      }
+    }
+  },
+  "elapsed_s": 17.675083899999663,
+  "thresholds": {
+    "fresh_seed_start": 1000,
+    "fresh_source_groups": 20,
+    "pixel_threshold": 0.5,
+    "image_fraction_threshold": 0.02,
+    "baseline_image_index_threshold": 0.55
+  },
+  "model_sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+  "limitations": "Fixed layouts/attack families; new source groups only. PNG containers disable ELA/JPEG metadata. Classical threshold is exploratory, not calibrated.",
+  "by_cohort": {
+    "fresh_groups_same_generator": {
+      "cnn": {
+        "n": 100,
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 4,
+          "fn": 7,
+          "tp": 73
+        },
+        "precision": 0.948051948051948,
+        "recall": 0.9125,
+        "f1": 0.9299363057324841,
+        "false_positive_rate": 0.2,
+        "false_negative_rate": 0.0875,
+        "per_attack": {
+          "clean": {
+            "count": 20,
+            "flagged": 4,
+            "mean_iou": null,
+            "versus_shared_clean_controls": null
+          },
+          "text_replacement": {
+            "count": 20,
+            "flagged": 20,
+            "mean_iou": 0.4528334242648562,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 16,
+                "fp": 4,
+                "fn": 0,
+                "tp": 20
+              },
+              "precision": 0.8333333333333334,
+              "recall": 1.0,
+              "f1": 0.9090909090909091,
+              "false_positive_rate": 0.2,
+              "false_negative_rate": 0.0
+            }
+          },
+          "copy_move": {
+            "count": 20,
+            "flagged": 13,
+            "mean_iou": 0.1788534592650616,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 16,
+                "fp": 4,
+                "fn": 7,
+                "tp": 13
+              },
+              "precision": 0.7647058823529411,
+              "recall": 0.65,
+              "f1": 0.7027027027027027,
+              "false_positive_rate": 0.2,
+              "false_negative_rate": 0.35
+            }
+          },
+          "photo_replacement": {
+            "count": 20,
+            "flagged": 20,
+            "mean_iou": 0.5778826762983831,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 16,
+                "fp": 4,
+                "fn": 0,
+                "tp": 20
+              },
+              "precision": 0.8333333333333334,
+              "recall": 1.0,
+              "f1": 0.9090909090909091,
+              "false_positive_rate": 0.2,
+              "false_negative_rate": 0.0
+            }
+          },
+          "stamp_edit": {
+            "count": 20,
+            "flagged": 20,
+            "mean_iou": 0.5672790760050117,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 16,
+                "fp": 4,
+                "fn": 0,
+                "tp": 20
+              },
+              "precision": 0.8333333333333334,
+              "recall": 1.0,
+              "f1": 0.9090909090909091,
+              "false_positive_rate": 0.2,
+              "false_negative_rate": 0.0
+            }
+          }
+        }
+      },
+      "classical": {
+        "n": 100,
+        "confusion_matrix": {
+          "tn": 20,
+          "fp": 0,
+          "fn": 79,
+          "tp": 1
+        },
+        "precision": 1.0,
+        "recall": 0.0125,
+        "f1": 0.024691358024691357,
+        "false_positive_rate": 0.0,
+        "false_negative_rate": 0.9875,
+        "per_attack": {
+          "clean": {
+            "count": 20,
+            "flagged": 0,
+            "mean_iou": null,
+            "versus_shared_clean_controls": null
+          },
+          "text_replacement": {
+            "count": 20,
+            "flagged": 0,
+            "mean_iou": 0.00030968468468468467,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 20,
+                "fp": 0,
+                "fn": 20,
+                "tp": 0
+              },
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0
+            }
+          },
+          "copy_move": {
+            "count": 20,
+            "flagged": 1,
+            "mean_iou": 0.0,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 20,
+                "fp": 0,
+                "fn": 19,
+                "tp": 1
+              },
+              "precision": 1.0,
+              "recall": 0.05,
+              "f1": 0.09523809523809523,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 0.95
+            }
+          },
+          "photo_replacement": {
+            "count": 20,
+            "flagged": 0,
+            "mean_iou": 0.0,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 20,
+                "fp": 0,
+                "fn": 20,
+                "tp": 0
+              },
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0
+            }
+          },
+          "stamp_edit": {
+            "count": 20,
+            "flagged": 0,
+            "mean_iou": 0.0012017479970866719,
+            "versus_shared_clean_controls": {
+              "n": 40,
+              "confusion_matrix": {
+                "tn": 20,
+                "fp": 0,
+                "fn": 20,
+                "tp": 0
+              },
+              "precision": null,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.0,
+              "false_negative_rate": 1.0
+            }
+          }
+        }
+      }
+    },
+    "original_test_replay": {
+      "cnn": {
+        "n": 35,
+        "confusion_matrix": {
+          "tn": 6,
+          "fp": 1,
+          "fn": 4,
+          "tp": 24
+        },
+        "precision": 0.96,
+        "recall": 0.8571428571428571,
+        "f1": 0.9056603773584906,
+        "false_positive_rate": 0.14285714285714285,
+        "false_negative_rate": 0.14285714285714285,
+        "per_attack": {
+          "clean": {
+            "count": 7,
+            "flagged": 1,
+            "mean_iou": null,
+            "versus_shared_clean_controls": null
+          },
+          "text_replacement": {
+            "count": 7,
+            "flagged": 7,
+            "mean_iou": 0.502931313390665,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 0,
+                "tp": 7
+              },
+              "precision": 0.875,
+              "recall": 1.0,
+              "f1": 0.9333333333333333,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 0.0
+            }
+          },
+          "copy_move": {
+            "count": 7,
+            "flagged": 3,
+            "mean_iou": 0.24011575991214767,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 4,
+                "tp": 3
+              },
+              "precision": 0.75,
+              "recall": 0.42857142857142855,
+              "f1": 0.5454545454545454,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 0.5714285714285714
+            }
+          },
+          "photo_replacement": {
+            "count": 7,
+            "flagged": 7,
+            "mean_iou": 0.7274883992599456,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 0,
+                "tp": 7
+              },
+              "precision": 0.875,
+              "recall": 1.0,
+              "f1": 0.9333333333333333,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 0.0
+            }
+          },
+          "stamp_edit": {
+            "count": 7,
+            "flagged": 7,
+            "mean_iou": 0.62613628748273,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 0,
+                "tp": 7
+              },
+              "precision": 0.875,
+              "recall": 1.0,
+              "f1": 0.9333333333333333,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 0.0
+            }
+          }
+        }
+      },
+      "classical": {
+        "n": 35,
+        "confusion_matrix": {
+          "tn": 6,
+          "fp": 1,
+          "fn": 27,
+          "tp": 1
+        },
+        "precision": 0.5,
+        "recall": 0.03571428571428571,
+        "f1": 0.06666666666666667,
+        "false_positive_rate": 0.14285714285714285,
+        "false_negative_rate": 0.9642857142857143,
+        "per_attack": {
+          "clean": {
+            "count": 7,
+            "flagged": 1,
+            "mean_iou": null,
+            "versus_shared_clean_controls": null
+          },
+          "text_replacement": {
+            "count": 7,
+            "flagged": 0,
+            "mean_iou": 0.0,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 7,
+                "tp": 0
+              },
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 1.0
+            }
+          },
+          "copy_move": {
+            "count": 7,
+            "flagged": 1,
+            "mean_iou": 0.05185185185185186,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 6,
+                "tp": 1
+              },
+              "precision": 0.5,
+              "recall": 0.14285714285714285,
+              "f1": 0.2222222222222222,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 0.8571428571428571
+            }
+          },
+          "photo_replacement": {
+            "count": 7,
+            "flagged": 0,
+            "mean_iou": 0.0,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 7,
+                "tp": 0
+              },
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 1.0
+            }
+          },
+          "stamp_edit": {
+            "count": 7,
+            "flagged": 0,
+            "mean_iou": 0.00010404744563520966,
+            "versus_shared_clean_controls": {
+              "n": 14,
+              "confusion_matrix": {
+                "tn": 6,
+                "fp": 1,
+                "fn": 7,
+                "tp": 0
+              },
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "false_positive_rate": 0.14285714285714285,
+              "false_negative_rate": 1.0
+            }
+          }
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00012",
+      "attack": "clean",
+      "image_sha256": "e466c88653e6ef822992009c2ba893c23283a0a486743913825c54d8a69d0383",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.0,
+        "fraction": 0.023410373263888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.22399362921714783,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00012",
+      "attack": "text_replacement",
+      "image_sha256": "8cd6c2bd2827682f0afe47c68d3aec80b503e7a429d8cfa5cf430540cd7b948b",
+      "mask_sha256": "a7ef0de66ae4138d27485d08053f6bdffa9419246ac99123d5a8171c1e081572",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4187939326674066,
+        "fraction": 0.055853949652777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14955464005470276,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00012",
+      "attack": "copy_move",
+      "image_sha256": "bc45f91d0ff4f5b23bf9fbc7527f2ac51bc2134c72b7716f6851ef1a62e86b22",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.3333333333333333,
+        "fraction": 0.04665798611111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.22174857556819916,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00012",
+      "attack": "photo_replacement",
+      "image_sha256": "3dd2d141ac832a9a91709b0a854d5d1fae688f70f1aac84f1f31babad30070a8",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6813893653516295,
+        "fraction": 0.0862087673611111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1448296159505844,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00012",
+      "attack": "stamp_edit",
+      "image_sha256": "e879fe4acc94fb4dd08af1847dd1ccdf541a8e07be413e81a51306fee4e7fcb7",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5022983702465524,
+        "fraction": 0.06027560763888889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.22938162088394165,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00024",
+      "attack": "clean",
+      "image_sha256": "8243f3d5905248f0d244176e191136b82816ad9917a25aba344ab84c291cb371",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.005398220486111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16441765427589417,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00024",
+      "attack": "text_replacement",
+      "image_sha256": "9b426a31182781faa4f062a550dffdfa19c1d79ff41171597f2ee512ff7d90c5",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5485510930350788,
+        "fraction": 0.03445095486111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.21503745019435883,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00024",
+      "attack": "copy_move",
+      "image_sha256": "d0bd7ba5a65f3e36014aad7170c8c8a7fc64d912b9600dfadb790dc6f6a203b7",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.301994301994302,
+        "fraction": 0.019992404513888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16041947901248932,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00024",
+      "attack": "photo_replacement",
+      "image_sha256": "de315589d2622ed971eeb21bbfcf6d1a4123828e8a148867590bcad38fdc27be",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5864065180102916,
+        "fraction": 0.0741916232638889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.11566823720932007,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00024",
+      "attack": "stamp_edit",
+      "image_sha256": "a2965c6cc800d5084812d959203ff9b2fd497bf85409c733b8ee6931c916e59b",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6660929432013769,
+        "fraction": 0.04153103298611111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17832328379154205,
+        "iou": 0.0007283321194464676
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00041",
+      "attack": "clean",
+      "image_sha256": "e84b39175cbb2bdb57c985d09d5c19c71714b6c4106d2b9b8a2bcc152d6c041d",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.006510416666666667
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.29593807458877563,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00041",
+      "attack": "text_replacement",
+      "image_sha256": "101df2f18a9816600def9579e175b7a3d33d0306ec82fc5b1fd0881857b40aba",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.491817398794143,
+        "fraction": 0.04578993055555555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.32268044352531433,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00041",
+      "attack": "copy_move",
+      "image_sha256": "6ebcf906e6323ed3366d588e23fcdb8ac07bf748a2b955ee755e45ef50cea9e7",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.27307904919845216,
+        "fraction": 0.020480685763888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.25040534138679504,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00041",
+      "attack": "photo_replacement",
+      "image_sha256": "b871f017d46c83ecf8baedb2897af33944e34d330f39e6329b6b4d3484cf552d",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.8248284734133791,
+        "fraction": 0.10435655381944445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2639945149421692,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00041",
+      "attack": "stamp_edit",
+      "image_sha256": "c661b5416dea98d0d6ff4e1c3832dec1c45495549991e7277edfe6f6232516d8",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6589327146171694,
+        "fraction": 0.040337456597222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.3292941153049469,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00076",
+      "attack": "clean",
+      "image_sha256": "9e530f9f0dd7c3a4ea0921da9c5738162e96cdc0adc4c2f69ddf9bfa132df5de",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.001491970486111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.29597607254981995,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00076",
+      "attack": "text_replacement",
+      "image_sha256": "4fc4770b6d37d093a6e1919799cd68f15bedc92362342de64cbaace9d454efaa",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5421629347308242,
+        "fraction": 0.039632161458333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.19503836333751678,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00076",
+      "attack": "copy_move",
+      "image_sha256": "b197f7db68e7fbca92d339010a1f321fb3ee952021bafe9e973562e81eae7874",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.17966313162819714,
+        "fraction": 0.009304470486111112
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.30101460218429565,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00076",
+      "attack": "photo_replacement",
+      "image_sha256": "705a0823b4faeabf63baab352af0d36c09ed84505d83e32464ccbebcbc508acd",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4219554030874786,
+        "fraction": 0.053385416666666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.006826780270785093,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00076",
+      "attack": "stamp_edit",
+      "image_sha256": "f1da5039d1dbcb84257b93c8575ffe1b3d8e693ba61b567c7fbc691144fa805f",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6838331160365059,
+        "fraction": 0.03282335069444445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2958226799964905,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00090",
+      "attack": "clean",
+      "image_sha256": "bc383b6b1ac8012ff799e17e9e0020e92db55a27d62e3a58069e089c7255d6e9",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.009955512152777778
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14928960800170898,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00090",
+      "attack": "text_replacement",
+      "image_sha256": "37c09f1251533ea1bfd04124602cae97b540761e4b5a396b203ef8d27d56eacd",
+      "mask_sha256": "72d112501f6ef5cbb5c39d0431cc545de96261441484fbcf94dd9ea22f4cbb58",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5332383665716999,
+        "fraction": 0.03941514756944445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.34422269463539124,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00090",
+      "attack": "copy_move",
+      "image_sha256": "da31fb685be1a64b2dca3eaad6ab8d0bdf1caa986a178038d25a0e8f470fab68",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.06892950391644909,
+        "fraction": 0.013536241319444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14894521236419678,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00090",
+      "attack": "photo_replacement",
+      "image_sha256": "8ecb2cab313bf0c5708df517c9dc8a6c9485e251506fe652af37f78b6072f447",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.9116638078902229,
+        "fraction": 0.11534288194444445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13427436351776123,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00090",
+      "attack": "stamp_edit",
+      "image_sha256": "9ae4d4a14f06d2063c73794a4de4453e5ef2de21809888ae0994fcaa51160c8d",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5773584905660377,
+        "fraction": 0.04212782118055555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1483071744441986,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00092",
+      "attack": "clean",
+      "image_sha256": "597c46e47df488d01fdefc8769dca5fedf338c1df4c0868e681f3d942cd1998c",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.017659505208333332
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17386214435100555,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00092",
+      "attack": "text_replacement",
+      "image_sha256": "19a4b73d9d8a7f7f302d1aaa1fe4f480603df1d86ec71e93866a832b1cefcde8",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.44869131699210635,
+        "fraction": 0.04641384548611111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.19490870833396912,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00092",
+      "attack": "copy_move",
+      "image_sha256": "b118d181644236bc316c6c573519d185e888364585d87d081d686b33f280b7c5",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.25829596412556055,
+        "fraction": 0.034125434027777776
+      },
+      "classical": {
+        "flagged": true,
+        "index": 0.6500000357627869,
+        "iou": 0.362962962962963
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00092",
+      "attack": "photo_replacement",
+      "image_sha256": "d129e121b7ad7bc880485a68ee17327eb8dec2b49c0a4b785f220f05ed0d210f",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.87778730703259,
+        "fraction": 0.1110568576388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1632007658481598,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00092",
+      "attack": "stamp_edit",
+      "image_sha256": "25faea65bd4110d2029a788b7b40507307602a962cc19d112e182c4e55691cd5",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5387792565396972,
+        "fraction": 0.0537109375
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17361854016780853,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00098",
+      "attack": "clean",
+      "image_sha256": "5b173aa605090d71672df9a0ac476118308265517acc38569b95e3204a84941e",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.00035264756944444444
+      },
+      "classical": {
+        "flagged": true,
+        "index": 0.6500000357627869,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00098",
+      "attack": "text_replacement",
+      "image_sha256": "6e21ced14f8738122b405d73db4123c3af9f9f05ef1f5ba2f2bad392e000fcac",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5372641509433962,
+        "fraction": 0.040228949652777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15881185233592987,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00098",
+      "attack": "copy_move",
+      "image_sha256": "074c3482eb8bec061810b0de0fe49424fdc2ce7baa2f5f0edd267de9b2904592",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.2655150351887396,
+        "fraction": 0.011664496527777778
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.33690914511680603,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00098",
+      "attack": "photo_replacement",
+      "image_sha256": "54e76da3a6c1942f10f6da526ac979cd4c6d1009f002d89c567965506900a7b5",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.788387920034028,
+        "fraction": 0.1015896267361111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.3011408746242523,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "original_test_replay",
+      "group": "procedural-card-00098",
+      "attack": "stamp_edit",
+      "image_sha256": "fafe4c0767184b394e005906f82cd4a747827025be357912496be2e2c164a52c",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.7556591211717709,
+        "fraction": 0.03428819444444445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.36441847681999207,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01000",
+      "attack": "clean",
+      "image_sha256": "7f4c7f78519c43a196e67784f2f344689719b1f7371b5d30ccc3af3e036f8434",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.0,
+        "fraction": 0.020073784722222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1628144532442093,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01000",
+      "attack": "text_replacement",
+      "image_sha256": "aa82d566e3ce6f1e1ebd967099bab5059d112eec981a1d4e1714c9ab4fdce8a0",
+      "mask_sha256": "a7ef0de66ae4138d27485d08053f6bdffa9419246ac99123d5a8171c1e081572",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.305078125,
+        "fraction": 0.04245334201388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2825501561164856,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01000",
+      "attack": "copy_move",
+      "image_sha256": "ba125478c4a9b1b6ae5005cf0a7c15ecc55ef87857612134b3c4852db3870e35",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.23552459730082717,
+        "fraction": 0.034993489583333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16546927392482758,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01000",
+      "attack": "photo_replacement",
+      "image_sha256": "dc8d184d612832aabde4af3ec3e94ee35e47b9b1e71b2f9f8e4c8d8176244fbb",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.8039425755303192,
+        "fraction": 0.10186089409722222
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.10833795368671417,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01000",
+      "attack": "stamp_edit",
+      "image_sha256": "355c920ca16f27af4b94132553e759e776e07cfe03cfc9246c4972aa63fd09f9",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.512184315463004,
+        "fraction": 0.055338541666666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17739474773406982,
+        "iou": 0.0014566642388929353
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01001",
+      "attack": "clean",
+      "image_sha256": "46a7457c76064a33b230d2b26d50277be77aa3aca3f92321cf909a9e103b3650",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.018663194444444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1241908073425293,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01001",
+      "attack": "text_replacement",
+      "image_sha256": "ac378c40c8c849cf59be3b044da04414b2dc2c803b61870ba91c4a5679d82189",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4427357345204371,
+        "fraction": 0.048529730902777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.12522928416728973,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01001",
+      "attack": "copy_move",
+      "image_sha256": "1b72bcb75f1e084bfd23aa3c6ef271b85752de0287b5e965f01755124f9fc91f",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.23169107856191745,
+        "fraction": 0.033284505208333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1231624037027359,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01001",
+      "attack": "photo_replacement",
+      "image_sha256": "dd9695ef926588f605ce942b0162652a544b908724a2f1f14bbc317d23d252b8",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6387881374013228,
+        "fraction": 0.08184136284722222
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.07214919477701187,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01001",
+      "attack": "stamp_edit",
+      "image_sha256": "37aa346a9f8228fd43ce988005ffff3fd52fcfb7e8e02c8afd59f78649185f9f",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5476951163852122,
+        "fraction": 0.054741753472222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.12359209358692169,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01002",
+      "attack": "clean",
+      "image_sha256": "9d46d67621291456b5f78ac019386638500d92e703056063d3b9f4d6f24768b6",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.010145399305555556
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.23014581203460693,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01002",
+      "attack": "text_replacement",
+      "image_sha256": "4e652072e2d28ec8a73eec1aa2f75afbf708010fc80e318c53c47563cb87304c",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.45831622176591374,
+        "fraction": 0.048149956597222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.19026915729045868,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01002",
+      "attack": "copy_move",
+      "image_sha256": "dc8fdd9fd8a41b00eb973ac36e55eda7e9841a779155eca68383c982e3629ad0",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.33264569365652397,
+        "fraction": 0.028103298611111112
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.23042534291744232,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01002",
+      "attack": "photo_replacement",
+      "image_sha256": "fbd763934a2ed0e8ba8f81825a503ccd735f414ea9eacb71f5bd26fd31c6fbf5",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4281732418524871,
+        "fraction": 0.05417209201388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01002",
+      "attack": "stamp_edit",
+      "image_sha256": "fe8b459a30ceea4b8891eae1fcdd2206d828ea5b542c7a95bbe405cf1b49e252",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6117021276595744,
+        "fraction": 0.04494900173611111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.23030295968055725,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01003",
+      "attack": "clean",
+      "image_sha256": "8986ecdb3263fcf2f291f56bade3ad0438aef446f641e5d3e71c00363e053649",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.014865451388888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14939282834529877,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01003",
+      "attack": "text_replacement",
+      "image_sha256": "d0d2a928f8c5cb5574cd7a59997fa4c5f0cb263303b8d60827b1ecb2a6d363ac",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.45937770095073466,
+        "fraction": 0.04342990451388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2146783024072647,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01003",
+      "attack": "copy_move",
+      "image_sha256": "245625fb42e57f82d3d3cf947fdb2d4fa4538580b542d96e9533066dbda9620e",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.1757979990471653,
+        "fraction": 0.024956597222222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1502852886915207,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01003",
+      "attack": "photo_replacement",
+      "image_sha256": "3599010b7d1a4e68166c8d1ecc779f6097731c1c92e309f5ec55a7fde3d9ee5c",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6301457975986278,
+        "fraction": 0.07972547743055555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.10179577767848969,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01003",
+      "attack": "stamp_edit",
+      "image_sha256": "e7d6438774e3cc1315e8e8eb70e3b9faa6cf3be171dc38cc8a487c56d4a0c494",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5396135265700484,
+        "fraction": 0.04920789930555555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16570545732975006,
+        "iou": 0.0014566642388929353
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01004",
+      "attack": "clean",
+      "image_sha256": "d14e4ffb74811b09e21b33344af89c48cdac89425864273d02b5a386a2617fa3",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.018364800347222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15995067358016968,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01004",
+      "attack": "text_replacement",
+      "image_sha256": "f38372c1dd26f98ac2f897186e1b89a26d8c3fbf82d258fc7ee2d1d48e2508d9",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.45264505119453924,
+        "fraction": 0.044189453125
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.25046899914741516,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01004",
+      "attack": "copy_move",
+      "image_sha256": "6a87f42f7767662a01989f02aa557e557f3bf054cef0c37fec9621cd9f711961",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.07329136690647482,
+        "fraction": 0.022759331597222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15944847464561462,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01004",
+      "attack": "photo_replacement",
+      "image_sha256": "1405c918edfcb48155e34047e63f57a05b7d45485ca082a4c4149cd576068e9e",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.8458404802744426,
+        "fraction": 0.10701497395833333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.03109981119632721,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01004",
+      "attack": "stamp_edit",
+      "image_sha256": "028bb1400ea031985643a01caf3727ae9241d4684262cac97dc286704f2f7a4f",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5048231511254019,
+        "fraction": 0.05162217881944445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1638403683900833,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01005",
+      "attack": "clean",
+      "image_sha256": "67cb5b8d98cbfc2f224b853107a232ac9b3a4cf03eb78d256320b59deb3ac9a5",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.003173828125
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2630730867385864,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01005",
+      "attack": "text_replacement",
+      "image_sha256": "1c2ea72b25dd44f0bd2471330eb23af2165a1a70a1bb409898e5380703c121e3",
+      "mask_sha256": "72d112501f6ef5cbb5c39d0431cc545de96261441484fbcf94dd9ea22f4cbb58",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5853277835587929,
+        "fraction": 0.034478081597222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13611865043640137,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01005",
+      "attack": "copy_move",
+      "image_sha256": "a5a210d132b71f130ecdec101be5d8422ebfb437055464140596968624d4be0d",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4231220657276995,
+        "fraction": 0.023790147569444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2657053470611572,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01005",
+      "attack": "photo_replacement",
+      "image_sha256": "265f5a4ae7233ae6799c769ed34de086c6e8689df5ab90b149e705c51bf62b68",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5,
+        "fraction": 0.0644802517361111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2513006329536438,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01005",
+      "attack": "stamp_edit",
+      "image_sha256": "fd449759ffefe8cd94f2c0995398cd501f47c13cf8e2e11f69c68611d5e938be",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.7291154791154791,
+        "fraction": 0.039116753472222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.25199562311172485,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01006",
+      "attack": "clean",
+      "image_sha256": "a46e1f781fb228c9a3df3c6d4c92e6d56aed43bb070c5a85834454c0dacdcaa6",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.0,
+        "fraction": 0.024739583333333332
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.19951704144477844,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01006",
+      "attack": "text_replacement",
+      "image_sha256": "35e8d1a9cd6344430b1cd543b75844034c6fcdbfc7521c69e12853e887a64591",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.37262872628726285,
+        "fraction": 0.06174045138888889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.24026037752628326,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01006",
+      "attack": "copy_move",
+      "image_sha256": "4a89ebec6960719fc692b0b166613fd447a9ed824d6dbdf4199926c5e765a884",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.06544715447154471,
+        "fraction": 0.029106987847222224
+      },
+      "classical": {
+        "flagged": true,
+        "index": 0.6500000357627869,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01006",
+      "attack": "photo_replacement",
+      "image_sha256": "8d9af31e042a38ff0c28c12d9520e4ac921ebe64f9e243bf597d00d422e3cc83",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6955403087478559,
+        "fraction": 0.08799913194444445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16730067133903503,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01006",
+      "attack": "stamp_edit",
+      "image_sha256": "e1cf888131e37a94aabd8586db38ba09a4d91414613606ee50c026b80d4598df",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.43956953642384106,
+        "fraction": 0.05710177951388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2005765289068222,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01007",
+      "attack": "clean",
+      "image_sha256": "6220e9553a054e8b408b587ab76fd96121458a6e89e3a655724a8c3b16bb0de4",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.0,
+        "fraction": 0.023057725694444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.29091593623161316,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01007",
+      "attack": "text_replacement",
+      "image_sha256": "986591644b6e660f84e833dbdfe5779f08409ab5ebf52d6dee35573eb0919567",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.3779810519438092,
+        "fraction": 0.06624348958333333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13764137029647827,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01007",
+      "attack": "copy_move",
+      "image_sha256": "d6532e922ce63d83069629d6d682950fbbc58bf40f577a252d8b2f15fc08bea1",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.20465890183028287,
+        "fraction": 0.036566840277777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2763374447822571,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01007",
+      "attack": "photo_replacement",
+      "image_sha256": "781b4bcb30f2245041b000ba9b86940fbfab0b6afff2b43f23e5723182b67468",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4277444253859348,
+        "fraction": 0.054117838541666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01007",
+      "attack": "stamp_edit",
+      "image_sha256": "6b48d183d037a4a51582c13f578d80928f757afd8c0a319f97d1e446c16738e5",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.45642105263157895,
+        "fraction": 0.056586371527777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2906096577644348,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01008",
+      "attack": "clean",
+      "image_sha256": "2ede66693c3045414c462c46ab019282b9719509d3d532d7a5835133853f81d3",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.0003255208333333333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16591855883598328,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01008",
+      "attack": "text_replacement",
+      "image_sha256": "f932f8575f0f838027d8d367b00bffc992ec9383ea5dae4d20df389f07dbc7f7",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5552918841955387,
+        "fraction": 0.040717230902777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.24902236461639404,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01008",
+      "attack": "copy_move",
+      "image_sha256": "71422bb36f8c8d9e4b41a2e3369d6dac0c63ecbd7a9bf0ea37de49cd3fb8a8be",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.24935897435897436,
+        "fraction": 0.010877821180555556
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.16849608719348907,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01008",
+      "attack": "photo_replacement",
+      "image_sha256": "88725083aa058f29b5a6231bd75f9c141d6655c071c8b068fd96fe222d1e2430",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.7632933104631218,
+        "fraction": 0.09657118055555555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17080417275428772,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01008",
+      "attack": "stamp_edit",
+      "image_sha256": "9f08c1b248a473b856fc428aeedc8a772324d5e721558bcdc6c5dc657015bd44",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.7094861660079052,
+        "fraction": 0.033148871527777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1702113300561905,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01009",
+      "attack": "clean",
+      "image_sha256": "809c0bbd82bcabcb941f419e44e0d070abf39b1eeef97db36f279e37016a9f2d",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.011827256944444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.39497870206832886,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01009",
+      "attack": "text_replacement",
+      "image_sha256": "04d0bdf7ac8d80ac1f7ebe20a58aa7bea5d774db0eb34b1721a49859472fcce2",
+      "mask_sha256": "a7ef0de66ae4138d27485d08053f6bdffa9419246ac99123d5a8171c1e081572",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5002237136465324,
+        "fraction": 0.042778862847222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2885812819004059,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01009",
+      "attack": "copy_move",
+      "image_sha256": "6565a4fb860873a0dd70c6422d77e8566b4565f2dc8850724c4e73b303bc3b9f",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.28427925665494724,
+        "fraction": 0.027370876736111112
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.3905119001865387,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01009",
+      "attack": "photo_replacement",
+      "image_sha256": "89dcda495cc6dcf56f63fec121ba973859a009b29b4d2fb1ae28803ccf04942a",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5660377358490566,
+        "fraction": 0.07161458333333333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.3176257908344269,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01009",
+      "attack": "stamp_edit",
+      "image_sha256": "01dd6cc63789fba97da021ae7bd0d8ad0e5241ab9f62a3595c67baf497bacb15",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5993868165559529,
+        "fraction": 0.047661675347222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.4138955771923065,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01010",
+      "attack": "clean",
+      "image_sha256": "150776e70110184bc1202a11fc546fe77e8070dbaf7804aa6f81e4668234adb9",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.0,
+        "fraction": 0.023410373263888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.09371203184127808,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01010",
+      "attack": "text_replacement",
+      "image_sha256": "047a195915e9e73d398939b1357a767e868a3200539cbfa7b0738b684d0555de",
+      "mask_sha256": "a7ef0de66ae4138d27485d08053f6bdffa9419246ac99123d5a8171c1e081572",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.3895434462444772,
+        "fraction": 0.05419921875
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.09300599247217178,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01010",
+      "attack": "copy_move",
+      "image_sha256": "bc49c2ba34b8ae03584dcc65b7a8f275a3c48dabe4c86bbfcdedf51311457a2f",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.21561338289962825,
+        "fraction": 0.037841796875
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.09371670335531235,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01010",
+      "attack": "photo_replacement",
+      "image_sha256": "6489b071fef21fc74b402afa408c8c99e389d1b3952aa41c0534f68fecb8ce78",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4328902229845626,
+        "fraction": 0.054768880208333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01010",
+      "attack": "stamp_edit",
+      "image_sha256": "5f3d4bcd8835111a8a15626bb80e4571ef8a143ec91bd7296c1381f4b42fc690",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5039865715484683,
+        "fraction": 0.059977213541666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1523720920085907,
+        "iou": 0.01529497450837582
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01011",
+      "attack": "clean",
+      "image_sha256": "e4ca3de04d1bfbc7903915b2a13c7d67bcd6e4e6c8ed0a3c9754454a40e0d5c6",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.016194661458333332
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2275196611881256,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01011",
+      "attack": "text_replacement",
+      "image_sha256": "122c81d50115245796437af1ad9a053ae0fa784f57c2435b82ec887683abb6c1",
+      "mask_sha256": "a7ef0de66ae4138d27485d08053f6bdffa9419246ac99123d5a8171c1e081572",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4684908789386401,
+        "fraction": 0.047905815972222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2249518483877182,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01011",
+      "attack": "copy_move",
+      "image_sha256": "430fb9f615071d469759e2ca7776338fac6f3fde5709180f92ac552016d6f090",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.06247086247086247,
+        "fraction": 0.019829644097222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.22834321856498718,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01011",
+      "attack": "photo_replacement",
+      "image_sha256": "c22658bd5ee15326819820d2d17e7ccca6f08eb27a4a911acddd3cd37f0b760f",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6142795883361921,
+        "fraction": 0.07771809895833333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.09089053422212601,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01011",
+      "attack": "stamp_edit",
+      "image_sha256": "ab376198ba921c9bac708dd8c80acffd9c704c6799720e368f133e4e36089f6b",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5040534096328088,
+        "fraction": 0.04831271701388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.2226606011390686,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01012",
+      "attack": "clean",
+      "image_sha256": "2b5f38e75f6958d32b043e1ff022e585046a3e4ba166aa29c071c6d464d79853",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.002495659722222222
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13798902928829193,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01012",
+      "attack": "text_replacement",
+      "image_sha256": "1fd0ccc888274343bdbf2e9c8a9b22552484f3500a1ae9ee6057452164eb97c8",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5788643533123028,
+        "fraction": 0.033284505208333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14859537780284882,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01012",
+      "attack": "copy_move",
+      "image_sha256": "7fca4c3a785401ebade1e6ce8d929b8734c54135e5db416ab58dc3e4571f07ca",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.08353658536585366,
+        "fraction": 0.006212022569444444
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13916340470314026,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01012",
+      "attack": "photo_replacement",
+      "image_sha256": "c3fa48a171cdf587b1ca4abe9df6275aac883396d94214b7971501e33dc40377",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.36792452830188677,
+        "fraction": 0.046549479166666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1323215514421463,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01012",
+      "attack": "stamp_edit",
+      "image_sha256": "b55e4d2e4dc2761f02aa27ff1d5a59768b40721f6d3a505b0c4327de2fe7dfdf",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6852085967130215,
+        "fraction": 0.035074869791666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13199304044246674,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01013",
+      "attack": "clean",
+      "image_sha256": "371ec78f5890241ae6839630cdc3e3dc2b903b1da5d840e5d879c93772153034",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.017144097222222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17609767615795135,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01013",
+      "attack": "text_replacement",
+      "image_sha256": "35ce1ba574eb31a5c3139925234b0d402bcc7e4623fab4facbed679eb387fe11",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.31927456769295653,
+        "fraction": 0.036675347222222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.18570178747177124,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01013",
+      "attack": "copy_move",
+      "image_sha256": "d8eb166046e69aa6c99242a2e5e95601e8a695a9fadeb2690e4b84a5ed34dde1",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.13807339449541284,
+        "fraction": 0.025309244791666668
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.17539945244789124,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01013",
+      "attack": "photo_replacement",
+      "image_sha256": "1f40d4718e89fc2ba64c987b0d943532b2b2b67e6766f4358aec6a0987ef2191",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6447255574614065,
+        "fraction": 0.0815700954861111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.04379579424858093,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01013",
+      "attack": "stamp_edit",
+      "image_sha256": "a93dc928b3884ce2d97c6a9a8dcb2bf3c7f3221144ad68450ea6b36947a7cdc0",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5129168623767026,
+        "fraction": 0.050130208333333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.19962725043296814,
+        "iou": 0.005826656955571741
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01014",
+      "attack": "clean",
+      "image_sha256": "ae39141e0912019346919e3ab490d644bcc2a24a1e785520884438c79b663592",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.009440104166666666
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01014",
+      "attack": "text_replacement",
+      "image_sha256": "f2109dffa605c40014519bba2324771dfd417f9c6ffa5b497fdbd089eec44a5b",
+      "mask_sha256": "72d112501f6ef5cbb5c39d0431cc545de96261441484fbcf94dd9ea22f4cbb58",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.470955352856457,
+        "fraction": 0.03493923611111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1607414186000824,
+        "iou": 0.006193693693693694
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01014",
+      "attack": "copy_move",
+      "image_sha256": "207c31c8c868346a798e802cbefb3f12eb675dd5a10760aa62c13847479bb56e",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.14240506329113925,
+        "fraction": 0.016764322916666668
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01014",
+      "attack": "photo_replacement",
+      "image_sha256": "dbc12a46ee49279fd04121f5cfd4372dc68213c055f0e463d679311bd74fa899",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6524442538593482,
+        "fraction": 0.0825466579861111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01014",
+      "attack": "stamp_edit",
+      "image_sha256": "89a41c1d0709ab0fc83c39c8f4aaf37ca7d7940993126c9171b288b3aa67fc12",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6222222222222222,
+        "fraction": 0.0439453125
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01015",
+      "attack": "clean",
+      "image_sha256": "b3cfd61c0669b37fb36310fd1508261cb482957c9cb2d817d40a2ebaeaaee849",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.008327907986111112
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.13354037702083588,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01015",
+      "attack": "text_replacement",
+      "image_sha256": "b6495f45705878e1b91860a432e265382c58ea1cc97644e2abbd16f35fc52e1b",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4684641309581127,
+        "fraction": 0.03455946180555555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1717689335346222,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01015",
+      "attack": "copy_move",
+      "image_sha256": "dca7ea012e15c8af9f10a73af968edf420429ad4b6fdb1f4e1189fae5d20448d",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.10889487870619946,
+        "fraction": 0.013807508680555556
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.12812843918800354,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01015",
+      "attack": "photo_replacement",
+      "image_sha256": "a83089a3ac314285d7188e81935b5b62ef13a782f407d0606b1ac5d45ab54df4",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4856346483704974,
+        "fraction": 0.061442057291666664
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.11627697199583054,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01015",
+      "attack": "stamp_edit",
+      "image_sha256": "4e7d2fe83daa132cc06ee25693756ed3c116eef5008a517405b5111cf2a7551c",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6035437430786268,
+        "fraction": 0.041314019097222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.133604034781456,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01016",
+      "attack": "clean",
+      "image_sha256": "6e25074d9574aa29dea1f5e1b76bc155a561f8feff1f6b7d281d3e60939c02b0",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.006646050347222222
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15752722322940826,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01016",
+      "attack": "text_replacement",
+      "image_sha256": "7e8e3a1920d9a11f067e88dc90b9eed0af9d21b90faf85423456132ce30ad66a",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.516097077761268,
+        "fraction": 0.034857855902777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.24710167944431305,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01016",
+      "attack": "copy_move",
+      "image_sha256": "ee16385457ee7ea02560a68a30d15e654f3625053b57ae52a9b95e104e77b117",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.33826754385964913,
+        "fraction": 0.024224175347222224
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15626446902751923,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01016",
+      "attack": "photo_replacement",
+      "image_sha256": "42b086d49995686062f0586ba85f0215adb150516fef5821c6403b392847adbd",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5853344768439108,
+        "fraction": 0.07405598958333333
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.14070791006088257,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01016",
+      "attack": "stamp_edit",
+      "image_sha256": "a2d0c6609aadc35a39be9236722a53f62a809aacee1ec8ded6c49bff65e93ee5",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.6487859966120836,
+        "fraction": 0.04196506076388889
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15739373862743378,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01017",
+      "attack": "clean",
+      "image_sha256": "b7d54eab2bf555260bd6f106d7571f1097fb8e4583016b23c0c0b6a360b6ed7e",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.012668185763888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15800678730010986,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01017",
+      "attack": "text_replacement",
+      "image_sha256": "921fef035d93a5eb32ad15c5f2af2464f83cdba70a28e29fbfce73dd37603374",
+      "mask_sha256": "bb71066827e086515e602f23b782c6bdbf32acfe19f8c33d373ff4e2901faa61",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.44843935203476887,
+        "fraction": 0.05126953125
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.29751473665237427,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01017",
+      "attack": "copy_move",
+      "image_sha256": "382f0ae66181abefc8ef5e69debb89e772e67ff356f37e0bb9e744e0cf58ff91",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.09727047146401985,
+        "fraction": 0.017985026041666668
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.15879741311073303,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01017",
+      "attack": "photo_replacement",
+      "image_sha256": "4a944736fe37a1a931b4be058ad2958ff9e3768a690e7e85aca1edca55813f9f",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4935677530017153,
+        "fraction": 0.062445746527777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.09353243559598923,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01017",
+      "attack": "stamp_edit",
+      "image_sha256": "5887b83e1d46f8d0f1e910a1115f22df3db75b556d8c4bcd1e63473395bf33a7",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5581275720164609,
+        "fraction": 0.044921875
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1658790111541748,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01018",
+      "attack": "clean",
+      "image_sha256": "705d180d061964dfadb2bdc63d282f5dbf961323308c9893db7b40e7d4b2a8aa",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.013617621527777778
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01018",
+      "attack": "text_replacement",
+      "image_sha256": "c4eaf7ec30e82d2bc1a9bf23ba3bb0422a713ec68b5ce15f3a4bc4f4aee3d2a3",
+      "mask_sha256": "72d112501f6ef5cbb5c39d0431cc545de96261441484fbcf94dd9ea22f4cbb58",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.449890590809628,
+        "fraction": 0.041693793402777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.04744865745306015,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01018",
+      "attack": "copy_move",
+      "image_sha256": "2c0e6ed6097975690bfa88a041ee8efc7ad0ca90c46b2345c97cdac27078e44d",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.04439024390243902,
+        "fraction": 0.016086154513888888
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01018",
+      "attack": "photo_replacement",
+      "image_sha256": "2cc1ff4853dba40f3ced2f75513af519b2468e86404df25c53a902c1890cb5e8",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.48906518010291594,
+        "fraction": 0.06187608506944445
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.03505067899823189,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01018",
+      "attack": "stamp_edit",
+      "image_sha256": "ceb08bf73a81058c71483751bc8833acee763d6a976aa4fdc65f6e5de252e5a5",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.5694795351187468,
+        "fraction": 0.04701063368055555
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.0,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01019",
+      "attack": "clean",
+      "image_sha256": "5a1ae22dec109d36940b20c17402e8d90d926df5baa0fa709a00f4435f6e278e",
+      "mask_sha256": "1c0273095382988333e2f2b5ae487cea460737ed9be65cbad9c5de537f95bf75",
+      "cnn": {
+        "flagged": false,
+        "iou": 0.0,
+        "fraction": 0.019721137152777776
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.1123000830411911,
+        "iou": null
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01019",
+      "attack": "text_replacement",
+      "image_sha256": "7f92d71c8bedb695d3832590fd152e1da71bd6d7a566c529740ec9599881d4cb",
+      "mask_sha256": "4ab836f1eaee98b9cd01d8c910b47d73799103b59297258b448be44634ad5f68",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4370427416249519,
+        "fraction": 0.053059895833333336
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.11278118193149567,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01019",
+      "attack": "copy_move",
+      "image_sha256": "c3f313e81747c3e98d07cfaa238d9e23668e9bdd3a2c6349c9bd6b37f5fd4632",
+      "mask_sha256": "71ea79317eb5db98f80d3c27b2043a1f35610b01bb63ecad2e4e7635a47dd840",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.07032967032967033,
+        "fraction": 0.024061414930555556
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.11175809800624847,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01019",
+      "attack": "photo_replacement",
+      "image_sha256": "7d036b2a13400783c8c7fd11ed0f153ed1c21f5c52fd5f943625dd8cdb955a49",
+      "mask_sha256": "b831aa7f054018ba851c7d0ebb25f50e4347f05faed63d4551fda37f3fca1768",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.4922813036020583,
+        "fraction": 0.06228298611111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.08552064746618271,
+        "iou": 0.0
+      }
+    },
+    {
+      "cohort": "fresh_groups_same_generator",
+      "group": "procedural-card-01019",
+      "attack": "stamp_edit",
+      "image_sha256": "cfd204cfc4bb09b505bcf51559493d8de16ff63d8435e2b4b64b33f71b783fdc",
+      "mask_sha256": "73fd6fe6344d29d81927767187119ec68f56d27fc3774ec1d7c48969c47ef024",
+      "cnn": {
+        "flagged": true,
+        "iou": 0.48725972284309343,
+        "fraction": 0.05300564236111111
+      },
+      "classical": {
+        "flagged": false,
+        "index": 0.11254028975963593,
+        "iou": 0.0
+      }
+    }
+  ]
+}

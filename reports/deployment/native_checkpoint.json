@@ -1,0 +1,49 @@
+{
+  "url": "http://127.0.0.1:8000",
+  "scope": "HTTP checks; container runtime is not inferred",
+  "require_cnn": true,
+  "scan_request_id": "0ad5ee4f-699c-4d48-a689-9fc759788b3d",
+  "decision_request_id": "5a961f70-dc23-4779-8230-8fe9834f771b",
+  "health": {
+    "status": "ok",
+    "phase": 6,
+    "implemented_layers": [
+      "L0",
+      "L1",
+      "L2",
+      "L3",
+      "L4",
+      "L5",
+      "L6"
+    ],
+    "ocr_available": true,
+    "images_persisted": false,
+    "audit_mode": "opt-in via /scans/analyze; images and identity fields excluded",
+    "synthetic_demo_only": true
+  },
+  "scan_id": "ff64ed8f-d2d5-455f-834a-aea9881bda2a",
+  "scan_event_hash": "ab69f14608a19a2fbb69ed295a4cd1ec11c1d7280426b3170026601e1c0b1e93",
+  "models": {
+    "mrz_extracted": true,
+    "face_match": true,
+    "cnn_available": true,
+    "cnn_required": true,
+    "pipeline_ms": 26305.82,
+    "risk_score": 3.25,
+    "risk_category": null,
+    "liveness_unverified": true
+  },
+  "decision_event_hash": "2ddee5e5d354b9033db852146ae4306f581724f5232008908916cf76fa9864da",
+  "anchor_seq": 8,
+  "anchor_hash": "2ddee5e5d354b9033db852146ae4306f581724f5232008908916cf76fa9864da",
+  "recorded_at": "2026-10-04T01:40:47.793803+00:00",
+  "idempotent_scan": true,
+  "idempotent_decision": true,
+  "last_verification": {
+    "verified_at": "2026-10-04T01:42:41.309410+00:00",
+    "anchor_checked": true,
+    "original_events_retained": true,
+    "head_seq": 8,
+    "head_hash": "2ddee5e5d354b9033db852146ae4306f581724f5232008908916cf76fa9864da"
+  }
+}

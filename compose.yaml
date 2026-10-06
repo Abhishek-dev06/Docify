@@ -1,0 +1,25 @@
+name: sentinel-demo
+services:
+  app:
+    build:
+      context: .
+      args:
+        WITH_TORCH: ${WITH_TORCH:-1}
+    ports:
+      - "127.0.0.1:${DEMO_PORT:-8000}:8000"
+    volumes:
+      - audit-data:/app/data
+      - ./models:/app/models:ro
+    environment:
+      SCREENING_DATABASE_URL: sqlite:////app/data/screening.db
+      AUDIT_DATABASE_URL: sqlite:////app/data/audit.db
+      FACE_MODEL_DIR: /app/models
+      TAMPER_MODEL_PATH: /app/models/tamper_unet.pt
+    read_only: true
+    tmpfs:
+      - /tmp:size=256m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    restart: unless-stopped
+volumes:
+  audit-data:

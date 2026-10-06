@@ -1,0 +1,7 @@
+min_width: 600
+min_height: 350
+min_laplacian_variance: 45.0
+min_brightness: 55.0
+max_brightness: 248.0
+max_saturated_fraction: 0.45
+max_processing_dimension: 1800

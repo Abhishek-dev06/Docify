@@ -1,0 +1,16 @@
+# Demonstration defaults. Calibrate on a held-out, consented target dataset.
+# OpenCV's LFW reference 0.363 falsely matched our two generated identities.
+# 0.60 separates this development pair; it is NOT held-out calibration.
+cosine_threshold: 0.60
+detection_threshold: 0.85
+min_face_size: 60
+min_face_laplacian: 20.0
+min_face_brightness: 35.0
+max_face_brightness: 245.0
+max_detection_dimension: 1600
+max_frames: 12
+max_sequence_pixels: 12000000
+min_blink_frames: 5
+max_frame_gap_ms: 500
+min_blink_duration_ms: 60
+max_blink_duration_ms: 500

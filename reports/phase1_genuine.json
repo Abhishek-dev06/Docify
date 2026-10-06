@@ -1,0 +1,289 @@
+{
+  "status": "ok",
+  "document_hash": "68bdf32a1d9d0a9910fff4bc7bc1ec16ec144c4c1858deaa3c15717bb51e57b0",
+  "capture": {
+    "status": "ok",
+    "data": {
+      "document_type": "id",
+      "classification_confidence": 0.35,
+      "classification_method": "aspect_ratio_heuristic",
+      "boundary_detected": true,
+      "quality": {
+        "width": 1575,
+        "height": 975,
+        "laplacian_variance": 1176.53,
+        "brightness": 225.539,
+        "saturated_fraction": 0.0
+      },
+      "mime_type": "image/png",
+      "transform": [
+        [
+          0.9993650793650793,
+          1.711105540070135e-18,
+          -11.992380952380953
+        ],
+        [
+          0.0,
+          0.998974358974359,
+          -11.987692307692308
+        ],
+        [
+          4.631809496170923e-21,
+          1.1574996509955043e-21,
+          1.0
+        ]
+      ]
+    },
+    "findings": [
+      {
+        "code": "TYPE_UNCERTAIN",
+        "severity": "info",
+        "explanation": "ID-like aspect ratio only; OCR keywords may revise the type.",
+        "field": null,
+        "region": null
+      }
+    ],
+    "duration_ms": 196.53
+  },
+  "ocr": {
+    "status": "ok",
+    "data": {
+      "document_type": "passport",
+      "raw_text": "SYNTHETIC PASSPORT - NOT VALID FOR TRAVEL\nFICTIONAL UTOPIA / HACKATHON TEST DOCUMENT\nNAME: EXAMPLE ALEX\nPASSPORT NO: Z9000000\nNATIONALITY: UTO\nDOB: 1988-04-12\nEXPIRY: 2031-10-03\nISSUE DATE: 2021-10-04\nSEX: X\nTEST AVATAR\nSPECIMEN / GENERATED DATA ONLY\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UT08804123<3110038<<<<<<<<<<<<<<04\n\n[MRZ row OCR]\nSEXX0\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04",
+      "mrz": {
+        "format": "TD3",
+        "raw_lines": [
+          "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+          "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+        ],
+        "corrected_lines": [
+          "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+          "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+        ],
+        "fields": {
+          "number": {
+            "raw": "Z9000000<",
+            "corrected": "Z9000000",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "issuing_country": {
+            "raw": "UTO",
+            "corrected": "UTO",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "nationality": {
+            "raw": "UTO",
+            "corrected": "UTO",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "dob": {
+            "raw": "880412",
+            "corrected": "880412",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "expiry": {
+            "raw": "311003",
+            "corrected": "311003",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "gender": {
+            "raw": "<",
+            "corrected": "X",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          },
+          "name": {
+            "raw": "EXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+            "corrected": "EXAMPLE ALEX",
+            "confidence": 0.0,
+            "source": "mrz",
+            "corrections": []
+          }
+        },
+        "checks": [
+          {
+            "field": "number",
+            "input": "Z9000000<",
+            "observed": "2",
+            "expected": "2",
+            "valid": true
+          },
+          {
+            "field": "dob",
+            "input": "880412",
+            "observed": "3",
+            "expected": "3",
+            "valid": true
+          },
+          {
+            "field": "expiry",
+            "input": "311003",
+            "observed": "8",
+            "expected": "8",
+            "valid": true
+          },
+          {
+            "field": "optional_data",
+            "input": "<<<<<<<<<<<<<<",
+            "observed": "0",
+            "expected": "0",
+            "valid": true
+          },
+          {
+            "field": "composite",
+            "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+            "observed": "4",
+            "expected": "4",
+            "valid": true
+          }
+        ],
+        "corrections": [],
+        "limitations": []
+      },
+      "viz_fields": {
+        "name": {
+          "raw": "EXAMPLE ALEX",
+          "corrected": "EXAMPLE ALEX",
+          "confidence": 0.9659477733333334,
+          "source": "viz",
+          "corrections": []
+        },
+        "number": {
+          "raw": "Z9000000",
+          "corrected": "Z9000000",
+          "confidence": 0.9361462433333334,
+          "source": "viz",
+          "corrections": []
+        },
+        "nationality": {
+          "raw": "UTO",
+          "corrected": "UTO",
+          "confidence": 0.9294655949999999,
+          "source": "viz",
+          "corrections": []
+        },
+        "dob": {
+          "raw": "1988-04-12",
+          "corrected": "1988-04-12",
+          "confidence": 0.96712471,
+          "source": "viz",
+          "corrections": []
+        },
+        "expiry": {
+          "raw": "2031-10-03",
+          "corrected": "2031-10-03",
+          "confidence": 0.9669739900000001,
+          "source": "viz",
+          "corrections": []
+        },
+        "issue": {
+          "raw": "2021-10-04",
+          "corrected": "2021-10-04",
+          "confidence": 0.9659536733333334,
+          "source": "viz",
+          "corrections": []
+        },
+        "gender": {
+          "raw": "X",
+          "corrected": "X",
+          "confidence": 0.932449455,
+          "source": "viz",
+          "corrections": []
+        }
+      },
+      "engine": "tesseract"
+    },
+    "findings": [],
+    "duration_ms": 4804.48
+  },
+  "validation": {
+    "status": "ok",
+    "data": {
+      "checks": [
+        {
+          "field": "number",
+          "input": "Z9000000<",
+          "observed": "2",
+          "expected": "2",
+          "valid": true
+        },
+        {
+          "field": "dob",
+          "input": "880412",
+          "observed": "3",
+          "expected": "3",
+          "valid": true
+        },
+        {
+          "field": "expiry",
+          "input": "311003",
+          "observed": "8",
+          "expected": "8",
+          "valid": true
+        },
+        {
+          "field": "optional_data",
+          "input": "<<<<<<<<<<<<<<",
+          "observed": "0",
+          "expected": "0",
+          "valid": true
+        },
+        {
+          "field": "composite",
+          "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+          "observed": "4",
+          "expected": "4",
+          "valid": true
+        }
+      ],
+      "cross_checks": [
+        {
+          "field": "dob",
+          "mrz_value": "880412",
+          "viz_value": "1988-04-12",
+          "consistent": true
+        },
+        {
+          "field": "expiry",
+          "mrz_value": "311003",
+          "viz_value": "2031-10-03",
+          "consistent": true
+        },
+        {
+          "field": "name",
+          "mrz_value": "EXAMPLE ALEX",
+          "viz_value": "EXAMPLE ALEX",
+          "consistent": true
+        },
+        {
+          "field": "number",
+          "mrz_value": "Z9000000",
+          "viz_value": "Z9000000",
+          "consistent": true
+        }
+      ],
+      "mismatch_count": 0,
+      "resolved_dates": {
+        "dob": "1988-04-12",
+        "expiry": "2031-10-03"
+      },
+      "blacklist_hit": false,
+      "previously_seen": 0,
+      "database_available": true
+    },
+    "findings": [],
+    "duration_ms": 232.78
+  },
+  "duration_ms": 5478.12
+}

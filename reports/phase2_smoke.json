@@ -1,0 +1,677 @@
+{
+  "scope": "Two generated identities; positive pair shares source pixels. Development smoke test only.",
+  "threshold_calibrated": false,
+  "biometric_accuracy_metrics": null,
+  "results": {
+    "same_source_transformed": {
+      "status": "ok",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 1,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": {
+          "box": [
+            0.31833333333333336,
+            0.21,
+            0.34,
+            0.48333333333333334
+          ],
+          "landmarks": [
+            [
+              0.4057225286960602,
+              0.3949452042579651
+            ],
+            [
+              0.5669968128204346,
+              0.3780234158039093
+            ],
+            [
+              0.5022926926612854,
+              0.47775325179100037
+            ],
+            [
+              0.43840163946151733,
+              0.5701993703842163
+            ],
+            [
+              0.5717632174491882,
+              0.5542198419570923
+            ]
+          ],
+          "detection_confidence": 0.9575755596160889,
+          "width_pixels": 204,
+          "height_pixels": 290,
+          "laplacian_variance": 89.703,
+          "brightness": 138.879,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "cosine_similarity": 0.9649176001548767,
+        "threshold": 0.6,
+        "match": true,
+        "decision": "match",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "synthetic-development-policy-v1",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "FACE_MATCH",
+          "severity": "info",
+          "explanation": "Cosine 0.9649; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 919.23
+    },
+    "different_synthetic_face": {
+      "status": "ok",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 1,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": {
+          "box": [
+            0.30666666666666664,
+            0.22,
+            0.38166666666666665,
+            0.49333333333333335
+          ],
+          "landmarks": [
+            [
+              0.41738131642341614,
+              0.41203969717025757
+            ],
+            [
+              0.5808874368667603,
+              0.4030241072177887
+            ],
+            [
+              0.5107822418212891,
+              0.5038741827011108
+            ],
+            [
+              0.4405500292778015,
+              0.5897495746612549
+            ],
+            [
+              0.5710963010787964,
+              0.5819305181503296
+            ]
+          ],
+          "detection_confidence": 0.9527422785758972,
+          "width_pixels": 229,
+          "height_pixels": 296,
+          "laplacian_variance": 213.177,
+          "brightness": 135.834,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "cosine_similarity": 0.456198513507843,
+        "threshold": 0.6,
+        "match": false,
+        "decision": "non_match",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "synthetic-development-policy-v1",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "FACE_NON_MATCH",
+          "severity": "medium",
+          "explanation": "Cosine 0.4562; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 789.25
+    },
+    "no_face": {
+      "status": "insufficient_evidence",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 0,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": null,
+        "cosine_similarity": null,
+        "threshold": 0.6,
+        "match": null,
+        "decision": "undetermined",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "synthetic-development-policy-v1",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "NO_FACE",
+          "severity": "medium",
+          "explanation": "live: expected one face; found 0.",
+          "field": "live",
+          "region": null
+        }
+      ],
+      "duration_ms": 664.97
+    },
+    "multiple_faces": {
+      "status": "insufficient_evidence",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 2,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": null,
+        "cosine_similarity": null,
+        "threshold": 0.6,
+        "match": null,
+        "decision": "undetermined",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "synthetic-development-policy-v1",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "MULTIPLE_FACES",
+          "severity": "medium",
+          "explanation": "live: expected one face; found 2.",
+          "field": "live",
+          "region": null
+        }
+      ],
+      "duration_ms": 762.0
+    },
+    "blurred_face": {
+      "status": "insufficient_evidence",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 0,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": null,
+        "cosine_similarity": null,
+        "threshold": 0.6,
+        "match": null,
+        "decision": "undetermined",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "synthetic-development-policy-v1",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "NO_FACE",
+          "severity": "medium",
+          "explanation": "live: expected one face; found 0.",
+          "field": "live",
+          "region": null
+        }
+      ],
+      "duration_ms": 668.34
+    },
+    "still_liveness": {
+      "status": "insufficient_evidence",
+      "data": {
+        "method": "texture-plus-blink-candidate-v1",
+        "verdict": "inconclusive",
+        "liveness_score": null,
+        "spoof_indicator_score": 0.0,
+        "blink_candidate": false,
+        "repeated_frame_count": 0,
+        "frames": [
+          {
+            "index": 0,
+            "timestamp_ms": 0.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          }
+        ],
+        "review_required": true,
+        "limitations": [
+          "Untrained heuristics; not a calibrated presentation-attack model.",
+          "Uploaded frames have no trusted live-capture provenance.",
+          "A replay may contain blinking; this module never certifies a live person."
+        ]
+      },
+      "findings": [
+        {
+          "code": "LIVENESS_NOT_VERIFIED",
+          "severity": "info",
+          "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 1137.34
+    },
+    "repeated_frames": {
+      "status": "insufficient_evidence",
+      "data": {
+        "method": "texture-plus-blink-candidate-v1",
+        "verdict": "suspicious",
+        "liveness_score": null,
+        "spoof_indicator_score": 1.0,
+        "blink_candidate": false,
+        "repeated_frame_count": 4,
+        "frames": [
+          {
+            "index": 0,
+            "timestamp_ms": 0.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          },
+          {
+            "index": 1,
+            "timestamp_ms": 100.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          },
+          {
+            "index": 2,
+            "timestamp_ms": 200.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          },
+          {
+            "index": 3,
+            "timestamp_ms": 300.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          },
+          {
+            "index": 4,
+            "timestamp_ms": 400.0,
+            "face_count": 1,
+            "eyes_visible": 2,
+            "quality_ok": true,
+            "same_face_as_first": true,
+            "texture_contrast": 39.1863,
+            "periodic_energy_ratio": 0.0272
+          }
+        ],
+        "review_required": true,
+        "limitations": [
+          "Untrained heuristics; not a calibrated presentation-attack model.",
+          "Uploaded frames have no trusted live-capture provenance.",
+          "A replay may contain blinking; this module never certifies a live person."
+        ]
+      },
+      "findings": [
+        {
+          "code": "REPEATED_FRAMES",
+          "severity": "medium",
+          "explanation": "Identical frames provide no temporal evidence.",
+          "field": null,
+          "region": null
+        },
+        {
+          "code": "SPOOF_HEURISTIC",
+          "severity": "low",
+          "explanation": "Untrained texture/repetition indicator; lighting and capture can cause false alarms.",
+          "field": null,
+          "region": null
+        },
+        {
+          "code": "LIVENESS_NOT_VERIFIED",
+          "severity": "info",
+          "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 1066.78
+    },
+    "same_claim": {
+      "status": "ok",
+      "data": {
+        "scope": "bundled-synthetic-fixtures-only",
+        "duplicate_identity_hit": false,
+        "matched_sample_id": "synthetic_a",
+        "similarity": 1.0,
+        "reasons": [],
+        "backend": "faiss.IndexFlatIP",
+        "embeddings_persisted": false
+      },
+      "findings": [
+        {
+          "code": "SYNTHETIC_INDEX_ONLY",
+          "severity": "info",
+          "explanation": "Search is restricted to two fixed generated portraits. Alias-rule demonstration; no real-world accuracy claim.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 641.26
+    },
+    "changed_claim": {
+      "status": "ok",
+      "data": {
+        "scope": "bundled-synthetic-fixtures-only",
+        "duplicate_identity_hit": true,
+        "matched_sample_id": "synthetic_a",
+        "similarity": 1.0,
+        "reasons": [
+          "Different synthetic name for the same fixture embedding."
+        ],
+        "backend": "faiss.IndexFlatIP",
+        "embeddings_persisted": false
+      },
+      "findings": [
+        {
+          "code": "SYNTHETIC_INDEX_ONLY",
+          "severity": "info",
+          "explanation": "Search is restricted to two fixed generated portraits. Alias-rule demonstration; no real-world accuracy claim.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 630.05
+    },
+    "upstream_threshold_false_match": {
+      "status": "ok",
+      "data": {
+        "document_face_count": 1,
+        "live_face_count": 1,
+        "document_face": {
+          "box": [
+            0.810625,
+            0.309,
+            0.068125,
+            0.15
+          ],
+          "landmarks": [
+            [
+              0.8312310576438904,
+              0.36755651235580444
+            ],
+            [
+              0.8625051379203796,
+              0.36529844999313354
+            ],
+            [
+              0.8472709059715271,
+              0.3986877501010895
+            ],
+            [
+              0.833952784538269,
+              0.4209829270839691
+            ],
+            [
+              0.8613643050193787,
+              0.41884714365005493
+            ]
+          ],
+          "detection_confidence": 0.956170916557312,
+          "width_pixels": 109,
+          "height_pixels": 150,
+          "laplacian_variance": 667.457,
+          "brightness": 137.311,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "live_face": {
+          "box": [
+            0.30666666666666664,
+            0.22,
+            0.38166666666666665,
+            0.49333333333333335
+          ],
+          "landmarks": [
+            [
+              0.41738131642341614,
+              0.41203969717025757
+            ],
+            [
+              0.5808874368667603,
+              0.4030241072177887
+            ],
+            [
+              0.5107822418212891,
+              0.5038741827011108
+            ],
+            [
+              0.4405500292778015,
+              0.5897495746612549
+            ],
+            [
+              0.5710963010787964,
+              0.5819305181503296
+            ]
+          ],
+          "detection_confidence": 0.9527422785758972,
+          "width_pixels": 229,
+          "height_pixels": 296,
+          "laplacian_variance": 213.177,
+          "brightness": 135.834,
+          "quality_ok": true,
+          "quality_reasons": []
+        },
+        "cosine_similarity": 0.456198513507843,
+        "threshold": 0.363,
+        "match": true,
+        "decision": "match",
+        "model": "sface-2021dec",
+        "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "threshold_calibrated": false,
+        "threshold_source": "request_override",
+        "liveness_verified": false
+      },
+      "findings": [
+        {
+          "code": "FACE_MATCH",
+          "severity": "info",
+          "explanation": "Cosine 0.4562; demo threshold 0.3630. This does not verify liveness or document authenticity.",
+          "field": null,
+          "region": null
+        }
+      ],
+      "duration_ms": 1252.58
+    }
+  }
+}
