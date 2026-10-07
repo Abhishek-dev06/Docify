@@ -1,0 +1,8 @@
+{
+  "architecture": "tiny-unet-v1",
+  "input_size": 192,
+  "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+  "training_domain": "procedural-synthetic-v1",
+  "calibrated": false,
+  "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5"
+}

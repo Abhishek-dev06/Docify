@@ -1,0 +1,16 @@
+# Synthetic development policy, not calibrated fraud probabilities.
+version: synthetic-weighted-v1
+medium_threshold: 15
+high_threshold: 35
+weights:
+  blacklist: 35
+  duplicate_identity: 15
+  face: 15
+  mrz: 8
+  cross_fields: 8
+  dates: 5
+  tampering: 5
+  liveness: 4
+  metadata: 2
+  format: 3
+required_signals: [blacklist, face, mrz, cross_fields, dates, tampering, liveness]
