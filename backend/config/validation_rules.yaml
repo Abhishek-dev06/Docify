@@ -1,0 +1,7 @@
+max_age: 120
+max_expiry_horizon_years: 20
+# These are demo policies, not an authoritative registry of passport formats.
+passport_number_patterns:
+  UTO: '^[A-Z][0-9]{7}$'
+# UTO is the fictional ICAO example country. D is the German MRZ code.
+extra_country_codes: [UTO, D, UNO, UNA, UNK, XOM, XCC, XPO, XXA, XXB, XXC, XXX]

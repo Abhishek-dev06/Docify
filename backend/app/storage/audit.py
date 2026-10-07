@@ -395,7 +395,7 @@ def _store(url: str) -> AuditStore:
 
 def get_audit_store() -> AuditStore:
     url = os.getenv(
-        "AUDIT_DATABASE_URL", f"sqlite:///{(ROOT / 'data' / 'audit.db').as_posix()}"
+        "AUDIT_DATABASE_URL", f"sqlite:///{(DATA_ROOT / 'audit.db').as_posix()}"
     )
     with _store_lock:
         return _store(url)
