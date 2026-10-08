@@ -1,0 +1,11 @@
+{
+  "version": "phase6-frozen-v1",
+  "scope": "Synthetic development evaluation, no real-world or biometric accuracy claim",
+  "reference_date": "2026-10-03",
+  "opencv_threads": 2,
+  "tesseract_thread_limit": 2,
+  "ocr": {"original_cases": 8, "new_identities": 6, "conditions": ["genuine", "dob_altered", "jpeg_q70"]},
+  "tamper": {"fresh_seed_start": 1000, "fresh_source_groups": 20, "pixel_threshold": 0.5, "image_fraction_threshold": 0.02, "baseline_image_index_threshold": 0.55},
+  "face": {"identities": ["synthetic_a", "synthetic_b"], "rotations": [-4, -2, 0, 3], "brightness": [[0.9, 8], [1.05, -4]], "threshold_source": "config/face_thresholds.yaml; already tuned on these two identities"},
+  "system": {"scenarios": ["genuine", "photo_replaced", "dob_altered"], "warm_repeats_per_scenario": 2, "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed", "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"}
+}

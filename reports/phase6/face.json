@@ -1,0 +1,665 @@
+{
+  "provenance": {
+    "timestamp_utc": "2026-10-03T18:19:37.353330+00:00",
+    "protocol": {
+      "version": "phase6-frozen-v1",
+      "scope": "Synthetic development evaluation, no real-world or biometric accuracy claim",
+      "reference_date": "2026-10-03",
+      "opencv_threads": 2,
+      "tesseract_thread_limit": 2,
+      "ocr": {
+        "original_cases": 8,
+        "new_identities": 6,
+        "conditions": [
+          "genuine",
+          "dob_altered",
+          "jpeg_q70"
+        ]
+      },
+      "tamper": {
+        "fresh_seed_start": 1000,
+        "fresh_source_groups": 20,
+        "pixel_threshold": 0.5,
+        "image_fraction_threshold": 0.02,
+        "baseline_image_index_threshold": 0.55
+      },
+      "face": {
+        "identities": [
+          "synthetic_a",
+          "synthetic_b"
+        ],
+        "rotations": [
+          -4,
+          -2,
+          0,
+          3
+        ],
+        "brightness": [
+          [
+            0.9,
+            8
+          ],
+          [
+            1.05,
+            -4
+          ]
+        ],
+        "threshold_source": "config/face_thresholds.yaml; already tuned on these two identities"
+      },
+      "system": {
+        "scenarios": [
+          "genuine",
+          "photo_replaced",
+          "dob_altered"
+        ],
+        "warm_repeats_per_scenario": 2,
+        "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed",
+        "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"
+      }
+    },
+    "protocol_sha256": "49245c11ded523636f5afdc20e5b88e8c1c647ab16fe09c5898e60e86c046687",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.6",
+    "cpu": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+    "logical_cpus": 4,
+    "opencv_threads": 2,
+    "omp_thread_limit": "2",
+    "packages": {
+      "numpy": "2.4.6",
+      "opencv-python-headless": "4.14.0.94",
+      "torch": "2.14.1+cpu",
+      "Pillow": "12.3.0"
+    },
+    "config_sha256": {
+      "face_thresholds.yaml": "2d667cad4c56fa3fbb827f66cb0eac10f65cff607b88a564dea1b591a479e96e",
+      "quality_thresholds.yaml": "9cefae9f978114f0273b434cb3f8e7f19da5595c6ef0e3d5e63b58f898684df4",
+      "risk_weights.yaml": "d2546bff55474b9e2b29719d551653f46ec87c319b3a92ddfd9466517ee9620a",
+      "tamper_thresholds.yaml": "d4e2117683abfb4da1c58b195bfc99bd46b2a5dbb0b3b784fb3bfd4ee77d9c47",
+      "validation_rules.yaml": "884955f4729cda9270cddc283582298c852b3c7a534e74c10862a52c54314f99"
+    },
+    "checkpoint": {
+      "architecture": "tiny-unet-v1",
+      "input_size": 192,
+      "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+      "training_domain": "procedural-synthetic-v1",
+      "calibrated": false,
+      "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5"
+    },
+    "face_models": {
+      "yunet": {
+        "filename": "face_detection_yunet_2023mar.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+        "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+        "size": 232589,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_detection_yunet/LICENSE",
+        "source": "OpenCV Zoo / YuNet 2023mar"
+      },
+      "sface": {
+        "filename": "face_recognition_sface_2021dec.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx",
+        "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "size": 38696353,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_recognition_sface/LICENSE",
+        "source": "OpenCV Zoo / SFace 2021dec"
+      }
+    }
+  },
+  "elapsed_s": 22.33214659999976,
+  "scope": "Illustrative transform stress test: TWO previously seen generated identities, shared source pixels. Correlated pairs, not biometric validation.",
+  "threshold": 0.6,
+  "threshold_calibrated": false,
+  "total_pairs": 32,
+  "eligible_pairs": 32,
+  "undetermined_pairs": 0,
+  "metrics_on_eligible_only": {
+    "n": 32,
+    "confusion_matrix": {
+      "tn": 16,
+      "fp": 0,
+      "fn": 0,
+      "tp": 16
+    },
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "false_positive_rate": 0.0,
+    "false_negative_rate": 0.0
+  },
+  "FAR": 0.0,
+  "FRR": 0.0,
+  "roc": [
+    {
+      "threshold": null,
+      "fpr": 0.0,
+      "tpr": 0.0
+    },
+    {
+      "threshold": 0.9670655131340027,
+      "fpr": 0.0,
+      "tpr": 0.0625
+    },
+    {
+      "threshold": 0.9648714065551758,
+      "fpr": 0.0,
+      "tpr": 0.125
+    },
+    {
+      "threshold": 0.9607049226760864,
+      "fpr": 0.0,
+      "tpr": 0.1875
+    },
+    {
+      "threshold": 0.9606744050979614,
+      "fpr": 0.0,
+      "tpr": 0.25
+    },
+    {
+      "threshold": 0.9605145454406738,
+      "fpr": 0.0,
+      "tpr": 0.3125
+    },
+    {
+      "threshold": 0.9603509306907654,
+      "fpr": 0.0,
+      "tpr": 0.375
+    },
+    {
+      "threshold": 0.9588654637336731,
+      "fpr": 0.0,
+      "tpr": 0.4375
+    },
+    {
+      "threshold": 0.9582763910293579,
+      "fpr": 0.0,
+      "tpr": 0.5
+    },
+    {
+      "threshold": 0.9573532342910767,
+      "fpr": 0.0,
+      "tpr": 0.5625
+    },
+    {
+      "threshold": 0.9571369290351868,
+      "fpr": 0.0,
+      "tpr": 0.625
+    },
+    {
+      "threshold": 0.9567076563835144,
+      "fpr": 0.0,
+      "tpr": 0.6875
+    },
+    {
+      "threshold": 0.9564771056175232,
+      "fpr": 0.0,
+      "tpr": 0.75
+    },
+    {
+      "threshold": 0.9546862840652466,
+      "fpr": 0.0,
+      "tpr": 0.8125
+    },
+    {
+      "threshold": 0.952727735042572,
+      "fpr": 0.0,
+      "tpr": 0.875
+    },
+    {
+      "threshold": 0.951914370059967,
+      "fpr": 0.0,
+      "tpr": 0.9375
+    },
+    {
+      "threshold": 0.951144814491272,
+      "fpr": 0.0,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.49712836742401123,
+      "fpr": 0.0625,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.49084001779556274,
+      "fpr": 0.125,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4879375994205475,
+      "fpr": 0.1875,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4858931005001068,
+      "fpr": 0.25,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4848405718803406,
+      "fpr": 0.3125,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.48076510429382324,
+      "fpr": 0.375,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4790688157081604,
+      "fpr": 0.4375,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4753967821598053,
+      "fpr": 0.5,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4726160168647766,
+      "fpr": 0.5625,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.46641045808792114,
+      "fpr": 0.625,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4650384783744812,
+      "fpr": 0.6875,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.46399378776550293,
+      "fpr": 0.75,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4631623327732086,
+      "fpr": 0.8125,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.45872288942337036,
+      "fpr": 0.875,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4526851773262024,
+      "fpr": 0.9375,
+      "tpr": 1.0
+    },
+    {
+      "threshold": 0.4467466175556183,
+      "fpr": 1.0,
+      "tpr": 1.0
+    }
+  ],
+  "rows": [
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": -4,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9607049226760864,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": -4,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.4790688157081604,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": -4,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9546862840652466,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": -4,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.48076510429382324,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": -2,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9605145454406738,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": -2,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.4858931005001068,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": -2,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9603509306907654,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": -2,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.4879375994205475,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": 0,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9606744050979614,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": 0,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.49712836742401123,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": 0,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9582763910293579,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": 0,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.4848405718803406,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": 3,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9648714065551758,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": 3,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.49084001779556274,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_a",
+      "angle": 3,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9670655131340027,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_a",
+      "angle": 3,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.4753967821598053,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": -4,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.4726160168647766,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": -4,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9571369290351868,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": -4,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.46399378776550293,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": -4,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.952727735042572,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": -2,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.4650384783744812,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": -2,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9588654637336731,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": -2,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.4631623327732086,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": -2,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9573532342910767,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": 0,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.45872288942337036,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": 0,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.951144814491272,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": 0,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.46641045808792114,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": 0,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.951914370059967,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": 3,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": false,
+      "cosine": 0.4526851773262024,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": 3,
+      "alpha": 0.9,
+      "beta": 8,
+      "same_identity": true,
+      "cosine": 0.9564771056175232,
+      "decision": "match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_a",
+      "probe": "synthetic_b",
+      "angle": 3,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": false,
+      "cosine": 0.4467466175556183,
+      "decision": "non_match",
+      "status": "ok"
+    },
+    {
+      "reference": "synthetic_b",
+      "probe": "synthetic_b",
+      "angle": 3,
+      "alpha": 1.05,
+      "beta": -4,
+      "same_identity": true,
+      "cosine": 0.9567076563835144,
+      "decision": "match",
+      "status": "ok"
+    }
+  ],
+  "upstream_0_363_comparison": {
+    "n": 32,
+    "confusion_matrix": {
+      "tn": 0,
+      "fp": 16,
+      "fn": 0,
+      "tp": 16
+    },
+    "precision": 0.5,
+    "recall": 1.0,
+    "f1": 0.6666666666666666,
+    "false_positive_rate": 1.0,
+    "false_negative_rate": 0.0
+  }
+}

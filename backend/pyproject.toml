@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "synthetic-document-screening"
+version = "0.1.0"
+description = "Synthetic document screening hackathon prototype, L0-L6"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi>=0.115,<1", "uvicorn>=0.30,<1", "pydantic>=2.9,<3",
+  "python-multipart>=0.0.18,<1", "numpy>=1.26,<3",
+  "opencv-python-headless>=4.10,<5", "Pillow>=10.4,<13",
+  "SQLAlchemy>=2.0,<3",
+  "PyYAML>=6,<7", "pycountry>=24.6,<27", "python-dotenv>=1,<2"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "httpx>=0.27,<1", "ruff>=0.9,<1"]
+face = ["faiss-cpu>=1.9,<2"]
+tampering = ["torch>=2.6,<3"]
+evaluation = ["matplotlib>=3.9,<4"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["ocr: requires an installed Tesseract executable",
+           "face_models: requires verified YuNet/SFace assets"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

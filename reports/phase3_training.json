@@ -1,0 +1,129 @@
+{
+  "architecture": "tiny-unet-v1",
+  "input_size": 192,
+  "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+  "training_domain": "procedural-synthetic-v1",
+  "calibrated": false,
+  "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5",
+  "torch_version": "2.14.1+cpu",
+  "seed": 310,
+  "seconds": 633.5262481000004,
+  "split_counts": {
+    "train": 375,
+    "val": 90,
+    "test": 35
+  },
+  "unique_groups": 100,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.612537797609965,
+      "val_loss": 0.4591552045610216
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.4472972327073415,
+      "val_loss": 0.4216890003946092
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.40849249919255576,
+      "val_loss": 0.4578296290503608
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.38498150118192037,
+      "val_loss": 0.38047885364956324
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.3793040418624878,
+      "val_loss": 0.3385444356335534
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.332329306602478,
+      "val_loss": 0.30489378770192466
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.3145228823026021,
+      "val_loss": 0.30449583066834346
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.297596697529157,
+      "val_loss": 0.26620998316340977
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.2703764756520589,
+      "val_loss": 0.2957987580034468
+    },
+    {
+      "epoch": 10,
+      "train_loss": 0.27576720118522646,
+      "val_loss": 0.2450412650903066
+    },
+    {
+      "epoch": 11,
+      "train_loss": 0.239333092768987,
+      "val_loss": 0.22385444773568047
+    },
+    {
+      "epoch": 12,
+      "train_loss": 0.2256175457239151,
+      "val_loss": 0.22603403064939712
+    }
+  ],
+  "test": {
+    "precision": 0.96,
+    "recall": 0.8571428571428571,
+    "f1": 0.9056603773584904,
+    "confusion_matrix": {
+      "tn": 6,
+      "fp": 1,
+      "fn": 4,
+      "tp": 24
+    },
+    "per_attack": {
+      "clean": {
+        "count": 7,
+        "flagged": 1,
+        "mean_iou": null,
+        "mean_predicted_fraction": 0.00925409235060215
+      },
+      "copy_move": {
+        "count": 7,
+        "flagged": 3,
+        "mean_iou": 0.24011576175689697,
+        "mean_predicted_fraction": 0.02225167490541935
+      },
+      "photo_replacement": {
+        "count": 7,
+        "flagged": 7,
+        "mean_iou": 0.7274883985519409,
+        "mean_predicted_fraction": 0.0923045352101326
+      },
+      "stamp_edit": {
+        "count": 7,
+        "flagged": 7,
+        "mean_iou": 0.6261362433433533,
+        "mean_predicted_fraction": 0.0435849130153656
+      },
+      "text_replacement": {
+        "count": 7,
+        "flagged": 7,
+        "mean_iou": 0.5029312968254089,
+        "mean_predicted_fraction": 0.0431121326982975
+      }
+    },
+    "pixel_threshold": 0.5,
+    "image_fraction_threshold": 0.02
+  },
+  "limitations": [
+    "Synthetic-only; fixed template and attack generator.",
+    "Identity groups held out; layouts and attack families overlap.",
+    "No public-dataset or real-document accuracy claim."
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "provenance": {
+    "timestamp_utc": "2026-10-03T18:17:40.007680+00:00",
+    "protocol": {
+      "version": "phase6-frozen-v1",
+      "scope": "Synthetic development evaluation, no real-world or biometric accuracy claim",
+      "reference_date": "2026-10-03",
+      "opencv_threads": 2,
+      "tesseract_thread_limit": 2,
+      "ocr": {
+        "original_cases": 8,
+        "new_identities": 6,
+        "conditions": [
+          "genuine",
+          "dob_altered",
+          "jpeg_q70"
+        ]
+      },
+      "tamper": {
+        "fresh_seed_start": 1000,
+        "fresh_source_groups": 20,
+        "pixel_threshold": 0.5,
+        "image_fraction_threshold": 0.02,
+        "baseline_image_index_threshold": 0.55
+      },
+      "face": {
+        "identities": [
+          "synthetic_a",
+          "synthetic_b"
+        ],
+        "rotations": [
+          -4,
+          -2,
+          0,
+          3
+        ],
+        "brightness": [
+          [
+            0.9,
+            8
+          ],
+          [
+            1.05,
+            -4
+          ]
+        ],
+        "threshold_source": "config/face_thresholds.yaml; already tuned on these two identities"
+      },
+      "system": {
+        "scenarios": [
+          "genuine",
+          "photo_replaced",
+          "dob_altered"
+        ],
+        "warm_repeats_per_scenario": 2,
+        "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed",
+        "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"
+      }
+    },
+    "protocol_sha256": "49245c11ded523636f5afdc20e5b88e8c1c647ab16fe09c5898e60e86c046687",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.6",
+    "cpu": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+    "logical_cpus": 4,
+    "opencv_threads": 2,
+    "omp_thread_limit": "2",
+    "packages": {
+      "numpy": "2.4.6",
+      "opencv-python-headless": "4.14.0.94",
+      "torch": "2.14.1+cpu",
+      "Pillow": "12.3.0"
+    },
+    "config_sha256": {
+      "face_thresholds.yaml": "2d667cad4c56fa3fbb827f66cb0eac10f65cff607b88a564dea1b591a479e96e",
+      "quality_thresholds.yaml": "9cefae9f978114f0273b434cb3f8e7f19da5595c6ef0e3d5e63b58f898684df4",
+      "risk_weights.yaml": "d2546bff55474b9e2b29719d551653f46ec87c319b3a92ddfd9466517ee9620a",
+      "tamper_thresholds.yaml": "d4e2117683abfb4da1c58b195bfc99bd46b2a5dbb0b3b784fb3bfd4ee77d9c47",
+      "validation_rules.yaml": "884955f4729cda9270cddc283582298c852b3c7a534e74c10862a52c54314f99"
+    },
+    "checkpoint": {
+      "architecture": "tiny-unet-v1",
+      "input_size": 192,
+      "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+      "training_domain": "procedural-synthetic-v1",
+      "calibrated": false,
+      "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5"
+    },
+    "face_models": {
+      "yunet": {
+        "filename": "face_detection_yunet_2023mar.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+        "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+        "size": 232589,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_detection_yunet/LICENSE",
+        "source": "OpenCV Zoo / YuNet 2023mar"
+      },
+      "sface": {
+        "filename": "face_recognition_sface_2021dec.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx",
+        "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "size": 38696353,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_recognition_sface/LICENSE",
+        "source": "OpenCV Zoo / SFace 2021dec"
+      }
+    }
+  },
+  "elapsed_s": 40.210530199999994,
+  "scope": {
+    "scenarios": [
+      "genuine",
+      "photo_replaced",
+      "dob_altered"
+    ],
+    "warm_repeats_per_scenario": 2,
+    "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed",
+    "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"
+  },
+  "rows": [
+    {
+      "scenario": "genuine",
+      "run_type": "process_cold",
+      "repeat": 0,
+      "wall_ms": 12507.319300000745,
+      "pipeline_ms": 12503.66,
+      "document_sha256": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 252.61,
+        "ocr": 3187.57,
+        "validation": 70.37,
+        "tampering": 8901.03,
+        "face": 2634.48,
+        "liveness": 769.82,
+        "risk": 0.81
+      },
+      "parallel_ms": 8907.91,
+      "failures": [],
+      "score": 3.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.9299123883247375,
+      "face_decision": "match",
+      "mismatches": 0
+    },
+    {
+      "scenario": "genuine",
+      "run_type": "warm",
+      "repeat": 1,
+      "wall_ms": 3956.0588999993342,
+      "pipeline_ms": 3953.61,
+      "document_sha256": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 237.63,
+        "ocr": 2305.94,
+        "validation": 16.34,
+        "tampering": 841.41,
+        "face": 927.4,
+        "liveness": 328.81,
+        "risk": 0.23
+      },
+      "parallel_ms": 1268.87,
+      "failures": [],
+      "score": 3.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.9299123883247375,
+      "face_decision": "match",
+      "mismatches": 0
+    },
+    {
+      "scenario": "photo_replaced",
+      "run_type": "warm",
+      "repeat": 1,
+      "wall_ms": 4483.089499999551,
+      "pipeline_ms": 4481.29,
+      "document_sha256": "8f08f67d09c59a6782ff52f8af72fdbd97326012f0de9694bfd8a5c083cec6dd",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 210.94,
+        "ocr": 2630.52,
+        "validation": 13.94,
+        "tampering": 1009.03,
+        "face": 970.37,
+        "liveness": 554.94,
+        "risk": 0.29
+      },
+      "parallel_ms": 1535.86,
+      "failures": [],
+      "score": 18.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.4315216541290283,
+      "face_decision": "non_match",
+      "mismatches": 0
+    },
+    {
+      "scenario": "dob_altered",
+      "run_type": "warm",
+      "repeat": 1,
+      "wall_ms": 3669.672399999399,
+      "pipeline_ms": 3667.14,
+      "document_sha256": "473e9364f02745ba0fe24747e0239f8857fea56c76a03564199eac7eea108460",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 214.83,
+        "ocr": 2301.28,
+        "validation": 12.22,
+        "tampering": 765.09,
+        "face": 744.26,
+        "liveness": 279.86,
+        "risk": 0.19
+      },
+      "parallel_ms": 1034.87,
+      "failures": [],
+      "score": 7.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.9299123883247375,
+      "face_decision": "match",
+      "mismatches": 1
+    },
+    {
+      "scenario": "genuine",
+      "run_type": "warm",
+      "repeat": 2,
+      "wall_ms": 3638.682799999515,
+      "pipeline_ms": 3637.36,
+      "document_sha256": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 244.9,
+        "ocr": 2215.46,
+        "validation": 17.41,
+        "tampering": 793.68,
+        "face": 772.94,
+        "liveness": 294.08,
+        "risk": 0.16
+      },
+      "parallel_ms": 1080.03,
+      "failures": [],
+      "score": 3.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.9299123883247375,
+      "face_decision": "match",
+      "mismatches": 0
+    },
+    {
+      "scenario": "photo_replaced",
+      "run_type": "warm",
+      "repeat": 2,
+      "wall_ms": 4072.544199998447,
+      "pipeline_ms": 4070.4,
+      "document_sha256": "8f08f67d09c59a6782ff52f8af72fdbd97326012f0de9694bfd8a5c083cec6dd",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 162.17,
+        "ocr": 2227.92,
+        "validation": 13.24,
+        "tampering": 913.02,
+        "face": 1146.2,
+        "liveness": 431.36,
+        "risk": 0.29
+      },
+      "parallel_ms": 1589.98,
+      "failures": [],
+      "score": 18.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.4315216541290283,
+      "face_decision": "non_match",
+      "mismatches": 0
+    },
+    {
+      "scenario": "dob_altered",
+      "run_type": "warm",
+      "repeat": 2,
+      "wall_ms": 5926.316499999302,
+      "pipeline_ms": 5924.64,
+      "document_sha256": "473e9364f02745ba0fe24747e0239f8857fea56c76a03564199eac7eea108460",
+      "status": "insufficient_evidence",
+      "layer_ms": {
+        "capture": 256.53,
+        "ocr": 4112.36,
+        "validation": 20.38,
+        "tampering": 1043.56,
+        "face": 1019.1,
+        "liveness": 389.0,
+        "risk": 0.25
+      },
+      "parallel_ms": 1431.47,
+      "failures": [],
+      "score": 7.25,
+      "category": null,
+      "missing_required": [
+        "liveness"
+      ],
+      "face_cosine": 0.9299123883247375,
+      "face_decision": "match",
+      "mismatches": 1
+    }
+  ],
+  "cold": {
+    "scenario": "genuine",
+    "run_type": "process_cold",
+    "repeat": 0,
+    "wall_ms": 12507.319300000745,
+    "pipeline_ms": 12503.66,
+    "document_sha256": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+    "status": "insufficient_evidence",
+    "layer_ms": {
+      "capture": 252.61,
+      "ocr": 3187.57,
+      "validation": 70.37,
+      "tampering": 8901.03,
+      "face": 2634.48,
+      "liveness": 769.82,
+      "risk": 0.81
+    },
+    "parallel_ms": 8907.91,
+    "failures": [],
+    "score": 3.25,
+    "category": null,
+    "missing_required": [
+      "liveness"
+    ],
+    "face_cosine": 0.9299123883247375,
+    "face_decision": "match",
+    "mismatches": 0
+  },
+  "warm": {
+    "n": 6,
+    "mean_ms": 4291.060716665925,
+    "median_ms": 4014.3015499988906,
+    "p95_ms": 5565.509749999364,
+    "min_ms": 3638.682799999515,
+    "max_ms": 5926.316499999302,
+    "p95_method": "linear interpolation; descriptive only for small samples"
+  },
+  "per_scenario": {
+    "genuine": {
+      "n": 2,
+      "mean_ms": 3797.3708499994245,
+      "median_ms": 3797.3708499994245,
+      "p95_ms": 3940.1900949993433,
+      "min_ms": 3638.682799999515,
+      "max_ms": 3956.0588999993342,
+      "p95_method": "linear interpolation; descriptive only for small samples"
+    },
+    "photo_replaced": {
+      "n": 2,
+      "mean_ms": 4277.816849998999,
+      "median_ms": 4277.816849998999,
+      "p95_ms": 4462.562234999496,
+      "min_ms": 4072.544199998447,
+      "max_ms": 4483.089499999551,
+      "p95_method": "linear interpolation; descriptive only for small samples"
+    },
+    "dob_altered": {
+      "n": 2,
+      "mean_ms": 4797.994449999351,
+      "median_ms": 4797.994449999351,
+      "p95_ms": 5813.484294999307,
+      "min_ms": 3669.672399999399,
+      "max_ms": 5926.316499999302,
+      "p95_method": "linear interpolation; descriptive only for small samples"
+    }
+  },
+  "limitations": "Single sequential process; no HTTP/audit/UI or concurrency load. Small n."
+}

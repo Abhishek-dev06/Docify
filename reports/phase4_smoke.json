@@ -1,0 +1,4177 @@
+{
+  "scope": "synthetic smoke; not held-out accuracy",
+  "pipeline": {
+    "genuine_synthetic": {
+      "status": "insufficient_evidence",
+      "document_hash": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+      "reference_date": "2026-10-03",
+      "capture": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "classification_confidence": null,
+          "classification_method": "user_hint",
+          "boundary_detected": true,
+          "quality": {
+            "width": 1575,
+            "height": 975,
+            "laplacian_variance": 1185.634,
+            "brightness": 223.208,
+            "saturated_fraction": 0.0
+          },
+          "mime_type": "image/png",
+          "transform": [
+            [
+              0.9993650793650793,
+              1.711105540070135e-18,
+              -11.992380952380953
+            ],
+            [
+              0.0,
+              0.998974358974359,
+              -11.987692307692308
+            ],
+            [
+              4.631809496170923e-21,
+              1.1574996509955043e-21,
+              1.0
+            ]
+          ]
+        },
+        "findings": [],
+        "duration_ms": 169.2
+      },
+      "ocr": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "raw_text": "SYNTHETIC PASSPORT - NOT VALID FOR TRAVEL\nFICTIONAL UTOPIA / HACKATHON TEST DOCUMENT\nNAME: EXAMPLE ALEX\nPASSPORT NO: Z9000000\nNATIONALITY: UTO\nDOB: 1988-04-12\nEXPIRY: 2031-10-03\nISSUE DATE: 2021-10-04\nSEX: X\nTEST AVATAR\nSPECIMEN / GENERATED DATA ONLY\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UT08804123<3110038<<<<<<<<<<<<<<04\n\n[MRZ row OCR]\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04",
+          "mrz": {
+            "format": "TD3",
+            "raw_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "corrected_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "fields": {
+              "number": {
+                "raw": "Z9000000<",
+                "corrected": "Z9000000",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "issuing_country": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "nationality": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "dob": {
+                "raw": "880412",
+                "corrected": "880412",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "expiry": {
+                "raw": "311003",
+                "corrected": "311003",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "gender": {
+                "raw": "<",
+                "corrected": "X",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "name": {
+                "raw": "EXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "corrected": "EXAMPLE ALEX",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              }
+            },
+            "checks": [
+              {
+                "field": "number",
+                "input": "Z9000000<",
+                "observed": "2",
+                "expected": "2",
+                "valid": true
+              },
+              {
+                "field": "dob",
+                "input": "880412",
+                "observed": "3",
+                "expected": "3",
+                "valid": true
+              },
+              {
+                "field": "expiry",
+                "input": "311003",
+                "observed": "8",
+                "expected": "8",
+                "valid": true
+              },
+              {
+                "field": "optional_data",
+                "input": "<<<<<<<<<<<<<<",
+                "observed": "0",
+                "expected": "0",
+                "valid": true
+              },
+              {
+                "field": "composite",
+                "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+                "observed": "4",
+                "expected": "4",
+                "valid": true
+              }
+            ],
+            "corrections": [],
+            "limitations": []
+          },
+          "viz_fields": {
+            "name": {
+              "raw": "EXAMPLE ALEX",
+              "corrected": "EXAMPLE ALEX",
+              "confidence": 0.9659477733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "number": {
+              "raw": "Z9000000",
+              "corrected": "Z9000000",
+              "confidence": 0.9361462433333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "nationality": {
+              "raw": "UTO",
+              "corrected": "UTO",
+              "confidence": 0.9294655949999999,
+              "source": "viz",
+              "corrections": []
+            },
+            "dob": {
+              "raw": "1988-04-12",
+              "corrected": "1988-04-12",
+              "confidence": 0.96712471,
+              "source": "viz",
+              "corrections": []
+            },
+            "expiry": {
+              "raw": "2031-10-03",
+              "corrected": "2031-10-03",
+              "confidence": 0.9669739900000001,
+              "source": "viz",
+              "corrections": []
+            },
+            "issue": {
+              "raw": "2021-10-04",
+              "corrected": "2021-10-04",
+              "confidence": 0.9659536733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "gender": {
+              "raw": "X",
+              "corrected": "X",
+              "confidence": 0.932597965,
+              "source": "viz",
+              "corrections": []
+            }
+          },
+          "engine": "tesseract"
+        },
+        "findings": [
+          {
+            "code": "PORTRAIT_EXCLUDED_FROM_OCR",
+            "severity": "info",
+            "explanation": "Caller-specified portrait excluded from OCR only; L3 and face comparison retain the original image evidence.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          }
+        ],
+        "duration_ms": 2098.69
+      },
+      "validation": {
+        "status": "ok",
+        "data": {
+          "checks": [
+            {
+              "field": "number",
+              "input": "Z9000000<",
+              "observed": "2",
+              "expected": "2",
+              "valid": true
+            },
+            {
+              "field": "dob",
+              "input": "880412",
+              "observed": "3",
+              "expected": "3",
+              "valid": true
+            },
+            {
+              "field": "expiry",
+              "input": "311003",
+              "observed": "8",
+              "expected": "8",
+              "valid": true
+            },
+            {
+              "field": "optional_data",
+              "input": "<<<<<<<<<<<<<<",
+              "observed": "0",
+              "expected": "0",
+              "valid": true
+            },
+            {
+              "field": "composite",
+              "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+              "observed": "4",
+              "expected": "4",
+              "valid": true
+            }
+          ],
+          "cross_checks": [
+            {
+              "field": "dob",
+              "mrz_value": "880412",
+              "viz_value": "1988-04-12",
+              "consistent": true
+            },
+            {
+              "field": "expiry",
+              "mrz_value": "311003",
+              "viz_value": "2031-10-03",
+              "consistent": true
+            },
+            {
+              "field": "name",
+              "mrz_value": "EXAMPLE ALEX",
+              "viz_value": "EXAMPLE ALEX",
+              "consistent": true
+            },
+            {
+              "field": "number",
+              "mrz_value": "Z9000000",
+              "viz_value": "Z9000000",
+              "consistent": true
+            }
+          ],
+          "mismatch_count": 0,
+          "resolved_dates": {
+            "dob": "1988-04-12",
+            "expiry": "2031-10-03"
+          },
+          "blacklist_hit": false,
+          "previously_seen": 0,
+          "database_available": true
+        },
+        "findings": [],
+        "duration_ms": 28.36
+      },
+      "tampering": {
+        "status": "ok",
+        "data": {
+          "suspicion_score": 0.6500000357627869,
+          "tamper_probability": null,
+          "score_calibrated": false,
+          "detectors": [
+            {
+              "name": "metadata",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "EXIF software/timestamp rules",
+              "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+              "regions": [],
+              "metrics": {
+                "exif_present": false,
+                "editing_software_tag": false,
+                "reversed_timestamps": false,
+                "format": "PNG"
+              }
+            },
+            {
+              "name": "double_jpeg",
+              "status": "unavailable",
+              "score": null,
+              "method": "DCT histogram periodicity proxy",
+              "explanation": "Only applicable to a JPEG source; no compression verdict.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "ela",
+              "status": "unavailable",
+              "score": null,
+              "method": "JPEG recompression residual",
+              "explanation": "Lossless source: prior JPEG history cannot be assessed.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "noise_splicing",
+              "status": "ok",
+              "score": 0.011453894898295403,
+              "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+              "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+              "regions": [],
+              "metrics": {
+                "flat_pixel_fraction": 0.7444427013397217,
+                "supported_fraction": 0.84021875
+              }
+            },
+            {
+              "name": "photo_replacement",
+              "status": "ok",
+              "score": 0.5728898644447327,
+              "method": "Portrait/ring residual comparison",
+              "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+              "regions": [
+                [
+                  0.75,
+                  0.21,
+                  0.19375,
+                  0.46
+                ]
+              ],
+              "metrics": {
+                "photo_noise": 5.339369773864746,
+                "ring_noise": 0.0010001164628192782,
+                "photo_recompression_error": 1.5751519401589529,
+                "ring_recompression_error": 1.0409691407825736
+              }
+            },
+            {
+              "name": "copy_move",
+              "status": "ok",
+              "score": 0.6500000357627869,
+              "method": "ORB self-matches with displacement consensus",
+              "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+              "regions": [
+                [
+                  0.66875,
+                  0.8283333333333334,
+                  0.146875,
+                  0.04833333333333333
+                ],
+                [
+                  0.5520833333333334,
+                  0.8283333333333334,
+                  0.06979166666666667,
+                  0.04833333333333333
+                ],
+                [
+                  0.23125,
+                  0.5516666666666666,
+                  0.052083333333333336,
+                  0.05
+                ],
+                [
+                  0.17708333333333334,
+                  0.48,
+                  0.052083333333333336,
+                  0.04833333333333333
+                ],
+                [
+                  0.8625,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.8239583333333333,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.6302083333333334,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.5135416666666667,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.1875,
+                  0.5733333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.16458333333333333,
+                  0.19,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.13333333333333333,
+                  0.5016666666666667,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.06666666666666667,
+                  0.19,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ]
+              ],
+              "metrics": {
+                "consensus_pairs": 17
+              }
+            },
+            {
+              "name": "font_inconsistency",
+              "status": "ok",
+              "score": 0.0,
+              "method": "Same-row component-height outliers",
+              "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+              "regions": [],
+              "metrics": {
+                "outlier_components": 0
+              }
+            },
+            {
+              "name": "stamp_yolo",
+              "status": "unavailable",
+              "score": null,
+              "method": "One-class YOLOv8 ONNX adapter",
+              "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "stamp_template",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "Edge template matching against a fictional DEMO stamp",
+              "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+              "regions": [
+                [
+                  0.007291666666666667,
+                  0.011666666666666667,
+                  0.9854166666666667,
+                  0.9766666666666667
+                ]
+              ],
+              "metrics": {
+                "candidate_count": 1,
+                "best_demo_template_similarity": 0.0781659483909607,
+                "verified_issuer_templates": false
+              }
+            },
+            {
+              "name": "cnn",
+              "status": "ok",
+              "score": 0.5764579176902771,
+              "method": "Tiny U-Net / procedural synthetic training",
+              "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+              "regions": [
+                [
+                  0.027083333333333334,
+                  0.008333333333333333,
+                  0.21041666666666667,
+                  0.9283333333333333
+                ],
+                [
+                  0.55625,
+                  0.03833333333333333,
+                  0.13020833333333334,
+                  0.065
+                ]
+              ],
+              "metrics": {
+                "predicted_fraction": 0.08642578125,
+                "synthetic_flag": true,
+                "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+                "calibrated": false,
+                "training_domain": "procedural-synthetic-v1"
+              }
+            }
+          ],
+          "width": 960,
+          "height": 600,
+          "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+          "heatmap_source": "maximum of available localized classical signals",
+          "limitations": [
+            "Scores are uncalibrated review indices, not fraud probabilities.",
+            "Text, portraits, compression and printing cause false positives.",
+            "Missing detectors remain unavailable; no authenticity verdict.",
+            "CNN is procedural-synthetic only; separate from baseline.",
+            "Photo region is caller-supplied; issuer stamp templates absent."
+          ]
+        },
+        "findings": [
+          {
+            "code": "TAMPER_PHOTO_REPLACEMENT",
+            "severity": "medium",
+            "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          },
+          {
+            "code": "TAMPER_COPY_MOVE",
+            "severity": "medium",
+            "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+            "field": null,
+            "region": [
+              0.66875,
+              0.8283333333333334,
+              0.146875,
+              0.04833333333333333
+            ]
+          },
+          {
+            "code": "TAMPER_CNN",
+            "severity": "medium",
+            "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+            "field": null,
+            "region": [
+              0.027083333333333334,
+              0.008333333333333333,
+              0.21041666666666667,
+              0.9283333333333333
+            ]
+          }
+        ],
+        "duration_ms": 6463.52
+      },
+      "face": {
+        "status": "ok",
+        "data": {
+          "document_face_count": 1,
+          "live_face_count": 1,
+          "document_face": {
+            "box": [
+              0.8171428571428572,
+              0.29846153846153844,
+              0.06666666666666667,
+              0.15692307692307692
+            ],
+            "landmarks": [
+              [
+                0.8358969688415527,
+                0.359240859746933
+              ],
+              [
+                0.8702872395515442,
+                0.35756736993789673
+              ],
+              [
+                0.8536360859870911,
+                0.3936055600643158
+              ],
+              [
+                0.8386452198028564,
+                0.418139785528183
+              ],
+              [
+                0.8682075142860413,
+                0.4168017506599426
+              ]
+            ],
+            "detection_confidence": 0.9539480805397034,
+            "width_pixels": 105,
+            "height_pixels": 153,
+            "laplacian_variance": 246.555,
+            "brightness": 135.304,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "live_face": {
+            "box": [
+              0.31833333333333336,
+              0.21,
+              0.3466666666666667,
+              0.4866666666666667
+            ],
+            "landmarks": [
+              [
+                0.4069358706474304,
+                0.3921521008014679
+              ],
+              [
+                0.5720104575157166,
+                0.3786430358886719
+              ],
+              [
+                0.5028594136238098,
+                0.47962331771850586
+              ],
+              [
+                0.437156081199646,
+                0.5716827511787415
+              ],
+              [
+                0.5735169649124146,
+                0.5584031939506531
+              ]
+            ],
+            "detection_confidence": 0.9562373757362366,
+            "width_pixels": 208,
+            "height_pixels": 292,
+            "laplacian_variance": 215.113,
+            "brightness": 138.179,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "cosine_similarity": 0.9299123883247375,
+          "threshold": 0.6,
+          "match": true,
+          "decision": "match",
+          "model": "sface-2021dec",
+          "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+          "threshold_calibrated": false,
+          "threshold_source": "synthetic-development-policy-v1",
+          "liveness_verified": false
+        },
+        "findings": [
+          {
+            "code": "FACE_MATCH",
+            "severity": "info",
+            "explanation": "Cosine 0.9299; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 1786.3
+      },
+      "liveness": {
+        "status": "insufficient_evidence",
+        "data": {
+          "method": "texture-plus-blink-candidate-v1",
+          "verdict": "inconclusive",
+          "liveness_score": null,
+          "spoof_indicator_score": 0.0,
+          "blink_candidate": false,
+          "repeated_frame_count": 0,
+          "frames": [
+            {
+              "index": 0,
+              "timestamp_ms": 0.0,
+              "face_count": 1,
+              "eyes_visible": 2,
+              "quality_ok": true,
+              "same_face_as_first": true,
+              "texture_contrast": 42.3798,
+              "periodic_energy_ratio": 0.0274
+            }
+          ],
+          "review_required": true,
+          "limitations": [
+            "Untrained heuristics; not a calibrated presentation-attack model.",
+            "Uploaded frames have no trusted live-capture provenance.",
+            "A replay may contain blinking; this module never certifies a live person."
+          ]
+        },
+        "findings": [
+          {
+            "code": "LIVENESS_NOT_VERIFIED",
+            "severity": "info",
+            "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 645.3
+      },
+      "risk": {
+        "status": "insufficient_evidence",
+        "data": {
+          "score": 3.25,
+          "category": null,
+          "score_range": [
+            3.25,
+            24.25
+          ],
+          "evidence_coverage": 0.79,
+          "missing_signals": [
+            "duplicate_identity",
+            "liveness",
+            "metadata"
+          ],
+          "missing_required_signals": [
+            "liveness"
+          ],
+          "contributions": [
+            {
+              "name": "blacklist",
+              "weight": 35.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Fictional local blacklist lookup; not an official watchlist.",
+              "source": "L2 mock SQLite",
+              "experimental": true
+            },
+            {
+              "name": "duplicate_identity",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "face",
+              "weight": 15.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Cosine 0.9299, threshold 0.6000; one-to-one comparison is not identity or liveness certification.",
+              "source": "L4 SFace",
+              "experimental": true
+            },
+            {
+              "name": "mrz",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Failed MRZ checks add one capped signal; OCR errors can cause failure.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "cross_fields",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "0 observed MRZ/VIZ mismatches; capped at two.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "dates",
+              "weight": 5.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Date rules: no violation observed; unresolved dates remain unknown.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "tampering",
+              "weight": 5.0,
+              "value": 0.6500000357627869,
+              "points": 3.25,
+              "complete": true,
+              "explanation": "Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+              "source": "L3 classical",
+              "experimental": true
+            },
+            {
+              "name": "liveness",
+              "weight": 4.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Untrained spoof indicator only; liveness remains unverified.",
+              "source": "L4 heuristics",
+              "experimental": true
+            },
+            {
+              "name": "metadata",
+              "weight": 2.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Maximum EXIF/compression proxy; editing alone does not prove fraud.",
+              "source": "L3 metadata",
+              "experimental": true
+            },
+            {
+              "name": "format",
+              "weight": 3.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Demo country/number rules: no violation observed.",
+              "source": "L2 demo policy",
+              "experimental": true
+            }
+          ],
+          "reasons": [
+            "tampering: +3.25/5 points. Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+            "Required evidence incomplete: liveness. Missing evidence is not a clean result."
+          ],
+          "policy_version": "synthetic-weighted-v1",
+          "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+          "engine": "transparent-weighted-v1",
+          "calibrated": false,
+          "human_review_required": true,
+          "automatic_decision": null,
+          "scope": "synthetic-development-demo"
+        },
+        "findings": [],
+        "duration_ms": 0.27
+      },
+      "failures": [],
+      "duration_ms": 8849.94,
+      "parallel_stage_ms": 6469.52,
+      "images_persisted": false,
+      "face_coordinate_frame": "L0-corrected document and supplied live/frame image"
+    },
+    "dob_altered": {
+      "status": "insufficient_evidence",
+      "document_hash": "473e9364f02745ba0fe24747e0239f8857fea56c76a03564199eac7eea108460",
+      "reference_date": "2026-10-03",
+      "capture": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "classification_confidence": null,
+          "classification_method": "user_hint",
+          "boundary_detected": true,
+          "quality": {
+            "width": 1575,
+            "height": 975,
+            "laplacian_variance": 1185.609,
+            "brightness": 223.209,
+            "saturated_fraction": 0.0
+          },
+          "mime_type": "image/png",
+          "transform": [
+            [
+              0.9993650793650793,
+              1.711105540070135e-18,
+              -11.992380952380953
+            ],
+            [
+              0.0,
+              0.998974358974359,
+              -11.987692307692308
+            ],
+            [
+              4.631809496170923e-21,
+              1.1574996509955043e-21,
+              1.0
+            ]
+          ]
+        },
+        "findings": [],
+        "duration_ms": 147.23
+      },
+      "ocr": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "raw_text": "SYNTHETIC PASSPORT - NOT VALID FOR TRAVEL\nFICTIONAL UTOPIA / HACKATHON TEST DOCUMENT\nNAME: EXAMPLE ALEX\nPASSPORT NO: Z9000000\nNATIONALITY: UTO\nDOB: 1998-04-12\nEXPIRY: 2031-10-03\nISSUE DATE: 2021-10-04\nSEX: X\nTEST AVATAR\nSPECIMEN / GENERATED DATA ONLY\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UT08804123<3110038<<<<<<<<<<<<<<04\n\n[MRZ row OCR]\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04",
+          "mrz": {
+            "format": "TD3",
+            "raw_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "corrected_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "fields": {
+              "number": {
+                "raw": "Z9000000<",
+                "corrected": "Z9000000",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "issuing_country": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "nationality": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "dob": {
+                "raw": "880412",
+                "corrected": "880412",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "expiry": {
+                "raw": "311003",
+                "corrected": "311003",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "gender": {
+                "raw": "<",
+                "corrected": "X",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "name": {
+                "raw": "EXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "corrected": "EXAMPLE ALEX",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              }
+            },
+            "checks": [
+              {
+                "field": "number",
+                "input": "Z9000000<",
+                "observed": "2",
+                "expected": "2",
+                "valid": true
+              },
+              {
+                "field": "dob",
+                "input": "880412",
+                "observed": "3",
+                "expected": "3",
+                "valid": true
+              },
+              {
+                "field": "expiry",
+                "input": "311003",
+                "observed": "8",
+                "expected": "8",
+                "valid": true
+              },
+              {
+                "field": "optional_data",
+                "input": "<<<<<<<<<<<<<<",
+                "observed": "0",
+                "expected": "0",
+                "valid": true
+              },
+              {
+                "field": "composite",
+                "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+                "observed": "4",
+                "expected": "4",
+                "valid": true
+              }
+            ],
+            "corrections": [],
+            "limitations": []
+          },
+          "viz_fields": {
+            "name": {
+              "raw": "EXAMPLE ALEX",
+              "corrected": "EXAMPLE ALEX",
+              "confidence": 0.9659477733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "number": {
+              "raw": "Z9000000",
+              "corrected": "Z9000000",
+              "confidence": 0.9361462433333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "nationality": {
+              "raw": "UTO",
+              "corrected": "UTO",
+              "confidence": 0.9294655949999999,
+              "source": "viz",
+              "corrections": []
+            },
+            "dob": {
+              "raw": "1998-04-12",
+              "corrected": "1998-04-12",
+              "confidence": 0.967307435,
+              "source": "viz",
+              "corrections": []
+            },
+            "expiry": {
+              "raw": "2031-10-03",
+              "corrected": "2031-10-03",
+              "confidence": 0.9669739900000001,
+              "source": "viz",
+              "corrections": []
+            },
+            "issue": {
+              "raw": "2021-10-04",
+              "corrected": "2021-10-04",
+              "confidence": 0.9659536733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "gender": {
+              "raw": "X",
+              "corrected": "X",
+              "confidence": 0.932597965,
+              "source": "viz",
+              "corrections": []
+            }
+          },
+          "engine": "tesseract"
+        },
+        "findings": [
+          {
+            "code": "PORTRAIT_EXCLUDED_FROM_OCR",
+            "severity": "info",
+            "explanation": "Caller-specified portrait excluded from OCR only; L3 and face comparison retain the original image evidence.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          }
+        ],
+        "duration_ms": 2347.87
+      },
+      "validation": {
+        "status": "ok",
+        "data": {
+          "checks": [
+            {
+              "field": "number",
+              "input": "Z9000000<",
+              "observed": "2",
+              "expected": "2",
+              "valid": true
+            },
+            {
+              "field": "dob",
+              "input": "880412",
+              "observed": "3",
+              "expected": "3",
+              "valid": true
+            },
+            {
+              "field": "expiry",
+              "input": "311003",
+              "observed": "8",
+              "expected": "8",
+              "valid": true
+            },
+            {
+              "field": "optional_data",
+              "input": "<<<<<<<<<<<<<<",
+              "observed": "0",
+              "expected": "0",
+              "valid": true
+            },
+            {
+              "field": "composite",
+              "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+              "observed": "4",
+              "expected": "4",
+              "valid": true
+            }
+          ],
+          "cross_checks": [
+            {
+              "field": "dob",
+              "mrz_value": "880412",
+              "viz_value": "1998-04-12",
+              "consistent": false
+            },
+            {
+              "field": "expiry",
+              "mrz_value": "311003",
+              "viz_value": "2031-10-03",
+              "consistent": true
+            },
+            {
+              "field": "name",
+              "mrz_value": "EXAMPLE ALEX",
+              "viz_value": "EXAMPLE ALEX",
+              "consistent": true
+            },
+            {
+              "field": "number",
+              "mrz_value": "Z9000000",
+              "viz_value": "Z9000000",
+              "consistent": true
+            }
+          ],
+          "mismatch_count": 1,
+          "resolved_dates": {
+            "dob": "1988-04-12",
+            "expiry": "2031-10-03"
+          },
+          "blacklist_hit": false,
+          "previously_seen": 0,
+          "database_available": true
+        },
+        "findings": [
+          {
+            "code": "FIELD_MISMATCH",
+            "severity": "medium",
+            "explanation": "MRZ and printed dob disagree.",
+            "field": "dob",
+            "region": null
+          }
+        ],
+        "duration_ms": 16.78
+      },
+      "tampering": {
+        "status": "ok",
+        "data": {
+          "suspicion_score": 0.6500000357627869,
+          "tamper_probability": null,
+          "score_calibrated": false,
+          "detectors": [
+            {
+              "name": "metadata",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "EXIF software/timestamp rules",
+              "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+              "regions": [],
+              "metrics": {
+                "exif_present": false,
+                "editing_software_tag": false,
+                "reversed_timestamps": false,
+                "format": "PNG"
+              }
+            },
+            {
+              "name": "double_jpeg",
+              "status": "unavailable",
+              "score": null,
+              "method": "DCT histogram periodicity proxy",
+              "explanation": "Only applicable to a JPEG source; no compression verdict.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "ela",
+              "status": "unavailable",
+              "score": null,
+              "method": "JPEG recompression residual",
+              "explanation": "Lossless source: prior JPEG history cannot be assessed.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "noise_splicing",
+              "status": "ok",
+              "score": 0.011453894898295403,
+              "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+              "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+              "regions": [],
+              "metrics": {
+                "flat_pixel_fraction": 0.7444444298744202,
+                "supported_fraction": 0.84021875
+              }
+            },
+            {
+              "name": "photo_replacement",
+              "status": "ok",
+              "score": 0.5728898644447327,
+              "method": "Portrait/ring residual comparison",
+              "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+              "regions": [
+                [
+                  0.75,
+                  0.21,
+                  0.19375,
+                  0.46
+                ]
+              ],
+              "metrics": {
+                "photo_noise": 5.339369773864746,
+                "ring_noise": 0.0010001164628192782,
+                "photo_recompression_error": 1.5751519401589529,
+                "ring_recompression_error": 1.0409691407825736
+              }
+            },
+            {
+              "name": "copy_move",
+              "status": "ok",
+              "score": 0.6500000357627869,
+              "method": "ORB self-matches with displacement consensus",
+              "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+              "regions": [
+                [
+                  0.475,
+                  0.8283333333333334,
+                  0.146875,
+                  0.04833333333333333
+                ],
+                [
+                  0.66875,
+                  0.8283333333333334,
+                  0.10729166666666666,
+                  0.04833333333333333
+                ],
+                [
+                  0.23125,
+                  0.5516666666666666,
+                  0.052083333333333336,
+                  0.05
+                ],
+                [
+                  0.17708333333333334,
+                  0.48,
+                  0.052083333333333336,
+                  0.04833333333333333
+                ],
+                [
+                  0.06666666666666667,
+                  0.19,
+                  0.042708333333333334,
+                  0.05
+                ],
+                [
+                  0.16458333333333333,
+                  0.19,
+                  0.040625,
+                  0.05
+                ],
+                [
+                  0.8239583333333333,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.7854166666666667,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.765625,
+                  0.8933333333333333,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.66875,
+                  0.8933333333333333,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.43645833333333334,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.39791666666666664,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ]
+              ],
+              "metrics": {
+                "consensus_pairs": 18
+              }
+            },
+            {
+              "name": "font_inconsistency",
+              "status": "ok",
+              "score": 0.0,
+              "method": "Same-row component-height outliers",
+              "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+              "regions": [],
+              "metrics": {
+                "outlier_components": 0
+              }
+            },
+            {
+              "name": "stamp_yolo",
+              "status": "unavailable",
+              "score": null,
+              "method": "One-class YOLOv8 ONNX adapter",
+              "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "stamp_template",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "Edge template matching against a fictional DEMO stamp",
+              "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+              "regions": [
+                [
+                  0.007291666666666667,
+                  0.011666666666666667,
+                  0.9854166666666667,
+                  0.9766666666666667
+                ]
+              ],
+              "metrics": {
+                "candidate_count": 1,
+                "best_demo_template_similarity": 0.0781659483909607,
+                "verified_issuer_templates": false
+              }
+            },
+            {
+              "name": "cnn",
+              "status": "ok",
+              "score": 0.576444685459137,
+              "method": "Tiny U-Net / procedural synthetic training",
+              "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+              "regions": [
+                [
+                  0.027083333333333334,
+                  0.008333333333333333,
+                  0.21041666666666667,
+                  0.9283333333333333
+                ],
+                [
+                  0.55625,
+                  0.03833333333333333,
+                  0.13020833333333334,
+                  0.065
+                ]
+              ],
+              "metrics": {
+                "predicted_fraction": 0.08656141493055555,
+                "synthetic_flag": true,
+                "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+                "calibrated": false,
+                "training_domain": "procedural-synthetic-v1"
+              }
+            }
+          ],
+          "width": 960,
+          "height": 600,
+          "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+          "heatmap_source": "maximum of available localized classical signals",
+          "limitations": [
+            "Scores are uncalibrated review indices, not fraud probabilities.",
+            "Text, portraits, compression and printing cause false positives.",
+            "Missing detectors remain unavailable; no authenticity verdict.",
+            "CNN is procedural-synthetic only; separate from baseline.",
+            "Photo region is caller-supplied; issuer stamp templates absent."
+          ]
+        },
+        "findings": [
+          {
+            "code": "TAMPER_PHOTO_REPLACEMENT",
+            "severity": "medium",
+            "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          },
+          {
+            "code": "TAMPER_COPY_MOVE",
+            "severity": "medium",
+            "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+            "field": null,
+            "region": [
+              0.475,
+              0.8283333333333334,
+              0.146875,
+              0.04833333333333333
+            ]
+          },
+          {
+            "code": "TAMPER_CNN",
+            "severity": "medium",
+            "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+            "field": null,
+            "region": [
+              0.027083333333333334,
+              0.008333333333333333,
+              0.21041666666666667,
+              0.9283333333333333
+            ]
+          }
+        ],
+        "duration_ms": 1125.93
+      },
+      "face": {
+        "status": "ok",
+        "data": {
+          "document_face_count": 1,
+          "live_face_count": 1,
+          "document_face": {
+            "box": [
+              0.8171428571428572,
+              0.29846153846153844,
+              0.06666666666666667,
+              0.15692307692307692
+            ],
+            "landmarks": [
+              [
+                0.8358969688415527,
+                0.359240859746933
+              ],
+              [
+                0.8702872395515442,
+                0.35756736993789673
+              ],
+              [
+                0.8536360859870911,
+                0.3936055600643158
+              ],
+              [
+                0.8386452198028564,
+                0.418139785528183
+              ],
+              [
+                0.8682075142860413,
+                0.4168017506599426
+              ]
+            ],
+            "detection_confidence": 0.9539480805397034,
+            "width_pixels": 105,
+            "height_pixels": 153,
+            "laplacian_variance": 246.555,
+            "brightness": 135.304,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "live_face": {
+            "box": [
+              0.31833333333333336,
+              0.21,
+              0.3466666666666667,
+              0.4866666666666667
+            ],
+            "landmarks": [
+              [
+                0.4069358706474304,
+                0.3921521008014679
+              ],
+              [
+                0.5720104575157166,
+                0.3786430358886719
+              ],
+              [
+                0.5028594136238098,
+                0.47962331771850586
+              ],
+              [
+                0.437156081199646,
+                0.5716827511787415
+              ],
+              [
+                0.5735169649124146,
+                0.5584031939506531
+              ]
+            ],
+            "detection_confidence": 0.9562373757362366,
+            "width_pixels": 208,
+            "height_pixels": 292,
+            "laplacian_variance": 215.113,
+            "brightness": 138.179,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "cosine_similarity": 0.9299123883247375,
+          "threshold": 0.6,
+          "match": true,
+          "decision": "match",
+          "model": "sface-2021dec",
+          "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+          "threshold_calibrated": false,
+          "threshold_source": "synthetic-development-policy-v1",
+          "liveness_verified": false
+        },
+        "findings": [
+          {
+            "code": "FACE_MATCH",
+            "severity": "info",
+            "explanation": "Cosine 0.9299; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 761.3
+      },
+      "liveness": {
+        "status": "insufficient_evidence",
+        "data": {
+          "method": "texture-plus-blink-candidate-v1",
+          "verdict": "inconclusive",
+          "liveness_score": null,
+          "spoof_indicator_score": 0.0,
+          "blink_candidate": false,
+          "repeated_frame_count": 0,
+          "frames": [
+            {
+              "index": 0,
+              "timestamp_ms": 0.0,
+              "face_count": 1,
+              "eyes_visible": 2,
+              "quality_ok": true,
+              "same_face_as_first": true,
+              "texture_contrast": 42.3798,
+              "periodic_energy_ratio": 0.0274
+            }
+          ],
+          "review_required": true,
+          "limitations": [
+            "Untrained heuristics; not a calibrated presentation-attack model.",
+            "Uploaded frames have no trusted live-capture provenance.",
+            "A replay may contain blinking; this module never certifies a live person."
+          ]
+        },
+        "findings": [
+          {
+            "code": "LIVENESS_NOT_VERIFIED",
+            "severity": "info",
+            "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 338.78
+      },
+      "risk": {
+        "status": "insufficient_evidence",
+        "data": {
+          "score": 7.25,
+          "category": null,
+          "score_range": [
+            7.25,
+            28.25
+          ],
+          "evidence_coverage": 0.79,
+          "missing_signals": [
+            "duplicate_identity",
+            "liveness",
+            "metadata"
+          ],
+          "missing_required_signals": [
+            "liveness"
+          ],
+          "contributions": [
+            {
+              "name": "blacklist",
+              "weight": 35.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Fictional local blacklist lookup; not an official watchlist.",
+              "source": "L2 mock SQLite",
+              "experimental": true
+            },
+            {
+              "name": "duplicate_identity",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "face",
+              "weight": 15.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Cosine 0.9299, threshold 0.6000; one-to-one comparison is not identity or liveness certification.",
+              "source": "L4 SFace",
+              "experimental": true
+            },
+            {
+              "name": "mrz",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Failed MRZ checks add one capped signal; OCR errors can cause failure.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "cross_fields",
+              "weight": 8.0,
+              "value": 0.5,
+              "points": 4.0,
+              "complete": true,
+              "explanation": "1 observed MRZ/VIZ mismatches; capped at two.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "dates",
+              "weight": 5.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Date rules: no violation observed; unresolved dates remain unknown.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "tampering",
+              "weight": 5.0,
+              "value": 0.6500000357627869,
+              "points": 3.25,
+              "complete": true,
+              "explanation": "Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+              "source": "L3 classical",
+              "experimental": true
+            },
+            {
+              "name": "liveness",
+              "weight": 4.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Untrained spoof indicator only; liveness remains unverified.",
+              "source": "L4 heuristics",
+              "experimental": true
+            },
+            {
+              "name": "metadata",
+              "weight": 2.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Maximum EXIF/compression proxy; editing alone does not prove fraud.",
+              "source": "L3 metadata",
+              "experimental": true
+            },
+            {
+              "name": "format",
+              "weight": 3.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Demo country/number rules: no violation observed.",
+              "source": "L2 demo policy",
+              "experimental": true
+            }
+          ],
+          "reasons": [
+            "cross_fields: +4.00/8 points. 1 observed MRZ/VIZ mismatches; capped at two.",
+            "tampering: +3.25/5 points. Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+            "Required evidence incomplete: liveness. Missing evidence is not a clean result."
+          ],
+          "policy_version": "synthetic-weighted-v1",
+          "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+          "engine": "transparent-weighted-v1",
+          "calibrated": false,
+          "human_review_required": true,
+          "automatic_decision": null,
+          "scope": "synthetic-development-demo"
+        },
+        "findings": [],
+        "duration_ms": 0.31
+      },
+      "failures": [],
+      "duration_ms": 3743.37,
+      "parallel_stage_ms": 1158.44,
+      "images_persisted": false,
+      "face_coordinate_frame": "L0-corrected document and supplied live/frame image"
+    },
+    "wrong_synthetic_face": {
+      "status": "insufficient_evidence",
+      "document_hash": "a61abed00d1e0f0963f27387911751395896daaa828861e4e2be960b20edda94",
+      "reference_date": "2026-10-03",
+      "capture": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "classification_confidence": null,
+          "classification_method": "user_hint",
+          "boundary_detected": true,
+          "quality": {
+            "width": 1575,
+            "height": 975,
+            "laplacian_variance": 1185.634,
+            "brightness": 223.208,
+            "saturated_fraction": 0.0
+          },
+          "mime_type": "image/png",
+          "transform": [
+            [
+              0.9993650793650793,
+              1.711105540070135e-18,
+              -11.992380952380953
+            ],
+            [
+              0.0,
+              0.998974358974359,
+              -11.987692307692308
+            ],
+            [
+              4.631809496170923e-21,
+              1.1574996509955043e-21,
+              1.0
+            ]
+          ]
+        },
+        "findings": [],
+        "duration_ms": 201.73
+      },
+      "ocr": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "raw_text": "SYNTHETIC PASSPORT - NOT VALID FOR TRAVEL\nFICTIONAL UTOPIA / HACKATHON TEST DOCUMENT\nNAME: EXAMPLE ALEX\nPASSPORT NO: Z9000000\nNATIONALITY: UTO\nDOB: 1988-04-12\nEXPIRY: 2031-10-03\nISSUE DATE: 2021-10-04\nSEX: X\nTEST AVATAR\nSPECIMEN / GENERATED DATA ONLY\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UT08804123<3110038<<<<<<<<<<<<<<04\n\n[MRZ row OCR]\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04",
+          "mrz": {
+            "format": "TD3",
+            "raw_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "corrected_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000000<2UTO8804123<3110038<<<<<<<<<<<<<<04"
+            ],
+            "fields": {
+              "number": {
+                "raw": "Z9000000<",
+                "corrected": "Z9000000",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "issuing_country": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "nationality": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "dob": {
+                "raw": "880412",
+                "corrected": "880412",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "expiry": {
+                "raw": "311003",
+                "corrected": "311003",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "gender": {
+                "raw": "<",
+                "corrected": "X",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "name": {
+                "raw": "EXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "corrected": "EXAMPLE ALEX",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              }
+            },
+            "checks": [
+              {
+                "field": "number",
+                "input": "Z9000000<",
+                "observed": "2",
+                "expected": "2",
+                "valid": true
+              },
+              {
+                "field": "dob",
+                "input": "880412",
+                "observed": "3",
+                "expected": "3",
+                "valid": true
+              },
+              {
+                "field": "expiry",
+                "input": "311003",
+                "observed": "8",
+                "expected": "8",
+                "valid": true
+              },
+              {
+                "field": "optional_data",
+                "input": "<<<<<<<<<<<<<<",
+                "observed": "0",
+                "expected": "0",
+                "valid": true
+              },
+              {
+                "field": "composite",
+                "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+                "observed": "4",
+                "expected": "4",
+                "valid": true
+              }
+            ],
+            "corrections": [],
+            "limitations": []
+          },
+          "viz_fields": {
+            "name": {
+              "raw": "EXAMPLE ALEX",
+              "corrected": "EXAMPLE ALEX",
+              "confidence": 0.9659477733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "number": {
+              "raw": "Z9000000",
+              "corrected": "Z9000000",
+              "confidence": 0.9361462433333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "nationality": {
+              "raw": "UTO",
+              "corrected": "UTO",
+              "confidence": 0.9294655949999999,
+              "source": "viz",
+              "corrections": []
+            },
+            "dob": {
+              "raw": "1988-04-12",
+              "corrected": "1988-04-12",
+              "confidence": 0.96712471,
+              "source": "viz",
+              "corrections": []
+            },
+            "expiry": {
+              "raw": "2031-10-03",
+              "corrected": "2031-10-03",
+              "confidence": 0.9669739900000001,
+              "source": "viz",
+              "corrections": []
+            },
+            "issue": {
+              "raw": "2021-10-04",
+              "corrected": "2021-10-04",
+              "confidence": 0.9659536733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "gender": {
+              "raw": "X",
+              "corrected": "X",
+              "confidence": 0.932597965,
+              "source": "viz",
+              "corrections": []
+            }
+          },
+          "engine": "tesseract"
+        },
+        "findings": [
+          {
+            "code": "PORTRAIT_EXCLUDED_FROM_OCR",
+            "severity": "info",
+            "explanation": "Caller-specified portrait excluded from OCR only; L3 and face comparison retain the original image evidence.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          }
+        ],
+        "duration_ms": 2271.01
+      },
+      "validation": {
+        "status": "ok",
+        "data": {
+          "checks": [
+            {
+              "field": "number",
+              "input": "Z9000000<",
+              "observed": "2",
+              "expected": "2",
+              "valid": true
+            },
+            {
+              "field": "dob",
+              "input": "880412",
+              "observed": "3",
+              "expected": "3",
+              "valid": true
+            },
+            {
+              "field": "expiry",
+              "input": "311003",
+              "observed": "8",
+              "expected": "8",
+              "valid": true
+            },
+            {
+              "field": "optional_data",
+              "input": "<<<<<<<<<<<<<<",
+              "observed": "0",
+              "expected": "0",
+              "valid": true
+            },
+            {
+              "field": "composite",
+              "input": "Z9000000<288041233110038<<<<<<<<<<<<<<0",
+              "observed": "4",
+              "expected": "4",
+              "valid": true
+            }
+          ],
+          "cross_checks": [
+            {
+              "field": "dob",
+              "mrz_value": "880412",
+              "viz_value": "1988-04-12",
+              "consistent": true
+            },
+            {
+              "field": "expiry",
+              "mrz_value": "311003",
+              "viz_value": "2031-10-03",
+              "consistent": true
+            },
+            {
+              "field": "name",
+              "mrz_value": "EXAMPLE ALEX",
+              "viz_value": "EXAMPLE ALEX",
+              "consistent": true
+            },
+            {
+              "field": "number",
+              "mrz_value": "Z9000000",
+              "viz_value": "Z9000000",
+              "consistent": true
+            }
+          ],
+          "mismatch_count": 0,
+          "resolved_dates": {
+            "dob": "1988-04-12",
+            "expiry": "2031-10-03"
+          },
+          "blacklist_hit": false,
+          "previously_seen": 0,
+          "database_available": true
+        },
+        "findings": [],
+        "duration_ms": 14.98
+      },
+      "tampering": {
+        "status": "ok",
+        "data": {
+          "suspicion_score": 0.6500000357627869,
+          "tamper_probability": null,
+          "score_calibrated": false,
+          "detectors": [
+            {
+              "name": "metadata",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "EXIF software/timestamp rules",
+              "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+              "regions": [],
+              "metrics": {
+                "exif_present": false,
+                "editing_software_tag": false,
+                "reversed_timestamps": false,
+                "format": "PNG"
+              }
+            },
+            {
+              "name": "double_jpeg",
+              "status": "unavailable",
+              "score": null,
+              "method": "DCT histogram periodicity proxy",
+              "explanation": "Only applicable to a JPEG source; no compression verdict.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "ela",
+              "status": "unavailable",
+              "score": null,
+              "method": "JPEG recompression residual",
+              "explanation": "Lossless source: prior JPEG history cannot be assessed.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "noise_splicing",
+              "status": "ok",
+              "score": 0.011453894898295403,
+              "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+              "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+              "regions": [],
+              "metrics": {
+                "flat_pixel_fraction": 0.7444427013397217,
+                "supported_fraction": 0.84021875
+              }
+            },
+            {
+              "name": "photo_replacement",
+              "status": "ok",
+              "score": 0.5728898644447327,
+              "method": "Portrait/ring residual comparison",
+              "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+              "regions": [
+                [
+                  0.75,
+                  0.21,
+                  0.19375,
+                  0.46
+                ]
+              ],
+              "metrics": {
+                "photo_noise": 5.339369773864746,
+                "ring_noise": 0.0010001164628192782,
+                "photo_recompression_error": 1.5751519401589529,
+                "ring_recompression_error": 1.0409691407825736
+              }
+            },
+            {
+              "name": "copy_move",
+              "status": "ok",
+              "score": 0.6500000357627869,
+              "method": "ORB self-matches with displacement consensus",
+              "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+              "regions": [
+                [
+                  0.66875,
+                  0.8283333333333334,
+                  0.146875,
+                  0.04833333333333333
+                ],
+                [
+                  0.5520833333333334,
+                  0.8283333333333334,
+                  0.06979166666666667,
+                  0.04833333333333333
+                ],
+                [
+                  0.23125,
+                  0.5516666666666666,
+                  0.052083333333333336,
+                  0.05
+                ],
+                [
+                  0.17708333333333334,
+                  0.48,
+                  0.052083333333333336,
+                  0.04833333333333333
+                ],
+                [
+                  0.8625,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.8239583333333333,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.6302083333333334,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.5135416666666667,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.1875,
+                  0.5733333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.16458333333333333,
+                  0.19,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.13333333333333333,
+                  0.5016666666666667,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.06666666666666667,
+                  0.19,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ]
+              ],
+              "metrics": {
+                "consensus_pairs": 17
+              }
+            },
+            {
+              "name": "font_inconsistency",
+              "status": "ok",
+              "score": 0.0,
+              "method": "Same-row component-height outliers",
+              "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+              "regions": [],
+              "metrics": {
+                "outlier_components": 0
+              }
+            },
+            {
+              "name": "stamp_yolo",
+              "status": "unavailable",
+              "score": null,
+              "method": "One-class YOLOv8 ONNX adapter",
+              "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "stamp_template",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "Edge template matching against a fictional DEMO stamp",
+              "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+              "regions": [
+                [
+                  0.007291666666666667,
+                  0.011666666666666667,
+                  0.9854166666666667,
+                  0.9766666666666667
+                ]
+              ],
+              "metrics": {
+                "candidate_count": 1,
+                "best_demo_template_similarity": 0.0781659483909607,
+                "verified_issuer_templates": false
+              }
+            },
+            {
+              "name": "cnn",
+              "status": "ok",
+              "score": 0.5764579176902771,
+              "method": "Tiny U-Net / procedural synthetic training",
+              "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+              "regions": [
+                [
+                  0.027083333333333334,
+                  0.008333333333333333,
+                  0.21041666666666667,
+                  0.9283333333333333
+                ],
+                [
+                  0.55625,
+                  0.03833333333333333,
+                  0.13020833333333334,
+                  0.065
+                ]
+              ],
+              "metrics": {
+                "predicted_fraction": 0.08642578125,
+                "synthetic_flag": true,
+                "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+                "calibrated": false,
+                "training_domain": "procedural-synthetic-v1"
+              }
+            }
+          ],
+          "width": 960,
+          "height": 600,
+          "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+          "heatmap_source": "maximum of available localized classical signals",
+          "limitations": [
+            "Scores are uncalibrated review indices, not fraud probabilities.",
+            "Text, portraits, compression and printing cause false positives.",
+            "Missing detectors remain unavailable; no authenticity verdict.",
+            "CNN is procedural-synthetic only; separate from baseline.",
+            "Photo region is caller-supplied; issuer stamp templates absent."
+          ]
+        },
+        "findings": [
+          {
+            "code": "TAMPER_PHOTO_REPLACEMENT",
+            "severity": "medium",
+            "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          },
+          {
+            "code": "TAMPER_COPY_MOVE",
+            "severity": "medium",
+            "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+            "field": null,
+            "region": [
+              0.66875,
+              0.8283333333333334,
+              0.146875,
+              0.04833333333333333
+            ]
+          },
+          {
+            "code": "TAMPER_CNN",
+            "severity": "medium",
+            "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+            "field": null,
+            "region": [
+              0.027083333333333334,
+              0.008333333333333333,
+              0.21041666666666667,
+              0.9283333333333333
+            ]
+          }
+        ],
+        "duration_ms": 940.18
+      },
+      "face": {
+        "status": "ok",
+        "data": {
+          "document_face_count": 1,
+          "live_face_count": 1,
+          "document_face": {
+            "box": [
+              0.8171428571428572,
+              0.29846153846153844,
+              0.06666666666666667,
+              0.15692307692307692
+            ],
+            "landmarks": [
+              [
+                0.8358969688415527,
+                0.359240859746933
+              ],
+              [
+                0.8702872395515442,
+                0.35756736993789673
+              ],
+              [
+                0.8536360859870911,
+                0.3936055600643158
+              ],
+              [
+                0.8386452198028564,
+                0.418139785528183
+              ],
+              [
+                0.8682075142860413,
+                0.4168017506599426
+              ]
+            ],
+            "detection_confidence": 0.9539480805397034,
+            "width_pixels": 105,
+            "height_pixels": 153,
+            "laplacian_variance": 246.555,
+            "brightness": 135.304,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "live_face": {
+            "box": [
+              0.30666666666666664,
+              0.22,
+              0.38166666666666665,
+              0.49333333333333335
+            ],
+            "landmarks": [
+              [
+                0.41738131642341614,
+                0.41203969717025757
+              ],
+              [
+                0.5808874368667603,
+                0.4030241072177887
+              ],
+              [
+                0.5107822418212891,
+                0.5038741827011108
+              ],
+              [
+                0.4405500292778015,
+                0.5897495746612549
+              ],
+              [
+                0.5710963010787964,
+                0.5819305181503296
+              ]
+            ],
+            "detection_confidence": 0.9527422785758972,
+            "width_pixels": 229,
+            "height_pixels": 296,
+            "laplacian_variance": 213.177,
+            "brightness": 135.834,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "cosine_similarity": 0.45189815759658813,
+          "threshold": 0.6,
+          "match": false,
+          "decision": "non_match",
+          "model": "sface-2021dec",
+          "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+          "threshold_calibrated": false,
+          "threshold_source": "synthetic-development-policy-v1",
+          "liveness_verified": false
+        },
+        "findings": [
+          {
+            "code": "FACE_NON_MATCH",
+            "severity": "medium",
+            "explanation": "Cosine 0.4519; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 618.43
+      },
+      "liveness": {
+        "status": "insufficient_evidence",
+        "data": {
+          "method": "texture-plus-blink-candidate-v1",
+          "verdict": "inconclusive",
+          "liveness_score": null,
+          "spoof_indicator_score": 0.0,
+          "blink_candidate": false,
+          "repeated_frame_count": 0,
+          "frames": [
+            {
+              "index": 0,
+              "timestamp_ms": 0.0,
+              "face_count": 1,
+              "eyes_visible": 2,
+              "quality_ok": true,
+              "same_face_as_first": true,
+              "texture_contrast": 49.7197,
+              "periodic_energy_ratio": 0.0187
+            }
+          ],
+          "review_required": true,
+          "limitations": [
+            "Untrained heuristics; not a calibrated presentation-attack model.",
+            "Uploaded frames have no trusted live-capture provenance.",
+            "A replay may contain blinking; this module never certifies a live person."
+          ]
+        },
+        "findings": [
+          {
+            "code": "LIVENESS_NOT_VERIFIED",
+            "severity": "info",
+            "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 297.03
+      },
+      "risk": {
+        "status": "insufficient_evidence",
+        "data": {
+          "score": 18.25,
+          "category": null,
+          "score_range": [
+            18.25,
+            39.25
+          ],
+          "evidence_coverage": 0.79,
+          "missing_signals": [
+            "duplicate_identity",
+            "liveness",
+            "metadata"
+          ],
+          "missing_required_signals": [
+            "liveness"
+          ],
+          "contributions": [
+            {
+              "name": "blacklist",
+              "weight": 35.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Fictional local blacklist lookup; not an official watchlist.",
+              "source": "L2 mock SQLite",
+              "experimental": true
+            },
+            {
+              "name": "duplicate_identity",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "face",
+              "weight": 15.0,
+              "value": 1.0,
+              "points": 15.0,
+              "complete": true,
+              "explanation": "Cosine 0.4519, threshold 0.6000; one-to-one comparison is not identity or liveness certification.",
+              "source": "L4 SFace",
+              "experimental": true
+            },
+            {
+              "name": "mrz",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Failed MRZ checks add one capped signal; OCR errors can cause failure.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "cross_fields",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "0 observed MRZ/VIZ mismatches; capped at two.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "dates",
+              "weight": 5.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Date rules: no violation observed; unresolved dates remain unknown.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "tampering",
+              "weight": 5.0,
+              "value": 0.6500000357627869,
+              "points": 3.25,
+              "complete": true,
+              "explanation": "Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+              "source": "L3 classical",
+              "experimental": true
+            },
+            {
+              "name": "liveness",
+              "weight": 4.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Untrained spoof indicator only; liveness remains unverified.",
+              "source": "L4 heuristics",
+              "experimental": true
+            },
+            {
+              "name": "metadata",
+              "weight": 2.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Maximum EXIF/compression proxy; editing alone does not prove fraud.",
+              "source": "L3 metadata",
+              "experimental": true
+            },
+            {
+              "name": "format",
+              "weight": 3.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Demo country/number rules: no violation observed.",
+              "source": "L2 demo policy",
+              "experimental": true
+            }
+          ],
+          "reasons": [
+            "face: +15.00/15 points. Cosine 0.4519, threshold 0.6000; one-to-one comparison is not identity or liveness certification.",
+            "tampering: +3.25/5 points. Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+            "Required evidence incomplete: liveness. Missing evidence is not a clean result."
+          ],
+          "policy_version": "synthetic-weighted-v1",
+          "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+          "engine": "transparent-weighted-v1",
+          "calibrated": false,
+          "human_review_required": true,
+          "automatic_decision": null,
+          "scope": "synthetic-development-demo"
+        },
+        "findings": [],
+        "duration_ms": 0.2
+      },
+      "failures": [],
+      "duration_ms": 3526.75,
+      "parallel_stage_ms": 949.95,
+      "images_persisted": false,
+      "face_coordinate_frame": "L0-corrected document and supplied live/frame image"
+    },
+    "mock_blacklist": {
+      "status": "insufficient_evidence",
+      "document_hash": "233b806abaa3fbcece766e5ecae18e2f1895b2a589271c524ab26671610b24f0",
+      "reference_date": "2026-10-03",
+      "capture": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "classification_confidence": null,
+          "classification_method": "user_hint",
+          "boundary_detected": true,
+          "quality": {
+            "width": 1575,
+            "height": 975,
+            "laplacian_variance": 1183.647,
+            "brightness": 223.224,
+            "saturated_fraction": 0.0
+          },
+          "mime_type": "image/png",
+          "transform": [
+            [
+              0.9993650793650793,
+              1.711105540070135e-18,
+              -11.992380952380953
+            ],
+            [
+              0.0,
+              0.998974358974359,
+              -11.987692307692308
+            ],
+            [
+              4.631809496170923e-21,
+              1.1574996509955043e-21,
+              1.0
+            ]
+          ]
+        },
+        "findings": [],
+        "duration_ms": 168.43
+      },
+      "ocr": {
+        "status": "ok",
+        "data": {
+          "document_type": "passport",
+          "raw_text": "SYNTHETIC PASSPORT - NOT VALID FOR TRAVEL\nFICTIONAL UTOPIA / HACKATHON TEST DOCUMENT\nNAME: EXAMPLE ALEX\nPASSPORT NO: Z9000001\nNATIONALITY: UTO\nDOB: 1988-04-12\nEXPIRY: 2031-10-03\nISSUE DATE: 2021-10-04\nSEX: X\nTEST AVATAR\nSPECIMEN / GENERATED DATA ONLY\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000001<5UT0O8804123<3110038<<<<<<<<<<<<<<08\n\n[MRZ row OCR]\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<\nP<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<\nZ9000001<5UTO8804123<3110038<<<<<<<<<<<<<<08",
+          "mrz": {
+            "format": "TD3",
+            "raw_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000001<5UTO8804123<3110038<<<<<<<<<<<<<<08"
+            ],
+            "corrected_lines": [
+              "P<UTOEXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+              "Z9000001<5UTO8804123<3110038<<<<<<<<<<<<<<08"
+            ],
+            "fields": {
+              "number": {
+                "raw": "Z9000001<",
+                "corrected": "Z9000001",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "issuing_country": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "nationality": {
+                "raw": "UTO",
+                "corrected": "UTO",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "dob": {
+                "raw": "880412",
+                "corrected": "880412",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "expiry": {
+                "raw": "311003",
+                "corrected": "311003",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "gender": {
+                "raw": "<",
+                "corrected": "X",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              },
+              "name": {
+                "raw": "EXAMPLE<<ALEX<<<<<<<<<<<<<<<<<<<<<<<<<<",
+                "corrected": "EXAMPLE ALEX",
+                "confidence": 0.0,
+                "source": "mrz",
+                "corrections": []
+              }
+            },
+            "checks": [
+              {
+                "field": "number",
+                "input": "Z9000001<",
+                "observed": "5",
+                "expected": "5",
+                "valid": true
+              },
+              {
+                "field": "dob",
+                "input": "880412",
+                "observed": "3",
+                "expected": "3",
+                "valid": true
+              },
+              {
+                "field": "expiry",
+                "input": "311003",
+                "observed": "8",
+                "expected": "8",
+                "valid": true
+              },
+              {
+                "field": "optional_data",
+                "input": "<<<<<<<<<<<<<<",
+                "observed": "0",
+                "expected": "0",
+                "valid": true
+              },
+              {
+                "field": "composite",
+                "input": "Z9000001<588041233110038<<<<<<<<<<<<<<0",
+                "observed": "8",
+                "expected": "8",
+                "valid": true
+              }
+            ],
+            "corrections": [],
+            "limitations": []
+          },
+          "viz_fields": {
+            "name": {
+              "raw": "EXAMPLE ALEX",
+              "corrected": "EXAMPLE ALEX",
+              "confidence": 0.9659477733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "number": {
+              "raw": "Z9000001",
+              "corrected": "Z9000001",
+              "confidence": 0.9322659833333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "nationality": {
+              "raw": "UTO",
+              "corrected": "UTO",
+              "confidence": 0.9294655949999999,
+              "source": "viz",
+              "corrections": []
+            },
+            "dob": {
+              "raw": "1988-04-12",
+              "corrected": "1988-04-12",
+              "confidence": 0.96712471,
+              "source": "viz",
+              "corrections": []
+            },
+            "expiry": {
+              "raw": "2031-10-03",
+              "corrected": "2031-10-03",
+              "confidence": 0.9669739900000001,
+              "source": "viz",
+              "corrections": []
+            },
+            "issue": {
+              "raw": "2021-10-04",
+              "corrected": "2021-10-04",
+              "confidence": 0.9659536733333334,
+              "source": "viz",
+              "corrections": []
+            },
+            "gender": {
+              "raw": "X",
+              "corrected": "X",
+              "confidence": 0.932597965,
+              "source": "viz",
+              "corrections": []
+            }
+          },
+          "engine": "tesseract"
+        },
+        "findings": [
+          {
+            "code": "PORTRAIT_EXCLUDED_FROM_OCR",
+            "severity": "info",
+            "explanation": "Caller-specified portrait excluded from OCR only; L3 and face comparison retain the original image evidence.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          }
+        ],
+        "duration_ms": 2196.04
+      },
+      "validation": {
+        "status": "ok",
+        "data": {
+          "checks": [
+            {
+              "field": "number",
+              "input": "Z9000001<",
+              "observed": "5",
+              "expected": "5",
+              "valid": true
+            },
+            {
+              "field": "dob",
+              "input": "880412",
+              "observed": "3",
+              "expected": "3",
+              "valid": true
+            },
+            {
+              "field": "expiry",
+              "input": "311003",
+              "observed": "8",
+              "expected": "8",
+              "valid": true
+            },
+            {
+              "field": "optional_data",
+              "input": "<<<<<<<<<<<<<<",
+              "observed": "0",
+              "expected": "0",
+              "valid": true
+            },
+            {
+              "field": "composite",
+              "input": "Z9000001<588041233110038<<<<<<<<<<<<<<0",
+              "observed": "8",
+              "expected": "8",
+              "valid": true
+            }
+          ],
+          "cross_checks": [
+            {
+              "field": "dob",
+              "mrz_value": "880412",
+              "viz_value": "1988-04-12",
+              "consistent": true
+            },
+            {
+              "field": "expiry",
+              "mrz_value": "311003",
+              "viz_value": "2031-10-03",
+              "consistent": true
+            },
+            {
+              "field": "name",
+              "mrz_value": "EXAMPLE ALEX",
+              "viz_value": "EXAMPLE ALEX",
+              "consistent": true
+            },
+            {
+              "field": "number",
+              "mrz_value": "Z9000001",
+              "viz_value": "Z9000001",
+              "consistent": true
+            }
+          ],
+          "mismatch_count": 0,
+          "resolved_dates": {
+            "dob": "1988-04-12",
+            "expiry": "2031-10-03"
+          },
+          "blacklist_hit": true,
+          "previously_seen": 2,
+          "database_available": true
+        },
+        "findings": [
+          {
+            "code": "MOCK_BLACKLIST_HIT",
+            "severity": "high",
+            "explanation": "Document matches a fictional blacklist entry.",
+            "field": null,
+            "region": null
+          },
+          {
+            "code": "PREVIOUSLY_SEEN",
+            "severity": "info",
+            "explanation": "Mock database contains 2 previous sightings. Repeat travel alone does not imply fraud.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 20.36
+      },
+      "tampering": {
+        "status": "ok",
+        "data": {
+          "suspicion_score": 0.6500000357627869,
+          "tamper_probability": null,
+          "score_calibrated": false,
+          "detectors": [
+            {
+              "name": "metadata",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "EXIF software/timestamp rules",
+              "explanation": "Editing software tag or reversed capture/edit dates are review signals; metadata can be removed or forged. No metadata never means authentic.",
+              "regions": [],
+              "metrics": {
+                "exif_present": false,
+                "editing_software_tag": false,
+                "reversed_timestamps": false,
+                "format": "PNG"
+              }
+            },
+            {
+              "name": "double_jpeg",
+              "status": "unavailable",
+              "score": null,
+              "method": "DCT histogram periodicity proxy",
+              "explanation": "Only applicable to a JPEG source; no compression verdict.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "ela",
+              "status": "unavailable",
+              "score": null,
+              "method": "JPEG recompression residual",
+              "explanation": "Lossless source: prior JPEG history cannot be assessed.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "noise_splicing",
+              "status": "ok",
+              "score": 0.011453894898295403,
+              "method": "Flat-region high-pass energy inconsistency with text-edge suppression",
+              "explanation": "Abrupt noise/texture changes are splice candidates; printed security patterns and natural image content are confounders; low-support areas are excluded from this map.",
+              "regions": [],
+              "metrics": {
+                "flat_pixel_fraction": 0.7445312738418579,
+                "supported_fraction": 0.8403454861111112
+              }
+            },
+            {
+              "name": "photo_replacement",
+              "status": "ok",
+              "score": 0.5728898644447327,
+              "method": "Portrait/ring residual comparison",
+              "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+              "regions": [
+                [
+                  0.75,
+                  0.21,
+                  0.19375,
+                  0.46
+                ]
+              ],
+              "metrics": {
+                "photo_noise": 5.339369773864746,
+                "ring_noise": 0.0010001164628192782,
+                "photo_recompression_error": 1.5751519401589529,
+                "ring_recompression_error": 1.0409691407825736
+              }
+            },
+            {
+              "name": "copy_move",
+              "status": "ok",
+              "score": 0.6500000357627869,
+              "method": "ORB self-matches with displacement consensus",
+              "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+              "regions": [
+                [
+                  0.475,
+                  0.8283333333333334,
+                  0.146875,
+                  0.04833333333333333
+                ],
+                [
+                  0.66875,
+                  0.8283333333333334,
+                  0.06875,
+                  0.04833333333333333
+                ],
+                [
+                  0.06666666666666667,
+                  0.19,
+                  0.042708333333333334,
+                  0.05
+                ],
+                [
+                  0.16458333333333333,
+                  0.19,
+                  0.040625,
+                  0.05
+                ],
+                [
+                  0.8625,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.7854166666666667,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.7458333333333333,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.7270833333333333,
+                  0.8933333333333333,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.6302083333333334,
+                  0.8933333333333333,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.43645833333333334,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.28125,
+                  0.8283333333333334,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ],
+                [
+                  0.2625,
+                  0.19166666666666668,
+                  0.030208333333333334,
+                  0.04833333333333333
+                ]
+              ],
+              "metrics": {
+                "consensus_pairs": 13
+              }
+            },
+            {
+              "name": "font_inconsistency",
+              "status": "ok",
+              "score": 0.0,
+              "method": "Same-row component-height outliers",
+              "explanation": "Character-height outliers can suggest inconsistent fonts. Headings, mixed scripts, punctuation and layout changes are common false positives.",
+              "regions": [],
+              "metrics": {
+                "outlier_components": 0
+              }
+            },
+            {
+              "name": "stamp_yolo",
+              "status": "unavailable",
+              "score": null,
+              "method": "One-class YOLOv8 ONNX adapter",
+              "explanation": "No stamp-trained YOLO weights configured. Color candidates below are a classical baseline, not YOLO predictions.",
+              "regions": [],
+              "metrics": {}
+            },
+            {
+              "name": "stamp_template",
+              "status": "insufficient_evidence",
+              "score": null,
+              "method": "Edge template matching against a fictional DEMO stamp",
+              "explanation": "Only a synthetic DEMO template is bundled. Similarity cannot authenticate issuer stamps; verified issuer templates are absent.",
+              "regions": [
+                [
+                  0.007291666666666667,
+                  0.011666666666666667,
+                  0.9854166666666667,
+                  0.9766666666666667
+                ]
+              ],
+              "metrics": {
+                "candidate_count": 1,
+                "best_demo_template_similarity": 0.07738252729177475,
+                "verified_issuer_templates": false
+              }
+            },
+            {
+              "name": "cnn",
+              "status": "ok",
+              "score": 0.576458215713501,
+              "method": "Tiny U-Net / procedural synthetic training",
+              "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+              "regions": [
+                [
+                  0.027083333333333334,
+                  0.008333333333333333,
+                  0.21041666666666667,
+                  0.9283333333333333
+                ],
+                [
+                  0.55625,
+                  0.03833333333333333,
+                  0.13020833333333334,
+                  0.065
+                ]
+              ],
+              "metrics": {
+                "predicted_fraction": 0.0864529079861111,
+                "synthetic_flag": true,
+                "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+                "calibrated": false,
+                "training_domain": "procedural-synthetic-v1"
+              }
+            }
+          ],
+          "width": 960,
+          "height": 600,
+          "coordinate_frame": "EXIF-oriented original, resized; normalized xywh",
+          "heatmap_source": "maximum of available localized classical signals",
+          "limitations": [
+            "Scores are uncalibrated review indices, not fraud probabilities.",
+            "Text, portraits, compression and printing cause false positives.",
+            "Missing detectors remain unavailable; no authenticity verdict.",
+            "CNN is procedural-synthetic only; separate from baseline.",
+            "Photo region is caller-supplied; issuer stamp templates absent."
+          ]
+        },
+        "findings": [
+          {
+            "code": "TAMPER_PHOTO_REPLACEMENT",
+            "severity": "medium",
+            "explanation": "Photo and surrounding print have different texture/compression residuals. Content naturally differs, so this cannot establish photo replacement.",
+            "field": null,
+            "region": [
+              0.75,
+              0.21,
+              0.19375,
+              0.46
+            ]
+          },
+          {
+            "code": "TAMPER_COPY_MOVE",
+            "severity": "medium",
+            "explanation": "Repeated local features share a displacement; repeated legitimate text and document patterns can produce the same signal.",
+            "field": null,
+            "region": [
+              0.475,
+              0.8283333333333334,
+              0.146875,
+              0.04833333333333333
+            ]
+          },
+          {
+            "code": "TAMPER_CNN",
+            "severity": "medium",
+            "explanation": "Learned activation on a fixed procedural mock-card domain; not a calibrated probability and not validated on real IDs.",
+            "field": null,
+            "region": [
+              0.027083333333333334,
+              0.008333333333333333,
+              0.21041666666666667,
+              0.9283333333333333
+            ]
+          }
+        ],
+        "duration_ms": 963.59
+      },
+      "face": {
+        "status": "ok",
+        "data": {
+          "document_face_count": 1,
+          "live_face_count": 1,
+          "document_face": {
+            "box": [
+              0.8171428571428572,
+              0.29846153846153844,
+              0.06666666666666667,
+              0.15692307692307692
+            ],
+            "landmarks": [
+              [
+                0.8358969688415527,
+                0.359240859746933
+              ],
+              [
+                0.8702872395515442,
+                0.35756736993789673
+              ],
+              [
+                0.8536360859870911,
+                0.3936055600643158
+              ],
+              [
+                0.8386452198028564,
+                0.418139785528183
+              ],
+              [
+                0.8682075142860413,
+                0.4168017506599426
+              ]
+            ],
+            "detection_confidence": 0.9539480805397034,
+            "width_pixels": 105,
+            "height_pixels": 153,
+            "laplacian_variance": 246.555,
+            "brightness": 135.304,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "live_face": {
+            "box": [
+              0.31833333333333336,
+              0.21,
+              0.3466666666666667,
+              0.4866666666666667
+            ],
+            "landmarks": [
+              [
+                0.4069358706474304,
+                0.3921521008014679
+              ],
+              [
+                0.5720104575157166,
+                0.3786430358886719
+              ],
+              [
+                0.5028594136238098,
+                0.47962331771850586
+              ],
+              [
+                0.437156081199646,
+                0.5716827511787415
+              ],
+              [
+                0.5735169649124146,
+                0.5584031939506531
+              ]
+            ],
+            "detection_confidence": 0.9562373757362366,
+            "width_pixels": 208,
+            "height_pixels": 292,
+            "laplacian_variance": 215.113,
+            "brightness": 138.179,
+            "quality_ok": true,
+            "quality_reasons": []
+          },
+          "cosine_similarity": 0.9299123883247375,
+          "threshold": 0.6,
+          "match": true,
+          "decision": "match",
+          "model": "sface-2021dec",
+          "model_sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+          "threshold_calibrated": false,
+          "threshold_source": "synthetic-development-policy-v1",
+          "liveness_verified": false
+        },
+        "findings": [
+          {
+            "code": "FACE_MATCH",
+            "severity": "info",
+            "explanation": "Cosine 0.9299; demo threshold 0.6000. This does not verify liveness or document authenticity.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 641.01
+      },
+      "liveness": {
+        "status": "insufficient_evidence",
+        "data": {
+          "method": "texture-plus-blink-candidate-v1",
+          "verdict": "inconclusive",
+          "liveness_score": null,
+          "spoof_indicator_score": 0.0,
+          "blink_candidate": false,
+          "repeated_frame_count": 0,
+          "frames": [
+            {
+              "index": 0,
+              "timestamp_ms": 0.0,
+              "face_count": 1,
+              "eyes_visible": 2,
+              "quality_ok": true,
+              "same_face_as_first": true,
+              "texture_contrast": 42.3798,
+              "periodic_energy_ratio": 0.0274
+            }
+          ],
+          "review_required": true,
+          "limitations": [
+            "Untrained heuristics; not a calibrated presentation-attack model.",
+            "Uploaded frames have no trusted live-capture provenance.",
+            "A replay may contain blinking; this module never certifies a live person."
+          ]
+        },
+        "findings": [
+          {
+            "code": "LIVENESS_NOT_VERIFIED",
+            "severity": "info",
+            "explanation": "Blink candidates and texture statistics are review evidence only; no live-person decision or calibrated liveness score is produced.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 292.66
+      },
+      "risk": {
+        "status": "insufficient_evidence",
+        "data": {
+          "score": 38.25,
+          "category": "High",
+          "score_range": [
+            38.25,
+            59.25
+          ],
+          "evidence_coverage": 0.79,
+          "missing_signals": [
+            "duplicate_identity",
+            "liveness",
+            "metadata"
+          ],
+          "missing_required_signals": [
+            "liveness"
+          ],
+          "contributions": [
+            {
+              "name": "blacklist",
+              "weight": 35.0,
+              "value": 1.0,
+              "points": 35.0,
+              "complete": true,
+              "explanation": "Fictional local blacklist lookup; not an official watchlist.",
+              "source": "L2 mock SQLite",
+              "experimental": true
+            },
+            {
+              "name": "duplicate_identity",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "face",
+              "weight": 15.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Cosine 0.9299, threshold 0.6000; one-to-one comparison is not identity or liveness certification.",
+              "source": "L4 SFace",
+              "experimental": true
+            },
+            {
+              "name": "mrz",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Failed MRZ checks add one capped signal; OCR errors can cause failure.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "cross_fields",
+              "weight": 8.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "0 observed MRZ/VIZ mismatches; capped at two.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "dates",
+              "weight": 5.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Date rules: no violation observed; unresolved dates remain unknown.",
+              "source": "L2",
+              "experimental": false
+            },
+            {
+              "name": "tampering",
+              "weight": 5.0,
+              "value": 0.6500000357627869,
+              "points": 3.25,
+              "complete": true,
+              "explanation": "Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+              "source": "L3 classical",
+              "experimental": true
+            },
+            {
+              "name": "liveness",
+              "weight": 4.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Untrained spoof indicator only; liveness remains unverified.",
+              "source": "L4 heuristics",
+              "experimental": true
+            },
+            {
+              "name": "metadata",
+              "weight": 2.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "Maximum EXIF/compression proxy; editing alone does not prove fraud.",
+              "source": "L3 metadata",
+              "experimental": true
+            },
+            {
+              "name": "format",
+              "weight": 3.0,
+              "value": 0.0,
+              "points": 0.0,
+              "complete": true,
+              "explanation": "Demo country/number rules: no violation observed.",
+              "source": "L2 demo policy",
+              "experimental": true
+            }
+          ],
+          "reasons": [
+            "blacklist: +35.00/35 points. Fictional local blacklist lookup; not an official watchlist.",
+            "tampering: +3.25/5 points. Maximum classical spatial index; correlated detectors are not summed. Synthetic CNN and stamp-template similarity are excluded.",
+            "Required evidence incomplete: liveness. Missing evidence is not a clean result."
+          ],
+          "policy_version": "synthetic-weighted-v1",
+          "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+          "engine": "transparent-weighted-v1",
+          "calibrated": false,
+          "human_review_required": true,
+          "automatic_decision": null,
+          "scope": "synthetic-development-demo"
+        },
+        "findings": [],
+        "duration_ms": 0.21
+      },
+      "failures": [],
+      "duration_ms": 3434.96,
+      "parallel_stage_ms": 984.93,
+      "images_persisted": false,
+      "face_coordinate_frame": "L0-corrected document and supplied live/frame image"
+    },
+    "blurred": {
+      "status": "needs_rescan",
+      "document_hash": "ed94c74dca4e2b659024e7cc5604ccf7ef39f89225f0f9991970fa5eec62201f",
+      "reference_date": "2026-10-03",
+      "capture": {
+        "status": "needs_rescan",
+        "data": {
+          "document_type": "passport",
+          "classification_confidence": null,
+          "classification_method": "user_hint",
+          "boundary_detected": false,
+          "quality": {
+            "width": 1600,
+            "height": 1000,
+            "laplacian_variance": 0.676,
+            "brightness": 223.745,
+            "saturated_fraction": 0.0
+          },
+          "mime_type": "image/png",
+          "transform": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "findings": [
+          {
+            "code": "BLUR",
+            "severity": "medium",
+            "explanation": "Image appears blurred; stabilize the camera and refocus.",
+            "field": null,
+            "region": null
+          },
+          {
+            "code": "BOUNDARY_NOT_FOUND",
+            "severity": "info",
+            "explanation": "Using the full image; suitable for an already-cropped document.",
+            "field": null,
+            "region": null
+          }
+        ],
+        "duration_ms": 124.81
+      },
+      "ocr": null,
+      "validation": null,
+      "tampering": null,
+      "face": null,
+      "liveness": null,
+      "risk": {
+        "status": "insufficient_evidence",
+        "data": {
+          "score": null,
+          "category": null,
+          "score_range": [
+            0.0,
+            100.0
+          ],
+          "evidence_coverage": 0.0,
+          "missing_signals": [
+            "blacklist",
+            "duplicate_identity",
+            "face",
+            "mrz",
+            "cross_fields",
+            "dates",
+            "tampering",
+            "liveness",
+            "metadata",
+            "format"
+          ],
+          "missing_required_signals": [
+            "blacklist",
+            "face",
+            "mrz",
+            "cross_fields",
+            "dates",
+            "tampering",
+            "liveness"
+          ],
+          "contributions": [
+            {
+              "name": "blacklist",
+              "weight": 35.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "duplicate_identity",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "face",
+              "weight": 15.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "mrz",
+              "weight": 8.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "cross_fields",
+              "weight": 8.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "dates",
+              "weight": 5.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "tampering",
+              "weight": 5.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "liveness",
+              "weight": 4.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "metadata",
+              "weight": 2.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            },
+            {
+              "name": "format",
+              "weight": 3.0,
+              "value": null,
+              "points": 0.0,
+              "complete": false,
+              "explanation": "No usable evidence supplied.",
+              "source": "missing",
+              "experimental": false
+            }
+          ],
+          "reasons": [
+            "Required evidence incomplete: blacklist, face, mrz, cross_fields, dates, tampering, liveness. Missing evidence is not a clean result."
+          ],
+          "policy_version": "synthetic-weighted-v1",
+          "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+          "engine": "transparent-weighted-v1",
+          "calibrated": false,
+          "human_review_required": true,
+          "automatic_decision": null,
+          "scope": "synthetic-development-demo"
+        },
+        "findings": [],
+        "duration_ms": 0.19
+      },
+      "failures": [],
+      "duration_ms": 173.28,
+      "parallel_stage_ms": 0.0,
+      "images_persisted": false,
+      "face_coordinate_frame": "L0-corrected document and supplied live/frame image"
+    }
+  },
+  "controlled_policy_examples": {
+    "all_supplied_clean": {
+      "status": "ok",
+      "data": {
+        "score": 0.0,
+        "category": "Low",
+        "score_range": [
+          0.0,
+          0.0
+        ],
+        "evidence_coverage": 1.0,
+        "missing_signals": [],
+        "missing_required_signals": [],
+        "contributions": [
+          {
+            "name": "blacklist",
+            "weight": 35.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "duplicate_identity",
+            "weight": 15.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "face",
+            "weight": 15.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "mrz",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "cross_fields",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "dates",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "tampering",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "liveness",
+            "weight": 4.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "metadata",
+            "weight": 2.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "format",
+            "weight": 3.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          }
+        ],
+        "reasons": [
+          "No positive signals in supplied evidence; human review still required."
+        ],
+        "policy_version": "synthetic-weighted-v1",
+        "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+        "engine": "transparent-weighted-v1",
+        "calibrated": false,
+        "human_review_required": true,
+        "automatic_decision": null,
+        "scope": "synthetic-development-demo"
+      },
+      "findings": [],
+      "duration_ms": 0.13
+    },
+    "face_nonmatch": {
+      "status": "ok",
+      "data": {
+        "score": 15.0,
+        "category": "Medium",
+        "score_range": [
+          15.0,
+          15.0
+        ],
+        "evidence_coverage": 1.0,
+        "missing_signals": [],
+        "missing_required_signals": [],
+        "contributions": [
+          {
+            "name": "blacklist",
+            "weight": 35.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "duplicate_identity",
+            "weight": 15.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "face",
+            "weight": 15.0,
+            "value": 1.0,
+            "points": 15.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "mrz",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "cross_fields",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "dates",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "tampering",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "liveness",
+            "weight": 4.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "metadata",
+            "weight": 2.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "format",
+            "weight": 3.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          }
+        ],
+        "reasons": [
+          "face: +15.00/15 points. Controlled arithmetic example; not measured evidence."
+        ],
+        "policy_version": "synthetic-weighted-v1",
+        "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+        "engine": "transparent-weighted-v1",
+        "calibrated": false,
+        "human_review_required": true,
+        "automatic_decision": null,
+        "scope": "synthetic-development-demo"
+      },
+      "findings": [],
+      "duration_ms": 0.16
+    },
+    "blacklist": {
+      "status": "ok",
+      "data": {
+        "score": 35.0,
+        "category": "High",
+        "score_range": [
+          35.0,
+          35.0
+        ],
+        "evidence_coverage": 1.0,
+        "missing_signals": [],
+        "missing_required_signals": [],
+        "contributions": [
+          {
+            "name": "blacklist",
+            "weight": 35.0,
+            "value": 1.0,
+            "points": 35.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "duplicate_identity",
+            "weight": 15.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "face",
+            "weight": 15.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "mrz",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "cross_fields",
+            "weight": 8.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "dates",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "tampering",
+            "weight": 5.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "liveness",
+            "weight": 4.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "metadata",
+            "weight": 2.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          },
+          {
+            "name": "format",
+            "weight": 3.0,
+            "value": 0.0,
+            "points": 0.0,
+            "complete": true,
+            "explanation": "Controlled arithmetic example; not measured evidence.",
+            "source": "test fixture",
+            "experimental": false
+          }
+        ],
+        "reasons": [
+          "blacklist: +35.00/35 points. Controlled arithmetic example; not measured evidence."
+        ],
+        "policy_version": "synthetic-weighted-v1",
+        "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+        "engine": "transparent-weighted-v1",
+        "calibrated": false,
+        "human_review_required": true,
+        "automatic_decision": null,
+        "scope": "synthetic-development-demo"
+      },
+      "findings": [],
+      "duration_ms": 0.12
+    }
+  },
+  "synthetic_duplicate": {
+    "status": "insufficient_evidence",
+    "data": {
+      "score": 15.0,
+      "category": null,
+      "score_range": [
+        15.0,
+        100.0
+      ],
+      "evidence_coverage": 0.15,
+      "missing_signals": [
+        "blacklist",
+        "face",
+        "mrz",
+        "cross_fields",
+        "dates",
+        "tampering",
+        "liveness",
+        "metadata",
+        "format"
+      ],
+      "missing_required_signals": [
+        "blacklist",
+        "face",
+        "mrz",
+        "cross_fields",
+        "dates",
+        "tampering",
+        "liveness"
+      ],
+      "contributions": [
+        {
+          "name": "blacklist",
+          "weight": 35.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "duplicate_identity",
+          "weight": 15.0,
+          "value": 1.0,
+          "points": 15.0,
+          "complete": true,
+          "explanation": "Bundled synthetic-identity demonstration only; not a passenger gallery.",
+          "source": "L4 synthetic FAISS",
+          "experimental": true
+        },
+        {
+          "name": "face",
+          "weight": 15.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "mrz",
+          "weight": 8.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "cross_fields",
+          "weight": 8.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "dates",
+          "weight": 5.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "tampering",
+          "weight": 5.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "liveness",
+          "weight": 4.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "metadata",
+          "weight": 2.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        },
+        {
+          "name": "format",
+          "weight": 3.0,
+          "value": null,
+          "points": 0.0,
+          "complete": false,
+          "explanation": "No usable evidence supplied.",
+          "source": "missing",
+          "experimental": false
+        }
+      ],
+      "reasons": [
+        "duplicate_identity: +15.00/15 points. Bundled synthetic-identity demonstration only; not a passenger gallery.",
+        "Required evidence incomplete: blacklist, face, mrz, cross_fields, dates, tampering, liveness. Missing evidence is not a clean result."
+      ],
+      "policy_version": "synthetic-weighted-v1",
+      "policy_sha256": "134aff092a1b2f55c366575bd6eaa9f13fbbfbb505ff8f787bb5656b07267ce1",
+      "engine": "transparent-weighted-v1",
+      "calibrated": false,
+      "human_review_required": true,
+      "automatic_decision": null,
+      "scope": "synthetic-development-demo"
+    },
+    "findings": [],
+    "duration_ms": 0.24
+  }
+}

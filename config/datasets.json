@@ -1,0 +1,29 @@
+{
+  "midv2020": {
+    "source": "https://l3i-share.univ-lr.fr/MIDV2020/midv2020.html",
+    "access": "Author-hosted 124 GB collection; license/access form required. Import an authorized local copy.",
+    "files": {}
+  },
+  "midvdm": {
+    "source": "https://zenodo.org/records/18861850",
+    "access": "Open Zenodo record; preserve attribution and read license.txt before dataset use.",
+    "files": {
+      "license.txt": {"url": "https://zenodo.org/records/18861850/files/license.txt?download=1", "md5": "7ee73f11b0afb81289a98a00d841a54e", "minimum_bytes": 592},
+      "readme.txt": {"url": "https://zenodo.org/records/18861850/files/readme.txt?download=1", "md5": "f51168579e6697d5c0f8e7af324dc0c5", "minimum_bytes": 3000},
+      "MIDV-DM.zip": {"url": "https://zenodo.org/records/18861850/files/MIDV-DM.zip?download=1", "md5": "72bb24a5e38156b826d0d83a0d32c716", "minimum_bytes": 94000000000}
+    }
+  },
+  "idnet": {
+    "source": "https://zenodo.org/records/13852734",
+    "access": "Part 3 pinned; synthetic identity documents. Whole collection roughly 400 GB. Check author terms and attribution.",
+    "files": {
+      "ESP.zip": {"url": "https://zenodo.org/records/13852734/files/ESP.zip?download=1", "md5": "23983141cf450ed04e46c452d0e64e9e", "minimum_bytes": 7400000000},
+      "FIN.zip": {"url": "https://zenodo.org/records/13852734/files/FIN.zip?download=1", "md5": "f18dc187a29f8866038aebcbf542a8ea", "minimum_bytes": 6000000000}
+    }
+  },
+  "doctamper": {
+    "source": "https://github.com/qcf-568/DocTamper",
+    "access": "Author application/authorization required; noncommercial research conditions. Download through author-provided channels, then supply local image/mask pairs.",
+    "files": {}
+  }
+}

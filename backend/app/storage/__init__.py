@@ -1,0 +1,1 @@
+"""Minimized synthetic lookup storage."""

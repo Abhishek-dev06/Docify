@@ -1,0 +1,2501 @@
+{
+  "provenance": {
+    "timestamp_utc": "2026-10-03T18:18:57.327685+00:00",
+    "protocol": {
+      "version": "phase6-frozen-v1",
+      "scope": "Synthetic development evaluation, no real-world or biometric accuracy claim",
+      "reference_date": "2026-10-03",
+      "opencv_threads": 2,
+      "tesseract_thread_limit": 2,
+      "ocr": {
+        "original_cases": 8,
+        "new_identities": 6,
+        "conditions": [
+          "genuine",
+          "dob_altered",
+          "jpeg_q70"
+        ]
+      },
+      "tamper": {
+        "fresh_seed_start": 1000,
+        "fresh_source_groups": 20,
+        "pixel_threshold": 0.5,
+        "image_fraction_threshold": 0.02,
+        "baseline_image_index_threshold": 0.55
+      },
+      "face": {
+        "identities": [
+          "synthetic_a",
+          "synthetic_b"
+        ],
+        "rotations": [
+          -4,
+          -2,
+          0,
+          3
+        ],
+        "brightness": [
+          [
+            0.9,
+            8
+          ],
+          [
+            1.05,
+            -4
+          ]
+        ],
+        "threshold_source": "config/face_thresholds.yaml; already tuned on these two identities"
+      },
+      "system": {
+        "scenarios": [
+          "genuine",
+          "photo_replaced",
+          "dob_altered"
+        ],
+        "warm_repeats_per_scenario": 2,
+        "cold_definition": "first pipeline call in this process, after Python imports; OS disk cache not flushed",
+        "includes": "decode, L0-L5, image encoding; excludes fixture generation, HTTP, audit and UI"
+      }
+    },
+    "protocol_sha256": "49245c11ded523636f5afdc20e5b88e8c1c647ab16fe09c5898e60e86c046687",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.6",
+    "cpu": "AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD",
+    "logical_cpus": 4,
+    "opencv_threads": 2,
+    "omp_thread_limit": "2",
+    "packages": {
+      "numpy": "2.4.6",
+      "opencv-python-headless": "4.14.0.94",
+      "torch": "2.14.1+cpu",
+      "Pillow": "12.3.0"
+    },
+    "config_sha256": {
+      "face_thresholds.yaml": "2d667cad4c56fa3fbb827f66cb0eac10f65cff607b88a564dea1b591a479e96e",
+      "quality_thresholds.yaml": "9cefae9f978114f0273b434cb3f8e7f19da5595c6ef0e3d5e63b58f898684df4",
+      "risk_weights.yaml": "d2546bff55474b9e2b29719d551653f46ec87c319b3a92ddfd9466517ee9620a",
+      "tamper_thresholds.yaml": "d4e2117683abfb4da1c58b195bfc99bd46b2a5dbb0b3b784fb3bfd4ee77d9c47",
+      "validation_rules.yaml": "884955f4729cda9270cddc283582298c852b3c7a534e74c10862a52c54314f99"
+    },
+    "checkpoint": {
+      "architecture": "tiny-unet-v1",
+      "input_size": 192,
+      "sha256": "b95989c1c4802f06b867ab1062fc2a9ba605e8b42c5a45e1eb86e61dd688bc50",
+      "training_domain": "procedural-synthetic-v1",
+      "calibrated": false,
+      "dataset_manifest_sha256": "a63a54f37bff16906489e3b2550afabfff59f296a8e0b19a0ff0fdf8a0d33ac5"
+    },
+    "face_models": {
+      "yunet": {
+        "filename": "face_detection_yunet_2023mar.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/face_detection_yunet_2023mar.onnx",
+        "sha256": "8f2383e4dd3cfbb4553ea8718107fc0423210dc964f9f4280604804ed2552fa4",
+        "size": 232589,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_detection_yunet/LICENSE",
+        "source": "OpenCV Zoo / YuNet 2023mar"
+      },
+      "sface": {
+        "filename": "face_recognition_sface_2021dec.onnx",
+        "url": "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_recognition_sface/face_recognition_sface_2021dec.onnx",
+        "sha256": "0ba9fbfa01b5270c96627c4ef784da859931e02f04419c829e83484087c34e79",
+        "size": 38696353,
+        "license_url": "https://raw.githubusercontent.com/opencv/opencv_zoo/main/models/face_recognition_sface/LICENSE",
+        "source": "OpenCV Zoo / SFace 2021dec"
+      }
+    }
+  },
+  "elapsed_s": 77.24965460000021,
+  "scope": "8 previously developed fixtures + 18 new values/conditions, same generator/layout; TD3 image OCR only",
+  "denominator": "All requested fields on all documents; missing/excluded scans count as incorrect",
+  "summary": {
+    "documents": 26,
+    "rescan_count": 1,
+    "viz": {
+      "name": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "number": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "nationality": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "dob": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "expiry": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "gender": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "overall": {
+        "correct": 150,
+        "total": 156,
+        "accuracy": 0.9615384615384616
+      }
+    },
+    "mrz": {
+      "name": {
+        "correct": 18,
+        "total": 26,
+        "accuracy": 0.6923076923076923
+      },
+      "number": {
+        "correct": 23,
+        "total": 26,
+        "accuracy": 0.8846153846153846
+      },
+      "nationality": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "dob": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "expiry": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "gender": {
+        "correct": 25,
+        "total": 26,
+        "accuracy": 0.9615384615384616
+      },
+      "overall": {
+        "correct": 141,
+        "total": 156,
+        "accuracy": 0.9038461538461539
+      }
+    },
+    "mrz_digits": {
+      "valid_document_count": 25,
+      "parsed_valid_documents": 24,
+      "all_checks_pass_count": 22,
+      "end_to_end_pass_rate": 0.88,
+      "conditional_parsed_pass_rate": 0.9166666666666666,
+      "invalid_documents": 1,
+      "invalid_flagged": 1
+    }
+  },
+  "by_cohort": {
+    "new_values_same_layout": {
+      "documents": 18,
+      "rescan_count": 0,
+      "viz": {
+        "name": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "number": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "nationality": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "dob": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "expiry": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "gender": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "overall": {
+          "correct": 108,
+          "total": 108,
+          "accuracy": 1.0
+        }
+      },
+      "mrz": {
+        "name": {
+          "correct": 11,
+          "total": 18,
+          "accuracy": 0.6111111111111112
+        },
+        "number": {
+          "correct": 17,
+          "total": 18,
+          "accuracy": 0.9444444444444444
+        },
+        "nationality": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "dob": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "expiry": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "gender": {
+          "correct": 18,
+          "total": 18,
+          "accuracy": 1.0
+        },
+        "overall": {
+          "correct": 100,
+          "total": 108,
+          "accuracy": 0.9259259259259259
+        }
+      },
+      "mrz_digits": {
+        "valid_document_count": 18,
+        "parsed_valid_documents": 18,
+        "all_checks_pass_count": 17,
+        "end_to_end_pass_rate": 0.9444444444444444,
+        "conditional_parsed_pass_rate": 0.9444444444444444,
+        "invalid_documents": 0,
+        "invalid_flagged": 0
+      }
+    },
+    "original_development": {
+      "documents": 8,
+      "rescan_count": 1,
+      "viz": {
+        "name": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "number": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "nationality": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "dob": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "expiry": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "gender": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "overall": {
+          "correct": 42,
+          "total": 48,
+          "accuracy": 0.875
+        }
+      },
+      "mrz": {
+        "name": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "number": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "nationality": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "dob": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "expiry": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "gender": {
+          "correct": 7,
+          "total": 8,
+          "accuracy": 0.875
+        },
+        "overall": {
+          "correct": 41,
+          "total": 48,
+          "accuracy": 0.8541666666666666
+        }
+      },
+      "mrz_digits": {
+        "valid_document_count": 7,
+        "parsed_valid_documents": 6,
+        "all_checks_pass_count": 5,
+        "end_to_end_pass_rate": 0.7142857142857143,
+        "conditional_parsed_pass_rate": 0.8333333333333334,
+        "invalid_documents": 1,
+        "invalid_flagged": 1
+      }
+    }
+  },
+  "rows": [
+    {
+      "cohort": "original_development",
+      "scenario": "blacklisted",
+      "status": "ok",
+      "image_sha256": "141b8a2e4ceef3a15c624429cee3863ff5c76e2c891d8f3d46527eb34a135a69",
+      "duration_ms": 3529.82,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000001",
+          "observed": "Z9000001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000001",
+          "observed": "Z9000001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "blurred",
+      "status": "needs_rescan",
+      "image_sha256": "a7d6b7df3c9aa768aecb049f9dbe0d473fe3b52b81dc40c75036930f66844be2",
+      "duration_ms": 195.7,
+      "mrz_parsed": false,
+      "expected_valid_mrz": true,
+      "all_checks_pass": false,
+      "any_check_failed": false,
+      "checks": {},
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": null,
+          "match": false
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": null,
+          "match": false
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": null,
+          "match": false
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": null,
+          "match": false
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": null,
+          "match": false
+        },
+        "gender": {
+          "expected": "X",
+          "observed": null,
+          "match": false
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": null,
+          "match": false
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": null,
+          "match": false
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": null,
+          "match": false
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": null,
+          "match": false
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": null,
+          "match": false
+        },
+        "gender": {
+          "expected": "X",
+          "observed": null,
+          "match": false
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "checksum_failed",
+      "status": "ok",
+      "image_sha256": "d2358996335500ab61246f842099b882a9b5f1ae7517526ba55a752c3de0c991",
+      "duration_ms": 2650.79,
+      "mrz_parsed": true,
+      "expected_valid_mrz": false,
+      "all_checks_pass": false,
+      "any_check_failed": true,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": false
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "dob_altered",
+      "status": "ok",
+      "image_sha256": "ea79c742ccaacd6dfe6418afc00ea4827ed9484bf9f4168de9821a94a9b9ab4f",
+      "duration_ms": 2709.27,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "expired",
+      "status": "ok",
+      "image_sha256": "df33111d56d9c48352aeb9081d2b4e401c5ab59ae7b5e205de50bc5363bd2d2a",
+      "duration_ms": 3787.86,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2020-10-03",
+          "observed": "2020-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "201003",
+          "observed": "201003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "genuine",
+      "status": "ok",
+      "image_sha256": "68bdf32a1d9d0a9910fff4bc7bc1ec16ec144c4c1858deaa3c15717bb51e57b0",
+      "duration_ms": 3090.54,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "perspective",
+      "status": "ok",
+      "image_sha256": "022432a8717995fc132f425b87c4fb53421c300fdae46de94acdefddc17c41b1",
+      "duration_ms": 3472.58,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": false,
+      "any_check_failed": true,
+      "checks": {
+        "number": false,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": false
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "Z9000000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000000",
+          "observed": "79000000",
+          "match": false
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "original_development",
+      "scenario": "previously_seen",
+      "status": "ok",
+      "image_sha256": "6b56bc6af423d9ebe89d45d6f3b0a7b9f8fb1d1d6a313c2a441fc454349ade57",
+      "duration_ms": 3245.71,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000002",
+          "observed": "Z9000002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1988-04-12",
+          "observed": "1988-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ALEX",
+          "observed": "EXAMPLE ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9000002",
+          "observed": "Z9000002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "880412",
+          "observed": "880412",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "X",
+          "observed": "X",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_0_genuine",
+      "status": "ok",
+      "image_sha256": "351f6362590a91ae3a5dfdf214fcbacec3ee6039fa3959df12619d1efa601b38",
+      "duration_ms": 1932.81,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1980-01-11",
+          "observed": "1980-01-11",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "800111",
+          "observed": "800111",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_0_dob_altered",
+      "status": "ok",
+      "image_sha256": "d1206777525a315560e9c777e3d95ef4a83d0081c3f868c57df81dd34d8a773d",
+      "duration_ms": 2507.03,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "800111",
+          "observed": "800111",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_0_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "79b82555e1f67b91e29502b2309aedc6805471dffb31fc43ccef489d40a7a10b",
+      "duration_ms": 3033.9,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1980-01-11",
+          "observed": "1980-01-11",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "EXAMPLE ADA",
+          "observed": "EXAMPLE ADA",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100000",
+          "observed": "Z9100000",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "800111",
+          "observed": "800111",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_1_genuine",
+      "status": "ok",
+      "image_sha256": "0e279cf41c8499a8c9a531abe6c016aeb7fb96be6c1af4a47044806b79f28520",
+      "duration_ms": 2616.25,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1981-02-12",
+          "observed": "1981-02-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "810212",
+          "observed": "810212",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_1_dob_altered",
+      "status": "ok",
+      "image_sha256": "b9840aada88c3e648fc44a9e66866e8a5a0b667c025a490d649d7cf70514f6c5",
+      "duration_ms": 2371.62,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "810212",
+          "observed": "810212",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_1_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "712cb16915b011d303cc6270fdb306fd32274a9ba493f19f85b5699fbc00a0bf",
+      "duration_ms": 2537.55,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1981-02-12",
+          "observed": "1981-02-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "SAMPLE ROBIN",
+          "observed": "SAMPLE ROBIN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100001",
+          "observed": "Z9100001",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "810212",
+          "observed": "810212",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_2_genuine",
+      "status": "ok",
+      "image_sha256": "71d0119bfb7ca9a03fb2aea2832452edd3aab95f68eb816096810794317aa056",
+      "duration_ms": 2728.86,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1982-03-13",
+          "observed": "1982-03-13",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "820313",
+          "observed": "820313",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_2_dob_altered",
+      "status": "ok",
+      "image_sha256": "f4ad99d571fa969acaeeb28725dbe4acb090f33ca85183364f87d792acadff61",
+      "duration_ms": 3414.24,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "820313",
+          "observed": "820313",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_2_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "64617d9893747409a7ea0219aa095777c332ce63ecbdbcac185781b48503c2f0",
+      "duration_ms": 2618.09,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1982-03-13",
+          "observed": "1982-03-13",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "MOCK SAM",
+          "observed": "MOCK SAM K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100002",
+          "observed": "Z9100002",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "820313",
+          "observed": "820313",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_3_genuine",
+      "status": "ok",
+      "image_sha256": "52e12728623c73d47d850c36aa082294ea7855056cd2f8aa0b98e72dec7dfc0e",
+      "duration_ms": 2303.64,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "Z9100003",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1983-04-14",
+          "observed": "1983-04-14",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "Z9100003",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "830414",
+          "observed": "830414",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_3_dob_altered",
+      "status": "ok",
+      "image_sha256": "32d84160f2382247f9804b7c458f921212ef513cbb654d326f2a6f8f5c691160",
+      "duration_ms": 2773.09,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "Z9100003",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX K",
+          "match": false
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "Z9100003",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "830414",
+          "observed": "830414",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_3_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "0cacfd5d910033f0a74e468c25cd664513b3214f643ec2d7080be3eebe9fbe54",
+      "duration_ms": 4260.96,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": false,
+      "any_check_failed": true,
+      "checks": {
+        "number": false,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": false
+      },
+      "viz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "Z9100003",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1983-04-14",
+          "observed": "1983-04-14",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "TEST ALEX",
+          "observed": "TEST ALEX",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100003",
+          "observed": "79100003",
+          "match": false
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "830414",
+          "observed": "830414",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_4_genuine",
+      "status": "ok",
+      "image_sha256": "85c9266a19c2b944058d00fec47fcda08cefad18f15d9f43a66cf6b834e94ddd",
+      "duration_ms": 2642.5,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1984-05-15",
+          "observed": "1984-05-15",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "840515",
+          "observed": "840515",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_4_dob_altered",
+      "status": "ok",
+      "image_sha256": "780e48d7bf08b530ca04283546da33b551ff08ecd4731bc9d6b0bc35ac6d18d2",
+      "duration_ms": 3079.92,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "840515",
+          "observed": "840515",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_4_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "389ef7b4c088f6da8df37498566c7678980660c00d6400ad907728229ceb30b5",
+      "duration_ms": 3654.84,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1984-05-15",
+          "observed": "1984-05-15",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "DEMO KAI",
+          "observed": "DEMO KAI",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100004",
+          "observed": "Z9100004",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "840515",
+          "observed": "840515",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "M",
+          "observed": "M",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_5_genuine",
+      "status": "ok",
+      "image_sha256": "ef3b95d6d7d70d562937e729114f37890a02cf5ac79b872e437eca36561737fb",
+      "duration_ms": 2894.48,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1985-06-16",
+          "observed": "1985-06-16",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "850616",
+          "observed": "850616",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_5_dob_altered",
+      "status": "ok",
+      "image_sha256": "abd7a120cfe05ca32826bf1da5d463a289032a2b60d83bada1602c8ffc1b23f2",
+      "duration_ms": 2920.94,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1998-04-12",
+          "observed": "1998-04-12",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "850616",
+          "observed": "850616",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    },
+    {
+      "cohort": "new_values_same_layout",
+      "scenario": "identity_5_jpeg_q70",
+      "status": "ok",
+      "image_sha256": "16a4e3864beb7acdd0b4f95a49e81f17c4243d0c82638cfbedecc620d6f00a4f",
+      "duration_ms": 4264.82,
+      "mrz_parsed": true,
+      "expected_valid_mrz": true,
+      "all_checks_pass": true,
+      "any_check_failed": false,
+      "checks": {
+        "number": true,
+        "dob": true,
+        "expiry": true,
+        "optional_data": true,
+        "composite": true
+      },
+      "viz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "1985-06-16",
+          "observed": "1985-06-16",
+          "match": true
+        },
+        "expiry": {
+          "expected": "2031-10-03",
+          "observed": "2031-10-03",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      },
+      "mrz": {
+        "name": {
+          "expected": "FICTION JORDAN",
+          "observed": "FICTION JORDAN",
+          "match": true
+        },
+        "number": {
+          "expected": "Z9100005",
+          "observed": "Z9100005",
+          "match": true
+        },
+        "nationality": {
+          "expected": "UTO",
+          "observed": "UTO",
+          "match": true
+        },
+        "dob": {
+          "expected": "850616",
+          "observed": "850616",
+          "match": true
+        },
+        "expiry": {
+          "expected": "311003",
+          "observed": "311003",
+          "match": true
+        },
+        "gender": {
+          "expected": "F",
+          "observed": "F",
+          "match": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+import { test, expect } from '@playwright/test';
+
+test('synthetic officer workflow and verified history', async ({ page }) => {
+  test.setTimeout(180_000);
+  await page.goto('/');
+  await expect(page.getByRole('heading', {name:'Review with context.'})).toBeVisible();
+  await page.getByLabel('Demo officer label').fill('DEMO-BROWSER-QA');
+  await page.screenshot({path:'../reports/phase5_dashboard.png',fullPage:true});
+  await page.getByRole('button',{name:'Load synthetic sample'}).click();
+  await expect(page.getByText('synthetic_genuine_document.png')).toBeVisible();
+  await page.getByRole('button',{name:'Analyze & record'}).click();
+  await expect(page.getByTestId('report')).toBeVisible({timeout:150_000});
+  await expect(page.getByText('Incomplete evidence',{exact:true}).first()).toBeVisible();
+  await expect(page.getByRole('heading',{name:'Extracted fields'})).toBeVisible();
+  await page.getByRole('button',{name:'Tamper overlay'}).click();
+  await expect(page.getByAltText('Classical tampering overlay')).toBeVisible();
+  await page.getByRole('button',{name:'Secondary inspection',exact:true}).click();
+  await page.getByPlaceholder('Explain the evidence behind your decision…').fill('Synthetic browser QA: refer incomplete liveness for secondary review.');
+  await page.getByRole('button',{name:'Record decision',exact:true}).click();
+  await expect(page.getByText('Secondary inspection recorded')).toBeVisible();
+  await page.screenshot({path:'../reports/phase5_review.png',fullPage:true});
+  await page.getByRole('button',{name:'Review history',exact:true}).click();
+  await page.getByLabel('Search history').fill('DEMO-BROWSER-QA');
+  await page.getByRole('button',{name:'Search',exact:true}).click();
+  await expect(page.getByRole('cell',{name:'Secondary inspection',exact:true}).first()).toBeVisible();
+  await page.getByRole('button',{name:'Open',exact:true}).first().click();
+  await expect(page.getByText('Images were not retained')).toBeVisible();
+  await page.getByRole('button',{name:'Audit integrity',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Recorded chain is intact'})).toBeVisible();
+  await page.screenshot({path:'../reports/phase5_audit.png',fullPage:true});
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('button',{name:'Screening workspace',exact:true}).click();
+  await page.getByRole('button',{name:'New review',exact:true}).click();
+  await expect(page.getByLabel('Document image',{exact:true})).toBeAttached();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  await page.screenshot({path:'../reports/phase5_mobile.png',fullPage:true});
+});
